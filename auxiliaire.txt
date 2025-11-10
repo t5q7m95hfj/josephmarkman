@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Joseph Markman — Auxiliaire Touristique à Lyon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <header class="simple-header">
+    <img src="assets/auxiliaire-logo.png" alt="Logo Auxiliaire" class="logo-larger">
+    <div>
+      <h1>Joseph Markman</h1>
+      <h2>Auxiliaire Touristique à Lyon</h2>
+    </div>
+  </header>
+  <main class="about-main">
+    <section>
+      <h3>Services</h3>
+      <ul>
+        <li>Accueil en gare et à l’aéroport</li>
+        <li>Transfert et accompagnement de groupes</li>
+        <li>Coordination sur site : hôtels, événements, embarquements</li>
+        <li>Soutien opérationnel ponctuel</li>
+      </ul>
+    </section>
+    <hr>
+    <section>
+      <h3>Mission</h3>
+      <p>
+        Présence terrain pour agences et voyageurs.<br>
+        Assurer la fluidité des opérations et la tranquillité d’esprit — discrétion, fiabilité, sens du détail.
+      </p>
+    </section>
+    <hr>
+    <section>
+      <h3>Contact</h3>
+      <p>
+        <a href="mailto:lyon@josephmarkman.com">lyon@josephmarkman.com</a>
+      </p>
+      <p style="margin-top:2em;">
+        <a href="index.html">← Retour à l'accueil</a>
+      </p>
+    </section>
+  </main>
+  <footer class="simple-footer">
+    <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
+  </footer>
+</body>
+</html>

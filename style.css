@@ -1,0 +1,213 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #222;
+}
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  gap: 5vw;
+}
+
+.card {
+  background: #f7f8fb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(30,40,70,0.08);
+  padding: 2em 2em 1em 2em;
+  text-align: center;
+  min-width: 270px;
+  max-width: 360px;
+  transition: box-shadow 0.2s;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card img {
+  max-width: 110px;
+  border-radius: 6px;
+  margin-bottom: 1em;
+}
+
+.card h2 {
+  margin: 0.25em 0 0.7em 0;
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.email {
+  font-size: 0.95em;
+  color: #008b94;
+  margin: 0.7em 0 0.3em 0;
+}
+
+.card:hover, .card:focus-within {
+  box-shadow: 0 4px 16px rgba(30,40,70,0.13);
+}
+
+/* Centered landing footer */
+.index-footer {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 2em 0 1em 0;
+  font-size: 0.9em;
+  color: #666;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+/* Auxiliaire/about page styles */
+.simple-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding: 2em 0 1em 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.logo-header, .logo-larger {
+  max-width: 94px;
+  max-height: 94px;
+  border-radius: 6px;
+  margin-left: 0;
+  margin-right: 18px;
+  padding-left: 0;
+}
+
+.simple-header h1 {
+  font-size: 1.48em;
+  margin: 0;
+  font-weight: 700;
+  color: #222;
+}
+
+.simple-header h2 {
+  font-size: 1.1em;
+  margin: 0.1em 0 0 0;
+  color: #444;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.about-main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 22px 0 22px;
+  background: #fff;
+}
+
+.about-main section {
+  margin-bottom: 1.5em;
+}
+
+.about-main h3 {
+  font-size: 1.08em;
+  margin-bottom: 1em;
+  color: #222;
+  font-weight: 500;
+}
+
+.about-main ul {
+  margin: 0.3em 0 0.7em 1.1em;
+  padding-left: 1.3em;
+  line-height: 1.8;
+  font-size: 1em;
+  color: #222;
+}
+
+.about-main p,
+.about-main li {
+  font-size: 1.04em;
+  margin: 0.4em 0;
+  line-height: 1.6;
+  color: #222;
+}
+
+.about-main .contact-block p:last-child,
+.about-main section:last-child p:last-child {
+  margin-top: 2em;
+  margin-bottom: 1.6em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 1.2em 0;
+}
+
+a {
+  color: #008b94;
+  text-decoration: underline;
+}
+
+.simple-footer {
+  max-width: 700px;
+  margin: 5em auto 1em auto;
+  text-align: left;
+  padding: 0 22px;
+  font-size: 0.92em;
+  color: #888;
+  border-top: 1px solid #eee;
+}
+
+/* Responsive for mobile */
+@media (max-width: 800px) {
+  .simple-header, .about-main, .simple-footer, .index-footer {
+    max-width: 96vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .logo-header, .logo-larger {
+    max-width: 65px;
+    padding-left: 0;
+    margin-right: 10px;
+  }
+  .landing {
+    flex-direction: column;
+    gap: 2em;
+    min-height: 80vh;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #202124;
+    color: #e6e6e6;
+  }
+  .card, .about-main, .simple-header {
+    background: #202124;
+    box-shadow: 0 2px 8px rgba(30,40,70,0.18);
+  }
+  .card h2,
+  .about-main h3,
+  .about-main ul,
+  .about-main p,
+  .about-main li,
+  .simple-header h1,
+  .simple-header h2 {
+    color: #e6e6e6 !important;
+  }
+  .email, .about-main a {
+    color: #80cbc4;
+  }
+  hr, .simple-footer, .index-footer {
+    border-color: #333;
+    color: #aaa;
+    background: #181a1b;
+  }
+  a {
+    color: #80cbc4;
+  }
+}

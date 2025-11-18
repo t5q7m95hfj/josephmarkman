@@ -15,7 +15,7 @@ body {
   gap: 5vw;
 }
 
-/* base “tile” look */
+/* base tile look */
 .card {
   background: #f7f8fb;
   border-radius: 12px;
@@ -26,7 +26,6 @@ body {
   max-width: 360px;
   transition: box-shadow 0.2s ease, transform 0.18s ease;
   transform: translateY(0);
-  
   opacity: 0;
   animation: cardFadeUp 260ms ease-out forwards;
 }
@@ -142,6 +141,7 @@ body {
   margin: 0.1em 0 0 0;
   color: #444;
   font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .about-main {
@@ -166,6 +166,8 @@ body {
   margin: 0.3em 0 0.7em 1.1em;
   padding-left: 1.3em;
   line-height: 1.8;
+  font-size: 1em;
+  color: #222;
 }
 
 .about-main p,
@@ -183,7 +185,10 @@ body {
 }
 
 /* remove hr lines */
-hr { border: none; margin: 1.2em 0; }
+hr {
+  border: none;
+  margin: 1.2em 0;
+}
 
 /* links */
 a {
@@ -202,7 +207,7 @@ a {
   border-top: none;
 }
 
-/* ===== Mobile ===== */
+/* ===== Mobile Responsive ===== */
 @media (max-width: 800px) {
 
   .simple-header,
@@ -220,28 +225,23 @@ a {
     margin-right: 10px;
   }
 
+  /* mobile: no flex, just centered column */
   .landing {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    /* NEW — perfect mobile centering */
+    display: block;          /* override flex */
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-
-    gap: 2em;
-    min-height: 80vh;
+    padding-top: 2rem;
     padding-bottom: 3rem;
   }
 
   .card {
     width: min(340px, 92vw);
-    margin: 0 auto;
+    margin: 1.5rem auto;     /* perfectly centered, with vertical spacing */
   }
 
   .index-footer {
-    margin-top: 3.5rem !important;
+    margin-top: 1rem;
   }
 }
 
@@ -292,13 +292,21 @@ a {
     color: #aaa;
   }
 
-  a { color: #008b94; }
+  a {
+    color: #008b94;
+  }
 }
 
-/* ===== Animations ===== */
+/* ===== Animations / Reduced Motion ===== */
 @keyframes cardFadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

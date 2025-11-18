@@ -2,7 +2,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff; /* keep this – your gradient wrapper can sit elsewhere */
+  background: #fff;
   color: #222;
 }
 
@@ -18,35 +18,24 @@ body {
 /* base “tile” look */
 .card {
   background: #f7f8fb;
-  border-radius: 12px; /* NEW: slightly softer corners */
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(30,40,70,0.08);
   padding: 2em 2em 1em 2em;
   text-align: center;
   min-width: 270px;
   max-width: 360px;
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.18s ease; /* NEW: so hover lift is smooth */
-  transform: translateY(0); /* NEW: baseline for hover animation */
+  transition: box-shadow 0.2s ease, transform 0.18s ease;
+  transform: translateY(0);
   
-  /* NEW: subtle fade-up on first load */
   opacity: 0;
   animation: cardFadeUp 260ms ease-out forwards;
 }
 
-/* NEW: tiny stagger so they don’t all pop at once */
-.card:nth-child(1) {
-  animation-delay: 40ms;
-}
-.card:nth-child(2) {
-  animation-delay: 90ms;
-}
-.card:nth-child(3) {
-  animation-delay: 140ms;
-}
-.card:nth-child(4) {
-  animation-delay: 190ms;
-}
+/* fade stagger */
+.card:nth-child(1) { animation-delay: 40ms; }
+.card:nth-child(2) { animation-delay: 90ms; }
+.card:nth-child(3) { animation-delay: 140ms; }
+.card:nth-child(4) { animation-delay: 190ms; }
 
 .card a {
   text-decoration: none;
@@ -64,11 +53,10 @@ body {
   margin: 0.25em 0 0.7em 0;
   font-size: 1.2em;
   font-weight: 700;
-  letter-spacing: 0.07em; /* NEW: a bit more intentional */
-  text-transform: uppercase; /* NEW: makes it feel like a “label” */
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
-/* NEW: unify body text in cards a bit */
 .card p {
   margin: 0.4em 0 0.8em 0;
   font-size: 0.98em;
@@ -81,7 +69,7 @@ body {
   height: 110px;
   border-radius: 14px;
   overflow: hidden;
-  margin: 0 auto 1.1em auto;  /* centers and adds space below */
+  margin: 0 auto 1.1em auto;
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.5);
   display: flex;
   align-items: center;
@@ -89,7 +77,7 @@ body {
 }
 
 .logo-circle img {
-  width: 80%;      /* this is your “zoom out” knob: try 70–85% */
+  width: 80%;
   height: auto;
   display: block;
 }
@@ -101,14 +89,12 @@ body {
   margin: 0.7em 0 0.3em 0;
 }
 
-/* hover/focus: a hair more presence */
 .card:hover,
 .card:focus-within {
   box-shadow: 0 4px 16px rgba(30,40,70,0.13);
-  transform: translateY(-3px); /* NEW: tiny lift */
+  transform: translateY(-3px);
 }
 
-/* NEW: accessible focus outline for keyboard users (without killing your design) */
 .card:focus-within {
   outline: 2px solid rgba(0, 139, 148, 0.5);
   outline-offset: 4px;
@@ -126,7 +112,7 @@ body {
   border-top: none;
 }
 
-/* ===== About / Auxiliaire / Research pages ===== */
+/* ===== Content pages ===== */
 .simple-header {
   display: flex;
   align-items: center;
@@ -141,9 +127,7 @@ body {
   max-width: 94px;
   max-height: 94px;
   border-radius: 6px;
-  margin-left: 0;
   margin-right: 18px;
-  padding-left: 0;
 }
 
 .simple-header h1 {
@@ -158,7 +142,6 @@ body {
   margin: 0.1em 0 0 0;
   color: #444;
   font-weight: 400;
-  letter-spacing: 0.01em;
 }
 
 .about-main {
@@ -183,8 +166,6 @@ body {
   margin: 0.3em 0 0.7em 1.1em;
   padding-left: 1.3em;
   line-height: 1.8;
-  font-size: 1em;
-  color: #222;
 }
 
 .about-main p,
@@ -201,11 +182,8 @@ body {
   margin-bottom: 1.6em;
 }
 
-/* kill visible horizontal rules everywhere */
-hr {
-  border: none;
-  margin: 1.2em 0;
-}
+/* remove hr lines */
+hr { border: none; margin: 1.2em 0; }
 
 /* links */
 a {
@@ -213,7 +191,7 @@ a {
   text-decoration: underline;
 }
 
-/* ===== Footer (simple pages) ===== */
+/* ===== Footer (content pages) ===== */
 .simple-footer {
   max-width: 700px;
   margin: 5em auto 1em auto;
@@ -224,8 +202,9 @@ a {
   border-top: none;
 }
 
-/* ===== Mobile Responsive ===== */
+/* ===== Mobile ===== */
 @media (max-width: 800px) {
+
   .simple-header,
   .about-main,
   .simple-footer,
@@ -238,21 +217,31 @@ a {
   .logo-header,
   .logo-larger {
     max-width: 65px;
-    padding-left: 0;
     margin-right: 10px;
   }
 
   .landing {
     flex-direction: column;
-    align-items: center;   /* NEW: center the column of cards */
+    align-items: center;
+    justify-content: center;
+
+    /* NEW — perfect mobile centering */
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
     gap: 2em;
     min-height: 80vh;
     padding-bottom: 3rem;
   }
 
   .card {
-    width: min(340px, 92vw);  /* NEW: cards nicely sized & centered */
-    margin: 0 auto;           /* ensures horizontal centering */
+    width: min(340px, 92vw);
+    margin: 0 auto;
+  }
+
+  .index-footer {
+    margin-top: 3.5rem !important;
   }
 }
 
@@ -263,13 +252,11 @@ a {
     color: #e6e6e6;
   }
 
-  /* landing cards: lighter than page */
   .card {
     background: #1e2022;
     box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    opacity: 1;            /* NEW: don’t fade-in in dark mode by default */
-    animation: none;       /* NEW: avoid weird double animations */
+    opacity: 1;
+    animation: none;
   }
 
   .card:hover,
@@ -278,7 +265,6 @@ a {
     box-shadow: 0 4px 14px rgba(0,0,0,0.8);
   }
 
-  /* content pages: no big “panel” box, just text on background */
   .about-main,
   .simple-header {
     background: transparent;
@@ -300,38 +286,21 @@ a {
     color: #008b94 !important;
   }
 
-  /* hr stays invisible */
-  hr {
-    border: none;
-  }
-
   .simple-footer,
   .index-footer {
     background: #121314;
     color: #aaa;
-    border-top: none !important;
   }
 
-  a {
-    color: #008b94;
-  }
+  a { color: #008b94; }
 }
 
-/* ===== NEW: micro animation + reduced motion ===== */
-
-/* fade-up animation used on cards in light mode */
+/* ===== Animations ===== */
 @keyframes cardFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

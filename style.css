@@ -225,19 +225,23 @@ a {
     margin-right: 10px;
   }
 
-  /* mobile: no flex, just centered column */
+  /* MOBILE: force a centered, padded column */
   .landing {
-    display: block;          /* override flex */
+    display: block;                /* stop being flex on mobile */
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
     padding-top: 2rem;
     padding-bottom: 3rem;
+    padding-left: 1.25rem;         /* equal left/right padding */
+    padding-right: 1.25rem;
+    box-sizing: border-box;
+    margin: 0 auto;
   }
 
   .card {
-    width: min(340px, 92vw);
-    margin: 1.5rem auto;     /* perfectly centered, with vertical spacing */
+    width: 100%;                   /* fill that padded area exactly */
+    max-width: 500px;              /* optional cap so they don’t get huge on big phones */
+    margin: 1.5rem auto;           /* vertical spacing, horizontal auto-centering */
+    box-sizing: border-box;
   }
 
   .index-footer {

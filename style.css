@@ -224,7 +224,7 @@ a {
   border-top: none;
 }
 
-/* ===== Responsive ===== */
+/* ===== Mobile Responsive ===== */
 @media (max-width: 800px) {
   .simple-header,
   .about-main,
@@ -244,8 +244,14 @@ a {
 
   .landing {
     flex-direction: column;
+    align-items: center;   /* NEW: center the column of cards */
     gap: 2em;
     min-height: 80vh;
+  }
+
+  .card {
+    width: min(340px, 92vw);  /* NEW: cards nicely sized & centered */
+    margin: 0 auto;           /* ensures horizontal centering */
   }
 }
 

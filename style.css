@@ -2,10 +2,11 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: #fff; /* keep this – your gradient wrapper can sit elsewhere */
   color: #222;
 }
 
+/* ===== Landing Cards ===== */
 .landing {
   display: flex;
   justify-content: center;
@@ -14,15 +15,37 @@ body {
   gap: 5vw;
 }
 
+/* base “tile” look */
 .card {
   background: #f7f8fb;
-  border-radius: 10px;
+  border-radius: 12px; /* NEW: slightly softer corners */
   box-shadow: 0 2px 8px rgba(30,40,70,0.08);
   padding: 2em 2em 1em 2em;
   text-align: center;
   min-width: 270px;
   max-width: 360px;
-  transition: box-shadow 0.2s;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.18s ease; /* NEW: so hover lift is smooth */
+  transform: translateY(0); /* NEW: baseline for hover animation */
+  
+  /* NEW: subtle fade-up on first load */
+  opacity: 0;
+  animation: cardFadeUp 260ms ease-out forwards;
+}
+
+/* NEW: tiny stagger so they don’t all pop at once */
+.card:nth-child(1) {
+  animation-delay: 40ms;
+}
+.card:nth-child(2) {
+  animation-delay: 90ms;
+}
+.card:nth-child(3) {
+  animation-delay: 140ms;
+}
+.card:nth-child(4) {
+  animation-delay: 190ms;
 }
 
 .card a {
@@ -41,20 +64,57 @@ body {
   margin: 0.25em 0 0.7em 0;
   font-size: 1.2em;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.07em; /* NEW: a bit more intentional */
+  text-transform: uppercase; /* NEW: makes it feel like a “label” */
 }
 
-.email {
+/* NEW: unify body text in cards a bit */
+.card p {
+  margin: 0.4em 0 0.8em 0;
+  font-size: 0.98em;
+  line-height: 1.6;
+  color: #333;
+}
+
+.logo-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0 auto 1.1em auto;  /* centers and adds space below */
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle img {
+  width: 80%;      /* this is your “zoom out” knob: try 70–85% */
+  height: auto;
+  display: block;
+}
+
+.email,
+.email a {
   font-size: 0.95em;
-  color: #008b94;
+  color: #008b94 !important;
   margin: 0.7em 0 0.3em 0;
 }
 
-.card:hover, .card:focus-within {
+/* hover/focus: a hair more presence */
+.card:hover,
+.card:focus-within {
   box-shadow: 0 4px 16px rgba(30,40,70,0.13);
+  transform: translateY(-3px); /* NEW: tiny lift */
 }
 
-/* Centered landing footer */
+/* NEW: accessible focus outline for keyboard users (without killing your design) */
+.card:focus-within {
+  outline: 2px solid rgba(0, 139, 148, 0.5);
+  outline-offset: 4px;
+}
+
+/* ===== Footer (landing) ===== */
 .index-footer {
   text-align: center;
   margin: 0 auto;
@@ -63,10 +123,10 @@ body {
   font-size: 0.9em;
   color: #666;
   background: #fff;
-  border-top: 1px solid #eee;
+  border-top: none;
 }
 
-/* Auxiliaire/about page styles */
+/* ===== About / Auxiliaire / Research pages ===== */
 .simple-header {
   display: flex;
   align-items: center;
@@ -76,7 +136,8 @@ body {
   margin: 0 auto;
 }
 
-.logo-header, .logo-larger {
+.logo-header,
+.logo-larger {
   max-width: 94px;
   max-height: 94px;
   border-radius: 6px;
@@ -140,39 +201,47 @@ body {
   margin-bottom: 1.6em;
 }
 
+/* kill visible horizontal rules everywhere */
 hr {
   border: none;
-  border-top: 1px solid #eee;
   margin: 1.2em 0;
 }
 
+/* links */
 a {
   color: #008b94;
   text-decoration: underline;
 }
 
+/* ===== Footer (simple pages) ===== */
 .simple-footer {
   max-width: 700px;
   margin: 5em auto 1em auto;
-  text-align: left;
+  text-align: center;
   padding: 0 22px;
   font-size: 0.92em;
   color: #888;
-  border-top: 1px solid #eee;
+  border-top: none;
 }
 
-/* Responsive for mobile */
+/* ===== Responsive ===== */
 @media (max-width: 800px) {
-  .simple-header, .about-main, .simple-footer, .index-footer {
+  .simple-header,
+  .about-main,
+  .simple-footer,
+  .index-footer {
     max-width: 96vw;
     padding-left: 2vw;
     padding-right: 2vw;
   }
-  .logo-header, .logo-larger {
+
+  .logo-header,
+  .logo-larger {
     max-width: 65px;
     padding-left: 0;
     margin-right: 10px;
   }
+
   .landing {
     flex-direction: column;
     gap: 2em;
@@ -180,16 +249,34 @@ a {
   }
 }
 
-/* Dark mode adjustments */
+/* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
   body {
-    background: #202124;
+    background: #121314;
     color: #e6e6e6;
   }
-  .card, .about-main, .simple-header {
-    background: #202124;
-    box-shadow: 0 2px 8px rgba(30,40,70,0.18);
+
+  /* landing cards: lighter than page */
+  .card {
+    background: #1e2022;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    opacity: 1;            /* NEW: don’t fade-in in dark mode by default */
+    animation: none;       /* NEW: avoid weird double animations */
   }
+
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.8);
+  }
+
+  /* content pages: no big “panel” box, just text on background */
+  .about-main,
+  .simple-header {
+    background: transparent;
+  }
+
   .card h2,
   .about-main h3,
   .about-main ul,
@@ -199,15 +286,55 @@ a {
   .simple-header h2 {
     color: #e6e6e6 !important;
   }
-  .email, .about-main a {
-    color: #80cbc4;
+
+  .email,
+  .email a,
+  .about-main a {
+    color: #008b94 !important;
   }
-  hr, .simple-footer, .index-footer {
-    border-color: #333;
+
+  /* hr stays invisible */
+  hr {
+    border: none;
+  }
+
+  .simple-footer,
+  .index-footer {
+    background: #121314;
     color: #aaa;
-    background: #181a1b;
+    border-top: none !important;
   }
+
   a {
-    color: #80cbc4;
+    color: #008b94;
+  }
+}
+
+/* ===== NEW: micro animation + reduced motion ===== */
+
+/* fade-up animation used on cards in light mode */
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 }

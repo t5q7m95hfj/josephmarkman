@@ -247,6 +247,7 @@ a {
     align-items: center;   /* NEW: center the column of cards */
     gap: 2em;
     min-height: 80vh;
+    padding-bottom: 3rem;
   }
 
   .card {

@@ -237,6 +237,15 @@ a {
     margin: 0 auto;
   }
 
+  @media (max-width: 900px) {
+  .landing {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 1rem; /* gives a tiny side breathing room */
+  }
+}
+
   .card {
     width: 100%;                   /* fill that padded area exactly */
     max-width: 500px;              /* optional cap so they don’t get huge on big phones */

@@ -6,283 +6,271 @@
   <title>Joseph Markman | Portfolio</title>
 
   <style>
-    :root {
-      --teal: #00a8a8;
-      --ink: #0f172a;
-      --card-bg-top: #e0e6f3;
-      --card-bg-bottom: #cbd5ea;
-      --border-soft: rgba(15, 23, 42, 0.40);
-      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.42);
-      --radius-lg: 20px;
-      --transition-med: 240ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
+:root {
+  --teal: #00a8a8;
+  --ink: #0f172a;
+  --card-bg-top: #e0e6f3;
+  --card-bg-bottom: #cbd5ea;
+  --border-soft: rgba(15, 23, 42, 0.40);
+  --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.42);
+  --radius-lg: 20px;
+  --transition-med: 240ms cubic-bezier(0.19, 1, 0.22, 1);
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.55) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(45, 212, 191, 0.55) 0, transparent 55%),
-        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.45) 0, transparent 60%),
-        linear-gradient(135deg, #e3f9ff, #d4fdf2);
-      background-size: 220% 220%;
-      animation: bgDrift 18s ease-in-out infinite alternate;
-    }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh; /* important: 100% can behave oddly */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.55) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(45, 212, 191, 0.55) 0, transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.45) 0, transparent 60%),
+    linear-gradient(135deg, #e3f9ff, #d4fdf2);
+  background-size: 220% 220%;
+  animation: bgDrift 18s ease-in-out infinite alternate;
+}
 
-    @keyframes bgDrift {
-      0%   { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
-    }
+@keyframes bgDrift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
 
-    .page-shell {
-      width: 100%;
-      max-width: 1100px;
-      min-height: 100vh;
-      min-height: 100svh;
-      padding: 1.7rem 1.2rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-    }
+.page-shell {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 100vh;
+  padding: 1.7rem 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
 
-    /* ===== HEADER ===== */
-    header.intro {
-      max-width: 900px;
-      margin: 0 auto;            /* no margin-bottom here */
-      text-align: center;
-      padding-top: 2.2rem;       /* lowers hero line */
-    }
+/* ===== HEADER ===== */
+header.intro {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 2.2rem;
+}
 
-    header.intro .hero {
-      margin: 0;                 /* keep hero tight */
-      font-size: 1.3rem;
-      line-height: 1.35;
-      font-weight: 750;
-      letter-spacing: 0.01em;
-      color: rgba(15, 23, 42, 0.92);
-    }
+header.intro .hero {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  color: rgba(15, 23, 42, 0.92);
+}
 
-    /* ===== MAIN ===== */
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;   /* critical: no vertical centering */
-    }
+/* ===== MAIN ===== */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* no vertical centering */
+}
 
-    /* This wrapper controls the gap between header and cards */
-    .content {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      padding-top: 2.5rem;      /* <-- THE GAP YOU WANT (tweak 0.5–0.9rem) */
-    }
+/* This is THE spacing knob between hero and cards */
+.content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 2.1rem; /* desktop: pleasant breath (was 2.5rem) */
+}
 
-    /* ===== CARDS GRID ===== */
-    .landing {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      gap: 1.8rem;
-      width: 100%;
-      flex-wrap: wrap;           /* 2x2 on larger screens */
-    }
+/* ===== CARDS GRID ===== */
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.8rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
 
-    .card {
-      background: linear-gradient(135deg, var(--card-bg-top), var(--card-bg-bottom));
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      padding: 1.6em 1.6em 1.4em;
-      min-width: 260px;
-      max-width: 320px;
-      border: 1px solid var(--border-soft);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      flex: 1 1 calc(50% - 1.8rem);
-      display: flex;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      transition:
-        transform var(--transition-med),
-        box-shadow var(--transition-med),
-        border-color var(--transition-med),
-        background 200ms ease-out;
-    }
+/* ===== CARD ===== */
+.card {
+  background: linear-gradient(135deg, var(--card-bg-top), var(--card-bg-bottom));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 1.6em 1.6em 1.4em;
+  min-width: 260px;
+  max-width: 320px;
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  flex: 1 1 calc(50% - 1.8rem);
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--transition-med),
+    box-shadow var(--transition-med),
+    border-color var(--transition-med),
+    background 200ms ease-out;
+}
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      opacity: 0;
-      transition: opacity var(--transition-med);
-      z-index: -1;
-      pointer-events: none;
-    }
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  opacity: 0;
+  transition: opacity var(--transition-med);
+  z-index: -1;
+  pointer-events: none;
+}
 
-    .card--portfolio::before {
-      background:
-        radial-gradient(circle at 0 0, rgba(14,165,233,0.35) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(8,47,73,0.35) 0, transparent 55%);
-    }
+.card--portfolio::before {
+  background:
+    radial-gradient(circle at 0 0, rgba(14,165,233,0.35) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(8,47,73,0.35) 0, transparent 55%);
+}
+.card--tourisme::before {
+  background:
+    radial-gradient(circle at 0 0, rgba(56,189,248,0.30) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(16,185,129,0.30) 0, transparent 55%);
+}
+.card--et::before {
+  background:
+    radial-gradient(circle at 0 0, rgba(37,99,235,0.32) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15,23,42,0.40) 0, transparent 55%);
+}
+.card--auxlia::before {
+  background:
+    radial-gradient(circle at 0 0, rgba(16,185,129,0.40) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(129,140,248,0.35) 0, transparent 55%);
+}
 
-    .card--tourisme::before {
-      background:
-        radial-gradient(circle at 0 0, rgba(56,189,248,0.30) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(16,185,129,0.30) 0, transparent 55%);
-    }
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
 
-    .card--et::before {
-      background:
-        radial-gradient(circle at 0 0, rgba(37,99,235,0.32) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(15,23,42,0.40) 0, transparent 55%);
-    }
+.logo-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 auto 1em auto;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-box--portfolio { background: #000; }
+.logo-box--tourisme  { background: #fff; }
+.logo-box--et        { background: #1b1e23; }
+.logo-box--auxlia    { background: #12d9ba; }
 
-    .card--auxlia::before {
-      background:
-        radial-gradient(circle at 0 0, rgba(16,185,129,0.40) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(129,140,248,0.35) 0, transparent 55%);
-    }
+.logo-box img {
+  width: 96%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.logo-box--et img { width: 88%; }
 
-    .card-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-    }
+.card h2 {
+  margin: 0.25em 0 0.35em 0;
+  font-size: 1.08em;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: #0b1220;
+}
 
-    .logo-box {
-      width: 100px;
-      height: 100px;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 0 auto 1em auto;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.card .sub {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.35;
+  color: rgba(15, 23, 42, 0.75);
+}
 
-    .logo-box--portfolio { background: #000; }
-    .logo-box--tourisme  { background: #fff; }
-    .logo-box--et        { background: #1b1e23; }
-    .logo-box--auxlia    { background: #12d9ba; }
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 70px rgba(15, 23, 42, 0.46);
+  border-color: rgba(0, 168, 168, 0.95);
+  background: linear-gradient(135deg, #f3f4f8, #dde7f6);
+  outline: none;
+}
+.card:hover::before,
+.card:focus-visible::before { opacity: 1; }
 
-    .logo-box img {
-      width: 96%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+/* Entrance animation */
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3),
+.card:nth-child(4) {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 600ms var(--transition-med) forwards;
+}
+.card:nth-child(1) { animation-delay: 80ms; }
+.card:nth-child(2) { animation-delay: 150ms; }
+.card:nth-child(3) { animation-delay: 220ms; }
+.card:nth-child(4) { animation-delay: 290ms; }
 
-    .logo-box--et img { width: 88%; }
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .card h2 {
-      margin: 0.25em 0 0.35em 0;
-      font-size: 1.08em;
-      font-weight: 650;
-      letter-spacing: 0.01em;
-      color: #0b1220;
-    }
+footer {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #64748b;
+}
 
-    .card .sub {
-      margin: 0;
-      font-size: 0.95em;
-      line-height: 1.35;
-      color: rgba(15, 23, 42, 0.75);
-    }
+/* ===== MOBILE / TABLET ===== */
+@media (max-width: 900px) {
+  .page-shell { padding: 1.9rem 1.1rem 1.6rem; }
 
-    .card:hover,
-    .card:focus-visible {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.46);
-      border-color: rgba(0, 168, 168, 0.95);
-      background: linear-gradient(135deg, #f3f4f8, #dde7f6);
-      outline: none;
-    }
+  header.intro { padding-top: 1.7rem; }
+  header.intro .hero { font-size: 1.18rem; }
 
-    .card:hover::before,
-    .card:focus-visible::before {
-      opacity: 1;
-    }
+  /* KEY FIX: give the hero→cards transition a real breath */
+  .content { padding-top: 1.15rem; }  /* <-- THIS is the spacing you wanted */
 
-    /* Entrance animation */
-    .card:nth-child(1),
-    .card:nth-child(2),
-    .card:nth-child(3),
-    .card:nth-child(4) {
-      opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp 600ms var(--transition-med) forwards;
-    }
+  .landing {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1.4rem;
+    align-items: center;
+  }
 
-    .card:nth-child(1) { animation-delay: 80ms; }
-    .card:nth-child(2) { animation-delay: 150ms; }
-    .card:nth-child(3) { animation-delay: 220ms; }
-    .card:nth-child(4) { animation-delay: 290ms; }
+  .card {
+    flex: 0 0 auto;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
 
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+@media (max-width: 480px) {
+  .page-shell { padding: 1.8rem 0.9rem 1.4rem; }
 
-    footer {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #64748b;
-    }
+  header.intro { padding-top: 1.4rem; }
+  header.intro .hero { font-size: 1.08rem; }
 
-    /* ===== MOBILE ===== */
-    @media (max-width: 900px) {
-      .page-shell { padding: 1.9rem 1.1rem 1.6rem; }
+  /* slight extra breath on very small phones */
+  .content { padding-top: 1.25rem; }
 
-      header.intro {
-        padding-top: 1.7rem;
-      }
-
-      header.intro .hero {
-        font-size: 1.18rem;
-      }
-
-      .content {
-        padding-top: 0.55rem; /* slightly tighter on small screens */
-      }
-
-      .landing {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: 1.4rem;
-        align-items: center;
-      }
-
-      .card {
-        flex: 0 0 auto;
-        max-width: 360px;
-        width: 100%;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .page-shell { padding: 1.8rem 0.9rem 1.4rem; }
-
-      header.intro { padding-top: 1.4rem; }
-
-      header.intro .hero { font-size: 1.1rem; }
-
-      .logo-box { width: 90px; height: 90px; }
-    }
+  .logo-box { width: 90px; height: 90px; }
+}
   </style>
+  
 </head>
 
 <body>
@@ -302,7 +290,7 @@
                 <img src="ai-anthro-logo.png" alt="Portfolio logo" />
               </div>
               <h2>Portfolio</h2>
-              <p class="sub">Digital anthropology · AI · UXR</p>
+              <p class="sub">UXR · Digital Anthropology &amp; AI</p>
             </div>
           </a>
 
@@ -312,7 +300,7 @@
                 <img src="AAN-AC-ET-logo.png" alt="Emerging Technology logo" />
               </div>
               <h2>Emerging Technology</h2>
-              <p class="sub">Applied anthropology · Community</p>
+              <p class="sub">Applied Anthropology · Community</p>
             </div>
           </a>
 
@@ -322,7 +310,7 @@
                 <img src="auxlia-logo.png" alt="Auxlia logo" />
               </div>
               <h2>Auxlia</h2>
-              <p class="sub">Service design · Orientation</p>
+              <p class="sub">Service Design · Orientation</p>
             </div>
           </a>
 
@@ -343,10 +331,6 @@
     <footer>
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
-
-      <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://josephmarkman.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
 
   </div>
 </body>

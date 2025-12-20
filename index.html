@@ -1,361 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Joseph Markman | Portfolio & Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-<style>
-  :root {
-    --teal: #00a8a8;
-    --blue: #0ea5e9;
-    --green: #22c55e;
-    --ink: #0f172a;
-    --card-bg-top: #e0e6f3;
-    --card-bg-bottom: #cbd5ea;
-    --border-soft: rgba(15, 23, 42, 0.40);
-    --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.42);
-    --radius-lg: 20px;
-    --transition-med: 240ms cubic-bezier(0.19, 1, 0.22, 1);
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Markman | Portfolio</title>
 
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    color: var(--ink);
-    background:
-      radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.55) 0, transparent 55%),
-      radial-gradient(circle at 100% 100%, rgba(45, 212, 191, 0.55) 0, transparent 55%),
-      radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.45) 0, transparent 60%),
-      linear-gradient(135deg, #e3f9ff, #d4fdf2);
-    background-size: 220% 220%;
-    animation: bgDrift 18s ease-in-out infinite alternate;
-  }
-
-  @keyframes bgDrift {
-    0%   { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
-  }
-
-  .page-shell {
-    width: 100%;
-    max-width: 1100px;
-    min-height: 100vh;
-    padding: 1.8rem 1.2rem 1.4rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-  }
-
-  main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .landing {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 1.8rem;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    flex-wrap: wrap; /* 2x2 on larger screens */
-  }
-
-  /* ===== Card ===== */
-  .card {
-    background: linear-gradient(135deg, var(--card-bg-top), var(--card-bg-bottom));
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    padding: 1.6em 1.6em 1.5em;
-    text-align: center;
-    min-width: 260px;
-    max-width: 320px;
-    transition:
-      transform var(--transition-med),
-      box-shadow var(--transition-med),
-      border-color var(--transition-med),
-      background 200ms ease-out;
-    border: 1px solid var(--border-soft);
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    flex: 1 1 calc(50% - 1.8rem); /* 2 cards per row on wide screens */
-    display: flex;
-    cursor: pointer;
-  }
-
-  .card::before {
-    content: "";
-    position: absolute;
-    inset: -40%;
-    opacity: 0;
-    transition: opacity var(--transition-med);
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* Per-card accent glows */
-  .card--ai::before {
-    background:
-      radial-gradient(circle at 0 0, rgba(14,165,233,0.35) 0, transparent 55%),
-      radial-gradient(circle at 100% 100%, rgba(8,47,73,0.35) 0, transparent 55%);
-  }
-
-  .card--tourism::before {
-    background:
-      radial-gradient(circle at 0 0, rgba(56,189,248,0.30) 0, transparent 55%),
-      radial-gradient(circle at 100% 100%, rgba(16,185,129,0.30) 0, transparent 55%);
-  }
-
-  .card--et::before {
-    background:
-      radial-gradient(circle at 0 0, rgba(37,99,235,0.32) 0, transparent 55%),
-      radial-gradient(circle at 100% 100%, rgba(15,23,42,0.40) 0, transparent 55%);
-  }
-
-  .card--auxlia::before {
-    background:
-      radial-gradient(circle at 0 0, rgba(16,185,129,0.40) 0, transparent 55%),
-      radial-gradient(circle at 100% 100%, rgba(129,140,248,0.35) 0, transparent 55%);
-  }
-
-  .card-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-
-  /* ===== Logo wrapper (rounded square) ===== */
-  .logo-box {
-    width: 100px;
-    height: 100px;
-    border-radius: 16px;
-    overflow: hidden;
-    margin: 0 auto 1em auto;
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Digital Anthro — black background */
-  .logo-box--ai {
-    background: #000000;
-  }
-
-  /* Tourisme lyonnais — white background */
-  .logo-box--tourism {
-    background: #ffffff;
-  }
-
-  /* ET Apply Club — charcoal */
-  .logo-box--et {
-    background: #1b1e23;
-  }
-
-  /* Auxlia — mint */
-  .logo-box--auxlia {
-    background: #12d9ba;
-  }
-
-  .logo-box img {
-    width: 96%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-  }
-
-  /* Slightly more zoomed-out ET logo */
-  .logo-box--et img {
-    width: 88%;
-  }
-
-  .card h2 {
-    margin: 0.25em 0 0.7em 0;
-    font-size: 1.08em;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: #0b1220;
-  }
-
-  .email {
-    font-size: 0.94em;
-    color: var(--teal);
-    margin: 0.1em 0 0;
-    font-weight: 500;
-  }
-
-  .email a {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 0.14em;
-    position: relative;
-    z-index: 2;
-  }
-
-  .card:hover,
-  .card:focus-within {
-    transform: translateY(-8px);
-    box-shadow: 0 26px 70px rgba(15, 23, 42, 0.46);
-    border-color: rgba(0, 168, 168, 0.95);
-    background: linear-gradient(135deg, #f3f4f8, #dde7f6);
-  }
-
-  .card:hover::before,
-  .card:focus-within::before {
-    opacity: 1;
-  }
-
-  /* Entrance animation */
-  .card:nth-child(1),
-  .card:nth-child(2),
-  .card:nth-child(3),
-  .card:nth-child(4) {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: fadeUp 600ms var(--transition-med) forwards;
-  }
-
-  .card:nth-child(1) { animation-delay: 80ms; }
-  .card:nth-child(2) { animation-delay: 150ms; }
-  .card:nth-child(3) { animation-delay: 220ms; }
-  .card:nth-child(4) { animation-delay: 290ms; }
-
-  @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  <style>
+    :root {
+      --teal: #00a8a8;
+      --ink: #0f172a;
+      --card-bg-top: #e0e6f3;
+      --card-bg-bottom: #cbd5ea;
+      --border-soft: rgba(15, 23, 42, 0.40);
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.42);
+      --radius-lg: 20px;
+      --transition-med: 240ms cubic-bezier(0.19, 1, 0.22, 1);
     }
-  }
 
-  footer {
-    margin-top: 0.6rem;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #64748b;
-  }
+    * { box-sizing: border-box; }
 
-  /* ===== MOBILE LAYOUT ===== */
-  @media (max-width: 900px) {
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.55) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(45, 212, 191, 0.55) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.45) 0, transparent 60%),
+        linear-gradient(135deg, #e3f9ff, #d4fdf2);
+      background-size: 220% 220%;
+      animation: bgDrift 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgDrift {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
     .page-shell {
-      padding: 2rem 1.1rem 1.6rem;
+      width: 100%;
+      max-width: 1100px;
+      min-height: 100vh;
+      padding: 1.7rem 1.2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
     }
 
-    .landing {
-      flex-direction: column;
-      flex-wrap: nowrap;
-      gap: 1.4rem;
+    /* ===== HEADER ===== */
+    header.intro {
+      max-width: 900px;
+      margin: 0 auto;            /* no margin-bottom here */
+      text-align: center;
+      padding-top: 2.2rem;       /* lowers hero line */
+    }
 
-      /* key bits for centering on mobile */
-      align-items: center;      /* center the column itself */
+    header.intro .hero {
+      margin: 0;                 /* keep hero tight */
+      font-size: 1.3rem;
+      line-height: 1.35;
+      font-weight: 750;
+      letter-spacing: 0.01em;
+      color: rgba(15, 23, 42, 0.92);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;   /* critical: no vertical centering */
+    }
+
+    /* This wrapper controls the gap between header and cards */
+    .content {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 2.5rem;      /* <-- THE GAP YOU WANT (tweak 0.5–0.9rem) */
+    }
+
+    /* ===== CARDS GRID ===== */
+    .landing {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.8rem;
+      width: 100%;
+      flex-wrap: wrap;           /* 2x2 on larger screens */
     }
 
     .card {
-      flex: 0 0 auto;           /* stop flexing like 50% width */
-      max-width: 340px;
-      width: 100%;
-      margin: 0 auto;           /* centered in the column */
+      background: linear-gradient(135deg, var(--card-bg-top), var(--card-bg-bottom));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6em 1.6em 1.4em;
+      min-width: 260px;
+      max-width: 320px;
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      flex: 1 1 calc(50% - 1.8rem);
+      display: flex;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition:
+        transform var(--transition-med),
+        box-shadow var(--transition-med),
+        border-color var(--transition-med),
+        background 200ms ease-out;
     }
-  }
 
-  @media (max-width: 480px) {
-    .page-shell {
-      padding: 2rem 0.9rem 1.4rem;
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .card--portfolio::before {
+      background:
+        radial-gradient(circle at 0 0, rgba(14,165,233,0.35) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(8,47,73,0.35) 0, transparent 55%);
+    }
+
+    .card--tourisme::before {
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.30) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(16,185,129,0.30) 0, transparent 55%);
+    }
+
+    .card--et::before {
+      background:
+        radial-gradient(circle at 0 0, rgba(37,99,235,0.32) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(15,23,42,0.40) 0, transparent 55%);
+    }
+
+    .card--auxlia::before {
+      background:
+        radial-gradient(circle at 0 0, rgba(16,185,129,0.40) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(129,140,248,0.35) 0, transparent 55%);
+    }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
     }
 
     .logo-box {
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0 auto 1em auto;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  }
-</style>
-  
+
+    .logo-box--portfolio { background: #000; }
+    .logo-box--tourisme  { background: #fff; }
+    .logo-box--et        { background: #1b1e23; }
+    .logo-box--auxlia    { background: #12d9ba; }
+
+    .logo-box img {
+      width: 96%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .logo-box--et img { width: 88%; }
+
+    .card h2 {
+      margin: 0.25em 0 0.35em 0;
+      font-size: 1.08em;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      color: #0b1220;
+    }
+
+    .card .sub {
+      margin: 0;
+      font-size: 0.95em;
+      line-height: 1.35;
+      color: rgba(15, 23, 42, 0.75);
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.46);
+      border-color: rgba(0, 168, 168, 0.95);
+      background: linear-gradient(135deg, #f3f4f8, #dde7f6);
+      outline: none;
+    }
+
+    .card:hover::before,
+    .card:focus-visible::before {
+      opacity: 1;
+    }
+
+    /* Entrance animation */
+    .card:nth-child(1),
+    .card:nth-child(2),
+    .card:nth-child(3),
+    .card:nth-child(4) {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: fadeUp 600ms var(--transition-med) forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 80ms; }
+    .card:nth-child(2) { animation-delay: 150ms; }
+    .card:nth-child(3) { animation-delay: 220ms; }
+    .card:nth-child(4) { animation-delay: 290ms; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px) {
+      .page-shell { padding: 1.9rem 1.1rem 1.6rem; }
+
+      header.intro {
+        padding-top: 1.7rem;
+      }
+
+      header.intro .hero {
+        font-size: 1.18rem;
+      }
+
+      .content {
+        padding-top: 0.55rem; /* slightly tighter on small screens */
+      }
+
+      .landing {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 1.4rem;
+        align-items: center;
+      }
+
+      .card {
+        flex: 0 0 auto;
+        max-width: 360px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell { padding: 1.8rem 0.9rem 1.4rem; }
+
+      header.intro { padding-top: 1.4rem; }
+
+      header.intro .hero { font-size: 1.1rem; }
+
+      .logo-box { width: 90px; height: 90px; }
+    }
+  </style>
 </head>
+
 <body>
   <div class="page-shell">
+
+    <header class="intro">
+      <p class="hero">Applied research and practice in culture and technology.</p>
+    </header>
+
     <main>
-      <div class="landing">
+      <div class="content">
+        <div class="landing" aria-label="Selected projects">
 
-        <!-- 1) Digital Anthropology & UXR -->
-        <div class="card card--ai" onclick="location.href='research.html'">
-          <div class="card-inner">
-            <div class="logo-box logo-box--ai">
-              <img src="ai-anthro-logo.png" alt="Digital Anthropology Logo">
+          <a class="card card--portfolio" href="research.html" aria-label="Portfolio">
+            <div class="card-inner">
+              <div class="logo-box logo-box--portfolio">
+                <img src="ai-anthro-logo.png" alt="Portfolio logo" />
+              </div>
+              <h2>Portfolio</h2>
+              <p class="sub">UXR · Digital Anthropology &amp; AI</p>
             </div>
-            <h2>Digital Anthropology &amp; UXR</h2>
-            <p class="email">
-              <a href="mailto:ai@josephmarkman.com" onclick="event.stopPropagation();">
-                ai@josephmarkman.com
-              </a>
-            </p>
-          </div>
-        </div>
+          </a>
 
-        <!-- 2) Tourisme lyonnais -->
-        <div class="card card--tourism" onclick="location.href='auxiliaire.html'">
-          <div class="card-inner">
-            <div class="logo-box logo-box--tourism">
-              <img src="auxiliaire-logo.png" alt="Tourisme lyonnais Logo">
+          <a class="card card--et" href="et-apply-club.html" aria-label="Emerging Technology">
+            <div class="card-inner">
+              <div class="logo-box logo-box--et">
+                <img src="AAN-AC-ET-logo.png" alt="Emerging Technology logo" />
+              </div>
+              <h2>Emerging Technology</h2>
+              <p class="sub">Applied Anthropology · Community</p>
             </div>
-            <h2>Tourisme lyonnais</h2>
-            <p class="email">
-              <a href="mailto:lyon@josephmarkman.com" onclick="event.stopPropagation();">
-                lyon@josephmarkman.com
-              </a>
-            </p>
-          </div>
-        </div>
+          </a>
 
-        <!-- 3) Emerging Tech Apply Club -->
-        <div class="card card--et" onclick="location.href='et-apply-club.html'">
-          <div class="card-inner">
-            <div class="logo-box logo-box--et">
-              <img src="AAN-AC-ET-logo.png" alt="Emerging Tech Apply Club Logo">
+          <a class="card card--auxlia" href="auxlia.html" aria-label="Auxlia">
+            <div class="card-inner">
+              <div class="logo-box logo-box--auxlia">
+                <img src="auxlia-logo.png" alt="Auxlia logo" />
+              </div>
+              <h2>Auxlia</h2>
+              <p class="sub">Service Design · Orientation</p>
             </div>
-            <h2>Emerging Tech Apply Club</h2>
-            <p class="email">
-              <a href="mailto:joseph@applied-anthropology.com" onclick="event.stopPropagation();">
-                joseph@applied-anthropology.com
-              </a>
-            </p>
-          </div>
-        </div>
+          </a>
 
-        <!-- 4) Auxlia -->
-        <div class="card card--auxlia" onclick="location.href='auxlia.html'">
-          <div class="card-inner">
-            <div class="logo-box logo-box--auxlia">
-              <img src="auxlia-logo.png" alt="Auxlia Logo">
+          <a class="card card--tourisme" href="auxiliaire.html" aria-label="Tourisme lyonnais">
+            <div class="card-inner">
+              <div class="logo-box logo-box--tourisme">
+                <img src="auxiliaire-logo.png" alt="Tourisme lyonnais logo" />
+              </div>
+              <h2>Tourisme lyonnais</h2>
+              <p class="sub">Coordination terrain · Logistique</p>
             </div>
-            <h2>Auxlia - Travel with comfort</h2>
-            <p class="email">
-              <a href="mailto:hello@auxlia.com" onclick="event.stopPropagation();">
-                hello@auxlia.com
-              </a>
-            </p>
-          </div>
-        </div>
+          </a>
 
+        </div>
       </div>
     </main>
 
     <footer>
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
+
   </div>
 </body>
 </html>

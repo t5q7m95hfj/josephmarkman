@@ -6,13 +6,54 @@ body {
   color: #222;
 }
 
-/* ===== Landing Cards ===== */
+/* =========================
+   HEADER (LANDING)
+   ========================= */
+
+/* Header container */
+.intro {
+  max-width: 900px;
+  margin: 0 auto 0.35rem auto; /* less space between header and cards */
+  text-align: center;
+  padding-top: 2.1rem;         /* lowers hero within the page */
+}
+
+/* Hero line */
+.intro .hero {
+  margin: 0 0 1.6rem 0;        /* more space between hero and contact */
+  font-size: 1.28rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #222;
+}
+
+/* Contact */
+.contact {
+  margin: 0; /* spacing controlled by hero margin */
+}
+
+.contact a {
+  font-size: 0.98rem;
+  color: #008b94;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+  font-weight: 500;
+}
+
+
+/* =========================
+   LANDING CARDS (INDEX)
+   ========================= */
+
 .landing {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 90vh;
+  align-items: stretch;   /* no vertical centering vibes */
+  min-height: auto;       /* remove “poster in the middle” effect */
   gap: 5vw;
+  margin-top: 0.5rem;     /* small gap below header */
+  flex-wrap: wrap;        /* allows 2x2 when space permits */
 }
 
 /* base tile look */
@@ -28,13 +69,10 @@ body {
   transform: translateY(0);
   opacity: 0;
   animation: cardFadeUp 260ms ease-out forwards;
-}
 
-/* fade stagger */
-.card:nth-child(1) { animation-delay: 40ms; }
-.card:nth-child(2) { animation-delay: 90ms; }
-.card:nth-child(3) { animation-delay: 140ms; }
-.card:nth-child(4) { animation-delay: 190ms; }
+  /* optional: helps 2x2 layout on wide screens */
+  flex: 1 1 calc(50% - 5vw);
+}
 
 .card a {
   text-decoration: none;
@@ -99,7 +137,17 @@ body {
   outline-offset: 4px;
 }
 
-/* ===== Footer (landing) ===== */
+/* fade stagger */
+.card:nth-child(1) { animation-delay: 40ms; }
+.card:nth-child(2) { animation-delay: 90ms; }
+.card:nth-child(3) { animation-delay: 140ms; }
+.card:nth-child(4) { animation-delay: 190ms; }
+
+
+/* =========================
+   FOOTER (LANDING)
+   ========================= */
+
 .index-footer {
   text-align: center;
   margin: 0 auto;
@@ -111,7 +159,11 @@ body {
   border-top: none;
 }
 
-/* ===== Content pages ===== */
+
+/* =========================
+   CONTENT PAGES
+   ========================= */
+
 .simple-header {
   display: flex;
   align-items: center;
@@ -196,7 +248,11 @@ a {
   text-decoration: underline;
 }
 
-/* ===== Footer (content pages) ===== */
+
+/* =========================
+   FOOTER (CONTENT PAGES)
+   ========================= */
+
 .simple-footer {
   max-width: 700px;
   margin: 5em auto 1em auto;
@@ -207,9 +263,27 @@ a {
   border-top: none;
 }
 
-/* ===== Mobile Responsive ===== */
-@media (max-width: 800px) {
 
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+  .landing {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    gap: 1.4rem;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 520px;
+    margin: 0.9rem auto;
+  }
+}
+
+@media (max-width: 800px) {
   .simple-header,
   .about-main,
   .simple-footer,
@@ -225,43 +299,39 @@ a {
     margin-right: 10px;
   }
 
-  /* MOBILE: force a centered, padded column */
-  .landing {
-    display: block;                /* stop being flex on mobile */
-    width: 100%;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    padding-left: 1.25rem;         /* equal left/right padding */
-    padding-right: 1.25rem;
-    box-sizing: border-box;
-    margin: 0 auto;
+  .intro {
+    padding-top: 1.8rem; /* slightly less lowering on small screens */
+    margin-bottom: 0.25rem;
   }
 
-  @media (max-width: 900px) {
-  .landing {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 1rem; /* gives a tiny side breathing room */
+  .intro .hero {
+    font-size: 1.18rem;
+    margin-bottom: 1.3rem;
   }
 }
 
-  .card {
-    width: 100%;                   /* fill that padded area exactly */
-    max-width: 500px;              /* optional cap so they don’t get huge on big phones */
-    margin: 1.5rem auto;           /* vertical spacing, horizontal auto-centering */
-    box-sizing: border-box;
+@media (max-width: 480px) {
+  .intro {
+    padding-top: 1.5rem;
   }
 
-  .index-footer {
-    margin-top: 1rem;
+  .intro .hero {
+    font-size: 1.12rem;
   }
 }
 
-/* ===== Dark Mode ===== */
+
+/* =========================
+   DARK MODE
+   ========================= */
+
 @media (prefers-color-scheme: dark) {
   body {
     background: #121314;
+    color: #e6e6e6;
+  }
+
+  .intro .hero {
     color: #e6e6e6;
   }
 
@@ -295,7 +365,8 @@ a {
 
   .email,
   .email a,
-  .about-main a {
+  .about-main a,
+  .contact a {
     color: #008b94 !important;
   }
 
@@ -310,7 +381,11 @@ a {
   }
 }
 
-/* ===== Animations / Reduced Motion ===== */
+
+/* =========================
+   ANIMATIONS / REDUCED MOTION
+   ========================= */
+
 @keyframes cardFadeUp {
   from {
     opacity: 0;

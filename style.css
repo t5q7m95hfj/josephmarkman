@@ -312,11 +312,18 @@ a {
 
 @media (max-width: 480px) {
   .intro {
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
+    margin-bottom: 0.55rem;
   }
 
   .intro .hero {
-    font-size: 1.12rem;
+    font-size: 1.04rem;
+    line-height: 1.28;
+    margin-bottom: 0rem;
+  }
+
+  footer {
+    margin-top: 0.4rem;
   }
 }
 

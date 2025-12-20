@@ -284,6 +284,12 @@ a {
 }
 
 @media (max-width: 800px) {
+  .content {
+    padding-top: 1.2rem; /* mobile-friendly gap below hero */
+  }
+}
+
+@media (max-width: 800px) {
   .simple-header,
   .about-main,
   .simple-footer,

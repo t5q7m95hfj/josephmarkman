@@ -1,26 +1,37 @@
+/* =========================
+   BASE
+   ========================= */
+
+:root{
+  --teal: #008b94;
+  --ink: #222;
+}
+
+* { box-sizing: border-box; }
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #fff;
-  color: #222;
+  color: var(--ink);
 }
+
 
 /* =========================
    HEADER (LANDING)
    ========================= */
 
-/* Header container */
 .intro {
   max-width: 900px;
-  margin: 0 auto 0.35rem auto; /* less space between header and cards */
+  margin: 0 auto;
   text-align: center;
-  padding-top: 2.1rem;         /* lowers hero within the page */
+  padding-top: 2.1rem;          /* desktop: hero sits slightly lower */
+  padding-bottom: 0;            /* keep tight */
 }
 
-/* Hero line */
 .intro .hero {
-  margin: 0 0 1.6rem 0;        /* more space between hero and contact */
+  margin: 0 0 1.6rem 0;         /* desktop rhythm */
   font-size: 1.28rem;
   line-height: 1.35;
   font-weight: 700;
@@ -28,14 +39,11 @@ body {
   color: #222;
 }
 
-/* Contact */
-.contact {
-  margin: 0; /* spacing controlled by hero margin */
-}
-
+/* If you ever re-add contact on homepage */
+.contact { margin: 0; }
 .contact a {
   font-size: 0.98rem;
-  color: #008b94;
+  color: var(--teal);
   text-decoration: underline;
   text-underline-offset: 0.14em;
   font-weight: 500;
@@ -49,14 +57,19 @@ body {
 .landing {
   display: flex;
   justify-content: center;
-  align-items: stretch;   /* no vertical centering vibes */
-  min-height: auto;       /* remove “poster in the middle” effect */
+  align-items: stretch;
+  flex-wrap: wrap;
   gap: 5vw;
-  margin-top: 0.5rem;     /* small gap below header */
-  flex-wrap: wrap;        /* allows 2x2 when space permits */
+
+  /* Critical: this is the “breath” under the hero */
+  margin: 0.5rem auto 0 auto;
+
+  /* Keep it centered and bounded */
+  width: 100%;
+  max-width: 900px;
+  padding: 0;
 }
 
-/* base tile look */
 .card {
   background: #f7f8fb;
   border-radius: 12px;
@@ -67,10 +80,12 @@ body {
   max-width: 360px;
   transition: box-shadow 0.2s ease, transform 0.18s ease;
   transform: translateY(0);
+
+  /* animation entrance */
   opacity: 0;
   animation: cardFadeUp 260ms ease-out forwards;
 
-  /* optional: helps 2x2 layout on wide screens */
+  /* 2x2 on wide screens */
   flex: 1 1 calc(50% - 5vw);
 }
 
@@ -122,7 +137,7 @@ body {
 .email,
 .email a {
   font-size: 0.95em;
-  color: #008b94 !important;
+  color: var(--teal) !important;
   margin: 0.7em 0 0.3em 0;
 }
 
@@ -203,9 +218,7 @@ body {
   background: #fff;
 }
 
-.about-main section {
-  margin-bottom: 1.5em;
-}
+.about-main section { margin-bottom: 1.5em; }
 
 .about-main h3 {
   font-size: 1.08em;
@@ -237,14 +250,11 @@ body {
 }
 
 /* remove hr lines */
-hr {
-  border: none;
-  margin: 1.2em 0;
-}
+hr { border: none; margin: 1.2em 0; }
 
 /* links */
 a {
-  color: #008b94;
+  color: var(--teal);
   text-decoration: underline;
 }
 
@@ -268,24 +278,20 @@ a {
    RESPONSIVE
    ========================= */
 
+/* Tablet / mobile: stacked cards + consistent gap below hero */
 @media (max-width: 900px) {
   .landing {
-    width: 100%;
-    margin: 0 auto;
     padding: 0 1rem;
     gap: 1.4rem;
+
+    /* IMPORTANT: do NOT use `margin: 0 auto;` here */
+    margin: 1.0rem auto 0 auto; /* mobile breath */
   }
 
   .card {
     flex: 1 1 100%;
     max-width: 520px;
-    margin: 0.9rem auto;
-  }
-}
-
-@media (max-width: 800px) {
-  .content {
-    padding-top: 1.2rem; /* mobile-friendly gap below hero */
+    margin: 0.75rem auto;
   }
 }
 
@@ -306,32 +312,31 @@ a {
   }
 
   .intro {
-    padding-top: 1.8rem; /* slightly less lowering on small screens */
-    margin-bottom: 0.25rem;
+    padding-top: 1.6rem;
   }
 
   .intro .hero {
-    font-size: 1.18rem;
-    margin-bottom: 1.3rem;
+    font-size: 1.16rem;
+    margin-bottom: 1.0rem; /* slightly tighter than desktop */
   }
 }
 
 @media (max-width: 480px) {
   .intro {
     padding-top: 1.2rem;
-    margin-top: 1.0rem;
-    margin-bottom: 0.55rem;
   }
 
   .intro .hero {
     font-size: 1.04rem;
     line-height: 1.28;
-    margin-bottom: 0rem;
+    margin-bottom: 0.85rem;
   }
 
-  footer {
-    margin-top: 0.4rem;
+  .landing {
+    margin-top: 1.1rem;  /* ensure hero → card gap on small phones */
   }
+
+  footer { margin-top: 0.4rem; }
 }
 
 
@@ -345,9 +350,7 @@ a {
     color: #e6e6e6;
   }
 
-  .intro .hero {
-    color: #e6e6e6;
-  }
+  .intro .hero { color: #e6e6e6; }
 
   .card {
     background: #1e2022;
@@ -363,9 +366,7 @@ a {
   }
 
   .about-main,
-  .simple-header {
-    background: transparent;
-  }
+  .simple-header { background: transparent; }
 
   .card h2,
   .about-main h3,
@@ -381,7 +382,7 @@ a {
   .email a,
   .about-main a,
   .contact a {
-    color: #008b94 !important;
+    color: var(--teal) !important;
   }
 
   .simple-footer,
@@ -390,9 +391,7 @@ a {
     color: #aaa;
   }
 
-  a {
-    color: #008b94;
-  }
+  a { color: var(--teal); }
 }
 
 
@@ -401,14 +400,8 @@ a {
    ========================= */
 
 @keyframes cardFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

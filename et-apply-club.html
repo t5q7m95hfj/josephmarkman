@@ -44,6 +44,26 @@
       100% { background-position: 100% 100%; }
     }
 
+    /* ===== LANG TOGGLE ===== */
+    .lang-container {
+      position: absolute; 
+      top: 20px; 
+      right: 20px; 
+      z-index: 100;
+    }
+
+    #lang-toggle {
+      background: none; 
+      border: 1px solid var(--border-soft); 
+      border-radius: 8px; 
+      padding: 5px 12px; 
+      cursor: pointer; 
+      font-weight: 600; 
+      font-family: inherit; 
+      color: var(--ink);
+      transition: all 0.2s ease;
+    }
+
     .page-shell {
       width: 100%;
       max-width: 900px;
@@ -101,8 +121,21 @@
 
     footer { margin-top: 0.8rem; text-align: center; font-size: 0.8rem; color: #64748b; }
 
+    /* ===== MOBILE / OVERLAP FIX ===== */
     @media (max-width: 640px) {
-      .page-shell { padding: 2rem 0.9rem 1.4rem; }
+      .lang-container {
+        top: 10px;
+        right: 10px;
+      }
+      #lang-toggle {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        background: rgba(227, 249, 255, 0.7); 
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(15, 23, 42, 0.2);
+      }
+      .page-shell { padding: 3.5rem 0.9rem 1.4rem; }
       .simple-card { padding: 1.6em 1.4em 1.4em; }
       .logo-box { width: 70px; height: 70px; }
       .simple-title-block h1 { font-size: 1.2rem; }
@@ -110,8 +143,8 @@
   </style>
 </head>
 <body>
-  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
-    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">FR</button>
+  <div class="lang-container">
+    <button id="lang-toggle">FR</button>
   </div>
 
   <div class="page-shell">

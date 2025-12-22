@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>Auxlia - Serenity Abroad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://josephmarkman.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <style>
     :root {
@@ -87,99 +85,35 @@
       pointer-events: none;
     }
 
-    .simple-header {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      margin-bottom: 1.4rem;
-    }
+    .simple-header { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.4rem; }
+    .logo-box { width: 90px; height: 90px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5); flex-shrink: 0; background: #12d9ba; }
+    .logo-box img { width: 96%; height: auto; display: block; object-fit: contain; }
 
-    .logo-box {
-      width: 90px;
-      height: 90px;
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
-      flex-shrink: 0;
-      background: #12d9ba;
-    }
+    .simple-title-block h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: #0b1220; }
+    .simple-title-block h2 { margin: 0.3rem 0 0; font-size: 1rem; color: #1f2933; font-weight: 400; }
 
-    .logo-box img {
-      width: 96%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+    .simple-content { font-size: 0.95rem; line-height: 1.7; color: #111827; }
+    .simple-content h3 { margin-top: 1.3rem; margin-bottom: 0.4rem; font-size: 1.05rem; color: #0b1220; }
+    .simple-content ul { margin: 0.4rem 0 0.8rem 1.2rem; }
+    .simple-content li { margin: 0.2rem 0; }
+    .simple-content a { color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
+    .back-link { margin-top: 2em; display: inline-block; color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
 
-    .simple-title-block h1 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0b1220;
-    }
-
-    .simple-title-block h2 {
-      margin: 0.3rem 0 0;
-      font-size: 1rem;
-      color: #1f2933;
-      font-weight: 400;
-    }
-
-    .simple-content {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #111827;
-    }
-
-    .simple-content h3 {
-      margin-top: 1.3rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-      color: #0b1220;
-    }
-
-    .simple-content ul {
-      margin: 0.4rem 0 0.8rem 1.2rem;
-    }
-
-    .simple-content li {
-      margin: 0.2rem 0;
-    }
-
-    .simple-content a {
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    .back-link {
-      margin-top: 2em;
-      display: inline-block;
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    footer {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #64748b;
-    }
+    footer { margin-top: 0.8rem; text-align: center; font-size: 0.8rem; color: #64748b; }
 
     @media (max-width: 640px) {
       .page-shell { padding: 2rem 0.9rem 1.4rem; }
       .simple-card { padding: 1.6em 1.4em 1.4em; }
-      .simple-header { gap: 1rem; }
       .logo-box { width: 70px; height: 70px; }
       .simple-title-block h1 { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">FR</button>
+  </div>
+
   <div class="page-shell">
     <main>
       <article class="simple-card">
@@ -189,41 +123,49 @@
           </div>
           <div class="simple-title-block">
             <h1>Auxlia</h1>
-            <h2>Human-centered travel support and orientation</h2>
+            <h2 class="lang" 
+                data-en="Human-centered travel support and orientation" 
+                data-fr="Support au voyage et orientation centrés sur l'humain">
+                Human-centered travel support and orientation
+            </h2>
           </div>
         </header>
 
-<section class="simple-content">
-  <h3>Overview</h3>
-  <p>
-   Auxlia is a human-centered support service designed to help people stay oriented and steady during complex or unfamiliar travel situations. It focuses on clarity, preparation, and calm presence rather than concierge services or crisis response.
-  </p>
+        <section class="simple-content">
+          <h3 class="lang" data-en="Overview" data-fr="Présentation">Overview</h3>
+          <p class="lang" 
+             data-en="Auxlia is a human-centered support service designed to help people stay oriented and steady during complex or unfamiliar travel situations. It focuses on clarity, preparation, and calm presence rather than concierge services or crisis response." 
+             data-fr="Auxlia est un service de soutien centré sur l'humain, conçu pour aider les personnes à garder leurs repères lors de voyages complexes ou inconnus. Il privilégie la clarté, la préparation et une présence calme plutôt que les services de conciergerie ou la réponse de crise.">
+             Auxlia is a human-centered support service designed to help people stay oriented and steady during complex or unfamiliar travel situations. It focuses on clarity, preparation, and calm presence rather than concierge services or crisis response.
+          </p>
 
-  <h3>What Auxlia provides</h3>
-  <ul>
-    <li>Pre-travel orientation and preparation</li>
-    <li>Support during moments of uncertainty or change</li>
-    <li>Clear interpretation of logistics and options</li>
-    <li>Calm human presence during stressful travel transitions</li>
-  </ul>
+          <h3 class="lang" data-en="What Auxlia provides" data-fr="Ce qu'Auxlia propose">What Auxlia provides</h3>
+          <ul>
+            <li class="lang" data-en="Pre-travel orientation and preparation" data-fr="Orientation et préparation avant le voyage">Pre-travel orientation and preparation</li>
+            <li class="lang" data-en="Support during moments of uncertainty or change" data-fr="Soutien lors de moments d'incertitude ou de changement">Support during moments of uncertainty or change</li>
+            <li class="lang" data-en="Clear interpretation of logistics and options" data-fr="Interprétation claire de la logistique et des options">Clear interpretation of logistics and options</li>
+            <li class="lang" data-en="Calm human presence during stressful travel transitions" data-fr="Présence humaine calme lors de transitions de voyage stressantes">Calm human presence during stressful travel transitions</li>
+          </ul>
 
-    <h3>What Auxlia is not</h3>
-  <p>
-Auxlia is not an emergency service, therapy, or medical, legal, or crisis intervention. It operates within clear boundaries and supports people in navigating situations—not in replacing professional or institutional care.  </p>
+          <h3 class="lang" data-en="What Auxlia is not" data-fr="Ce qu'Auxlia n'est pas">What Auxlia is not</h3>
+          <p class="lang" 
+             data-en="Auxlia is not an emergency service, therapy, or medical, legal, or crisis intervention. It operates within clear boundaries and supports people in navigating situations—not in replacing professional or institutional care." 
+             data-fr="Auxlia n'est pas un service d'urgence, une thérapie, ni une intervention médicale, juridique ou de crise. Il opère dans des limites claires et aide les personnes à naviguer dans des situations, sans remplacer les soins professionnels ou institutionnels.">
+             Auxlia is not an emergency service, therapy, or medical, legal, or crisis intervention. It operates within clear boundaries and supports people in navigating situations—not in replacing professional or institutional care.
+          </p>
 
-  <h3>Contact</h3>
-  <p>
-    Email:<br>
-    <a href="mailto:hello@auxlia.com">hello@auxlia.com</a>
-  </p>
-  <p>
-    Website:<br>
-    <a href="https://auxlia.com" target="_blank">auxlia.com</a>
-  </p>
+          <h3 class="lang" data-en="Contact" data-fr="Contact">Contact</h3>
+          <p>
+            <span class="lang" data-en="Email:" data-fr="E-mail :">Email:</span><br>
+            <a href="mailto:hello@auxlia.com">hello@auxlia.com</a>
+          </p>
+          <p>
+            <span class="lang" data-en="Website:" data-fr="Site web :">Website:</span><br>
+            <a href="https://auxlia.com" target="_blank">auxlia.com</a>
+          </p>
 
-  <a href="index.html" class="back-link">← Back to homepage</a>
-</section>
-
+          <a href="index.html" class="back-link lang" data-en="← Back to homepage" data-fr="← Retour à l'accueil">← Back to homepage</a>
+        </section>
       </article>
     </main>
 
@@ -231,5 +173,29 @@ Auxlia is not an emergency service, therapy, or medical, legal, or crisis interv
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('lang-toggle');
+    const langElements = document.querySelectorAll('.lang');
+    
+    let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+    const applyLang = (lang) => {
+      toggleBtn.innerText = lang === 'en' ? 'FR' : 'EN';
+      langElements.forEach(el => {
+        const newText = el.getAttribute(`data-${lang}`);
+        if (newText) el.innerText = newText;
+      });
+      document.documentElement.lang = lang;
+    };
+
+    applyLang(currentLang);
+
+    toggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'fr' : 'en';
+      localStorage.setItem('preferredLang', currentLang);
+      applyLang(currentLang);
+    });
+  </script>
 </body>
 </html>

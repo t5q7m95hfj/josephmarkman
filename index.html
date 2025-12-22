@@ -280,14 +280,21 @@ footer {
 </head>
 
 <body>
-  <div class="page-shell">
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">FR</button>
+  </div>
 
+  <div class="page-shell">
     <header class="intro">
-      <p class="hero">Applied research and practice in culture and technology.</p>
+      <p class="hero lang" 
+         data-en="Applied research and practice in culture and technology." 
+         data-fr="Recherche appliquée et pratique en culture et technologie.">
+         Applied research and practice in culture and technology.
+      </p>
     </header>
 
     <main>
-      <div class="content">
+      <div class="content"> 
         <div class="landing" aria-label="Selected projects">
 
           <a class="card card--portfolio" href="research.html" aria-label="Portfolio">
@@ -295,8 +302,12 @@ footer {
               <div class="logo-box logo-box--portfolio">
                 <img src="ai-anthro-logo.png" alt="Portfolio logo" />
               </div>
-              <h2>Portfolio</h2>
-              <p class="sub">Digital anthropology · AI · UXR </p>
+              <h2 class="lang" data-en="Portfolio" data-fr="Portfolio">Portfolio</h2>
+              <p class="sub lang" 
+                 data-en="Digital anthropology · AI · UXR" 
+                 data-fr="Anthropologie numérique · IA · Recherche UX">
+                 Digital anthropology · AI · UXR
+              </p>
             </div>
           </a>
 
@@ -305,8 +316,12 @@ footer {
               <div class="logo-box logo-box--et">
                 <img src="AAN-AC-ET-logo.png" alt="Emerging Technology logo" />
               </div>
-              <h2>Emerging Technology</h2>
-              <p class="sub">Applied anthropology · Community</p>
+              <h2 class="lang" data-en="Emerging Technology" data-fr="Technologies Émergentes">Emerging Technology</h2>
+              <p class="sub lang" 
+                 data-en="Applied anthropology · Community" 
+                 data-fr="Anthropologie appliquée · Communauté">
+                 Applied anthropology · Community
+              </p>
             </div>
           </a>
 
@@ -315,8 +330,12 @@ footer {
               <div class="logo-box logo-box--auxlia">
                 <img src="auxlia-logo.png" alt="Auxlia logo" />
               </div>
-              <h2>Auxlia</h2>
-              <p class="sub">Service design · Orientation</p>
+              <h2 class="lang" data-en="Auxlia" data-fr="Auxlia">Auxlia</h2>
+              <p class="sub lang" 
+                 data-en="Service design · Orientation" 
+                 data-fr="Design de service · Orientation">
+                 Service design · Orientation
+              </p>
             </div>
           </a>
 
@@ -325,19 +344,35 @@ footer {
               <div class="logo-box logo-box--tourisme">
                 <img src="auxiliaire-logo.png" alt="Tourisme lyonnais logo" />
               </div>
-              <h2>Tourisme lyonnais</h2>
-              <p class="sub">Coordination terrain · Logistique</p>
+              <h2 class="lang" data-en="Lyon Tourism" data-fr="Tourisme lyonnais">Tourisme lyonnais</h2>
+              <p class="sub lang" 
+                 data-en="Field coordination · Logistics" 
+                 data-fr="Coordination terrain · Logistique">
+                 Coordination terrain · Logistique
+              </p>
             </div>
           </a>
 
-        </div>
-      </div>
-    </main>
+        </div> </div> </main>
 
     <footer>
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
+  </div> <script>
+    const toggleBtn = document.getElementById('lang-toggle');
+    const langElements = document.querySelectorAll('.lang');
+    let currentLang = 'en';
 
-  </div>
+    toggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'fr' : 'en';
+      toggleBtn.innerText = currentLang === 'en' ? 'FR' : 'EN';
+      langElements.forEach(el => {
+        const newText = el.getAttribute(`data-${currentLang}`);
+        if (newText) el.innerText = newText;
+      });
+      document.documentElement.lang = currentLang;
+    });
+  </script>
 </body>
+
 </html>

@@ -2,12 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Joseph Markman — Auxiliaire touristique à Lyon</title>
+  <title>Joseph Markman — Médiation Interculturelle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://josephmarkman.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <style>
     :root {
@@ -63,7 +60,6 @@
       align-items: center;
     }
 
-    /* ===== Card ===== */
     .simple-card {
       width: 100%;
       max-width: 720px;
@@ -89,132 +85,72 @@
       pointer-events: none;
     }
 
-    /* ===== Header ===== */
-    .simple-header {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      margin-bottom: 1.4rem;
-    }
+    .simple-header { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.4rem; }
+    .logo-box { width: 90px; height: 90px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5); flex-shrink: 0; background: #fff; }
+    .logo-box img { width: 100%; height: auto; display: block; object-fit: contain; }
 
-    .logo-box {
-      width: 90px;
-      height: 90px;
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
-      flex-shrink: 0;
-    }
+    .simple-title-block h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: #0b1220; }
+    .simple-title-block h2 { margin: 0.3rem 0 0; font-size: 1rem; color: #1f2933; font-weight: 400; }
 
-    .logo-box img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+    .simple-content { font-size: 0.95rem; line-height: 1.7; color: #111827; }
+    .simple-content h3 { margin-top: 1.4rem; margin-bottom: 0.4rem; font-size: 1.05rem; color: #0b1220; }
+    .simple-content ul { margin: 0.4rem 0 0.8rem 1.2rem; }
+    .simple-content li { margin: 0.2rem 0; }
+    .simple-content a { color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
+    .back-link { margin-top: 2em; display: inline-block; color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
 
-    .simple-title-block h1 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0b1220;
-    }
-
-    .simple-title-block h2 {
-      margin: 0.3rem 0 0;
-      font-size: 1rem;
-      color: #1f2933;
-      font-weight: 400;
-    }
-
-    /* ===== Content ===== */
-    .simple-content {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #111827;
-    }
-
-    .simple-content h3 {
-      margin-top: 1.4rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-      color: #0b1220;
-    }
-
-    .simple-content ul {
-      margin: 0.4rem 0 0.8rem 1.2rem;
-    }
-
-    .simple-content li {
-      margin: 0.2rem 0;
-    }
-
-    .simple-content a {
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    .back-link {
-      margin-top: 2em;
-      display: inline-block;
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    footer {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #64748b;
-    }
+    footer { margin-top: 0.8rem; text-align: center; font-size: 0.8rem; color: #64748b; }
 
     @media (max-width: 640px) {
       .page-shell { padding: 2rem 0.9rem 1.4rem; }
       .simple-card { padding: 1.6em 1.4em 1.4em; }
-      .simple-header { flex-direction: row; gap: 1rem; }
       .logo-box { width: 70px; height: 70px; }
       .simple-title-block h1 { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">EN</button>
+  </div>
+
   <div class="page-shell">
     <main>
       <article class="simple-card">
         <header class="simple-header">
           <div class="logo-box">
-            <img src="auxiliaire-logo.png" alt="Logo Auxiliaire">
+            <img src="auxiliaire-logo.png" alt="Logo Mediation">
           </div>
           <div class="simple-title-block">
-            <h1>Tourisme lyonnais</h1>
-            <h2>Coordination terrain et accompagnement logistique</h2>
+            <h1 class="lang" data-en="Intercultural mediation" data-fr="Médiation interculturelle">Médiation interculturelle</h1>
+            <h2 class="lang" 
+                data-en="High-stakes logistics & Field coordination" 
+                data-fr="Logistique à fort enjeu et Coordination de terrain">
+                Logistique à fort enjeu et Coordination de terrain
+            </h2>
           </div>
         </header>
 
         <section class="simple-content">
-          <h3>Présentation</h3>
-          <p>
-          Activité de coordination et d’accompagnement dans le secteur du tourisme à Lyon et en région. Travail de terrain impliquant la gestion logistique, la communication avec des publics internationaux et l’adaptation à des contextes multiculturels et multilingues.
+          <h3 class="lang" data-en="Overview" data-fr="Présentation">Présentation</h3>
+          <p class="lang" 
+             data-en="Field coordination for international B2B partners in the Lyon region. This work focuses on navigating the friction points between international expectations and local operational realities, ensuring seamless delivery through native English fluency and deep French cultural literacy." 
+             data-fr="Coordination de terrain pour des partenaires B2B internationaux en région lyonnaise. Ce travail consiste à naviguer entre les attentes internationales et les réalités opérationnelles locales, en garantissant une exécution fluide grâce à une maîtrise bilingue et une fine connaissance de la culture française.">
+             Coordination de terrain pour des partenaires B2B internationaux en région lyonnaise.
           </p>
 
-
-          <h3>Types de missions</h3>
+          <h3 class="lang" data-en="Core responsibilities" data-fr="Axes d'intervention">Axes d'intervention</h3>
           <ul>
-            <li>Accueil et accompagnement de groupes internationaux</li>
-            <li>Coordination logistique (transports, timing, interfaces locales)</li>
-            <li>Communication multilingue avec partenaires et publics</li>
-            <li>Gestion des imprévus et adaptation sur le terrain</li>
+            <li class="lang" data-en="Cultural brokerage: Managing communication between international stakeholders and local service providers." data-fr="Médiation culturelle : Gestion de la communication entre les partenaires internationaux et les prestataires locaux.">Médiation culturelle</li>
+            <li class="lang" data-en="Operational liaison: Acting as a bridge between corporate business needs and ground-level logistics." data-fr="Liaison opérationnelle : Interface entre les besoins stratégiques des entreprises et la logistique de terrain.">Liaison opérationnelle</li>
+            <li class="lang" data-en="Real-time problem solving: Managing time-sensitive operations in complex environments." data-fr="Résolution de problèmes : Gestion d'opérations critiques et imprévues en temps réel.">Résolution de problèmes</li>
+            <li class="lang" data-en="User Experience: Ensuring a smooth, human-centered journey for international professionals." data-fr="Expérience stilisateur : Garantie d'un parcours fluide et centré sur l'humain pour les professionnels internationaux.">Expérience utilisateur</li>
           </ul>
 
-
-          <h3>Contact</h3>
+          <h3 class="lang" data-en="Contact" data-fr="Contact">Contact</h3>
           <p><a href="mailto:lyon@josephmarkman.com">lyon@josephmarkman.com</a></p>
-          <a href="index.html" class="back-link">← Retour à l'accueil</a>
+          
+          <a href="index.html" class="back-link lang" data-en="← Back to homepage" data-fr="← Retour à l'accueil">← Retour à l'accueil</a>
         </section>
       </article>
     </main>
@@ -223,5 +159,27 @@
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('lang-toggle');
+    const langElements = document.querySelectorAll('.lang');
+    let currentLang = localStorage.getItem('preferredLang') || 'fr';
+
+    const applyLang = (lang) => {
+      toggleBtn.innerText = lang === 'en' ? 'FR' : 'EN';
+      langElements.forEach(el => {
+        const newText = el.getAttribute(`data-${lang}`);
+        if (newText) el.innerText = newText;
+      });
+      document.documentElement.lang = lang;
+    };
+
+    applyLang(currentLang);
+    toggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'fr' : 'en';
+      localStorage.setItem('preferredLang', currentLang);
+      applyLang(currentLang);
+    });
+  </script>
 </body>
 </html>

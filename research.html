@@ -37,6 +37,26 @@
 
     @keyframes bgDrift { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
 
+    /* ===== LANG TOGGLE ===== */
+    .lang-container {
+      position: absolute; 
+      top: 20px; 
+      right: 20px; 
+      z-index: 100;
+    }
+
+    #lang-toggle {
+      background: none; 
+      border: 1px solid var(--border-soft); 
+      border-radius: 8px; 
+      padding: 5px 12px; 
+      cursor: pointer; 
+      font-weight: 600; 
+      font-family: inherit;
+      color: var(--ink);
+      transition: all 0.2s ease;
+    }
+
     .page-shell { width: 100%; max-width: 900px; min-height: 100vh; padding: 2.2rem 1.2rem 1.4rem; display: flex; flex-direction: column; }
     main { flex: 1; display: flex; justify-content: center; align-items: center; }
 
@@ -54,7 +74,7 @@
     }
 
     .simple-header { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.4rem; }
-    .logo-box { width: 90px; height: 90px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5); flex-shrink: 0; }
+    .logo-box { width: 90px; height: 90px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5); flex-shrink: 0; background: #000; }
     .logo-box img { width: 100%; height: auto; display: block; object-fit: contain; }
 
     .simple-title-block h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: #0b1220; }
@@ -76,15 +96,30 @@
     .back-link { margin-top: 2em; display: inline-block; color: var(--teal); text-decoration: underline; }
     footer { margin-top: 0.8rem; text-align: center; font-size: 0.8rem; color: #64748b; }
 
+    /* ===== MOBILE / OVERLAP FIX ===== */
     @media (max-width: 640px) {
+      .lang-container {
+        top: 10px;
+        right: 10px;
+      }
+      #lang-toggle {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        background: rgba(227, 249, 255, 0.7); 
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(15, 23, 42, 0.2);
+      }
+      .page-shell { padding-top: 3.5rem; }
       .logo-box { width: 70px; height: 70px; }
       .simple-title-block h1 { font-size: 1.2rem; }
+      .carousel { max-width: 100%; }
     }
   </style>
 </head>
 <body>
-  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
-    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; color: var(--ink);">FR</button>
+  <div class="lang-container">
+    <button id="lang-toggle">FR</button>
   </div>
 
   <div class="page-shell">
@@ -148,7 +183,7 @@
             </div>
           </div>
 
-          <h3 class="lang" data-en="Resume" data-fr="CV">Resume</h3>
+          <h3 class="lang" data-en="Resume" data-fr="Curriculum Vitae">Resume</h3>
           <ul>
             <li><a href="Joseph_Markman_CV_EN.pdf" target="_blank" class="lang" data-en="Download CV (English)" data-fr="Télécharger le CV (Anglais)">Download CV (English)</a></li>
             <li><a href="Markman_Joseph_CV_FR.pdf" target="_blank" class="lang" data-en="Download CV (French)" data-fr="Télécharger le CV (Français)">Download CV (French)</a></li>
@@ -200,6 +235,7 @@
         if (newText) el.innerText = newText;
       });
       updateCaption();
+      document.documentElement.lang = lang;
     };
 
     applyLang(currentLang);

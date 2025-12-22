@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>Emerging Tech Apply Club - Joseph Markman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://josephmarkman.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <style>
     :root {
@@ -87,99 +85,35 @@
       pointer-events: none;
     }
 
-    .simple-header {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      margin-bottom: 1.4rem;
-    }
+    .simple-header { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.4rem; }
+    .logo-box { width: 90px; height: 90px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5); flex-shrink: 0; background: #1b1e23; }
+    .logo-box img { width: 88%; height: auto; display: block; object-fit: contain; }
 
-    .logo-box {
-      width: 90px;
-      height: 90px;
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
-      flex-shrink: 0;
-      background: #1b1e23;
-    }
+    .simple-title-block h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: #0b1220; }
+    .simple-title-block h2 { margin: 0.3rem 0 0; font-size: 1rem; color: #1f2933; font-weight: 400; }
 
-    .logo-box img {
-      width: 88%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+    .simple-content { font-size: 0.95rem; line-height: 1.7; color: #111827; }
+    .simple-content h3 { margin-top: 1.3rem; margin-bottom: 0.4rem; font-size: 1.05rem; color: #0b1220; }
+    .simple-content ul { margin: 0.4rem 0 0.8rem 1.2rem; }
+    .simple-content li { margin: 0.2rem 0; }
+    .simple-content a { color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
+    .back-link { margin-top: 2em; display: inline-block; color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
 
-    .simple-title-block h1 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0b1220;
-    }
-
-    .simple-title-block h2 {
-      margin: 0.3rem 0 0;
-      font-size: 1rem;
-      color: #1f2933;
-      font-weight: 400;
-    }
-
-    .simple-content {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #111827;
-    }
-
-    .simple-content h3 {
-      margin-top: 1.3rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-      color: #0b1220;
-    }
-
-    .simple-content ul {
-      margin: 0.4rem 0 0.8rem 1.2rem;
-    }
-
-    .simple-content li {
-      margin: 0.2rem 0;
-    }
-
-    .simple-content a {
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    .back-link {
-      margin-top: 2em;
-      display: inline-block;
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    footer {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #64748b;
-    }
+    footer { margin-top: 0.8rem; text-align: center; font-size: 0.8rem; color: #64748b; }
 
     @media (max-width: 640px) {
       .page-shell { padding: 2rem 0.9rem 1.4rem; }
       .simple-card { padding: 1.6em 1.4em 1.4em; }
-      .simple-header { gap: 1rem; }
       .logo-box { width: 70px; height: 70px; }
       .simple-title-block h1 { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">FR</button>
+  </div>
+
   <div class="page-shell">
     <main>
       <article class="simple-card">
@@ -188,44 +122,50 @@
             <img src="AAN-AC-ET-logo.png" alt="Emerging Tech Apply Club Logo">
           </div>
           <div class="simple-title-block">
-            <h1>Emerging Techology</h1>
-            <h2>Applied Anthropology Network · Apply Club · Co-Lead</h2>
+            <h1 class="lang" data-en="Emerging Technology" data-fr="Technologies Émergentes">Emerging Technology</h1>
+            <h2 class="lang" 
+                data-en="Applied Anthropology Network · Apply Club · Co-Lead" 
+                data-fr="Applied Anthropology Network · Apply Club · Co-responsable">
+                Applied Anthropology Network · Apply Club · Co-Lead
+            </h2>
           </div>
         </header>
 
         <section class="simple-content">
-          <h3>Overview</h3>
-          <p>
-            This work involves facilitating dialogue, research, and applied inquiry around emerging technologies within the Applied Anthropology Network.
+          <h3 class="lang" data-en="Overview" data-fr="Présentation">Overview</h3>
+          <p class="lang" 
+             data-en="This work involves facilitating dialogue, research, and applied inquiry around emerging technologies within the Applied Anthropology Network." 
+             data-fr="Ce travail consiste à faciliter le dialogue, la recherche et l'enquête appliquée autour des technologies émergentes au sein de l'Applied Anthropology Network.">
+             This work involves facilitating dialogue, research, and applied inquiry around emerging technologies within the Applied Anthropology Network.
           </p>
 
-          <h3>Role</h3>
+          <h3 class="lang" data-en="Role" data-fr="Rôle">Role</h3>
           <ul>
-            <li>Co-Lead, Emerging Technology Apply Club</li>
-            <li>Community facilitation and coordination </li>
-            <li>Research framing and discussion design </li>
+            <li class="lang" data-en="Co-Lead, Emerging Technology Apply Club" data-fr="Co-responsable, Emerging Technology Apply Club">Co-Lead, Emerging Technology Apply Club</li>
+            <li class="lang" data-en="Community facilitation and coordination" data-fr="Facilitation et coordination de communauté">Community facilitation and coordination</li>
+            <li class="lang" data-en="Research framing and discussion design" data-fr="Cadrage de recherche et conception de discussions">Research framing and discussion design</li>
           </ul>
 
-           <h3>Focus areas</h3>
+          <h3 class="lang" data-en="Focus areas" data-fr="Axes de réflexion">Focus areas</h3>
           <ul>
-            <li>AI use, perception, and ethics</li>
-            <li>Sociotechnical systems and lived experience </li>
-            <li>Applied research translation for practitioners </li>
+            <li class="lang" data-en="AI use, perception, and ethics" data-fr="Usage, perception et éthique de l'IA">AI use, perception, and ethics</li>
+            <li class="lang" data-en="Sociotechnical systems and lived experience" data-fr="Systèmes sociotechniques et expérience vécue">Sociotechnical systems and lived experience</li>
+            <li class="lang" data-en="Applied research translation for practitioners" data-fr="Traduction de la recherche appliquée pour les praticiens">Applied research translation for practitioners</li>
           </ul>
 
-          <h3>Learn more about the network</h3>
+          <h3 class="lang" data-en="Learn more about the network" data-fr="En savoir plus sur le réseau">Learn more about the network</h3>
           <p>
-            For general information about the Applied Anthropology Network:<br>
+            <span class="lang" data-en="For general information about the Applied Anthropology Network:" data-fr="Pour des informations générales sur l'Applied Anthropology Network :">For general information about the Applied Anthropology Network:</span><br>
             <a href="https://applied-anthropology.com" target="_blank">applied-anthropology.com</a>
           </p>
 
-          <h3>Contact</h3>
+          <h3 class="lang" data-en="Contact" data-fr="Contact">Contact</h3>
           <p>
-            For questions, ideas or suggestions:<br>
+            <span class="lang" data-en="For questions, ideas or suggestions:" data-fr="Pour toute question, idée ou suggestion :">For questions, ideas or suggestions:</span><br>
             <a href="mailto:joseph@applied-anthropology.com">joseph@applied-anthropology.com</a>
           </p>
 
-          <a href="index.html" class="back-link">← Back to homepage</a>
+          <a href="index.html" class="back-link lang" data-en="← Back to homepage" data-fr="← Retour à l'accueil">← Back to homepage</a>
         </section>
       </article>
     </main>
@@ -234,5 +174,29 @@
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('lang-toggle');
+    const langElements = document.querySelectorAll('.lang');
+    
+    let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+    const applyLang = (lang) => {
+      toggleBtn.innerText = lang === 'en' ? 'FR' : 'EN';
+      langElements.forEach(el => {
+        const newText = el.getAttribute(`data-${lang}`);
+        if (newText) el.innerText = newText;
+      });
+      document.documentElement.lang = lang;
+    };
+
+    applyLang(currentLang);
+
+    toggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'fr' : 'en';
+      localStorage.setItem('preferredLang', currentLang);
+      applyLang(currentLang);
+    });
+  </script>
 </body>
 </html>

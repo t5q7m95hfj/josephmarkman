@@ -5,9 +5,7 @@
   <title>Joseph Markman | Digital Anthropology &amp; AI Research</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://josephmarkman.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
   <style>
     :root {
@@ -63,7 +61,6 @@
       align-items: center;
     }
 
-    /* ===== Card ===== */
     .simple-card {
       width: 100%;
       max-width: 720px;
@@ -89,139 +86,41 @@
       pointer-events: none;
     }
 
-    /* ===== Header ===== */
-    .simple-header {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      margin-bottom: 1.4rem;
-    }
+    .simple-header { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.4rem; }
+    .logo-box { width: 90px; height: 90px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5); flex-shrink: 0; }
+    .logo-box img { width: 100%; height: auto; display: block; object-fit: contain; }
 
-    .logo-box {
-      width: 90px;
-      height: 90px;
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.5);
-      flex-shrink: 0;
-    }
+    .simple-title-block h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: #0b1220; }
+    .simple-title-block h2 { margin: 0.3rem 0 0; font-size: 1rem; color: #1f2933; font-weight: 400; }
 
-    .logo-box img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+    .simple-content { font-size: 0.95rem; line-height: 1.7; color: #111827; }
+    .simple-content h3 { margin-top: 1.4rem; margin-bottom: 0.4rem; font-size: 1.05rem; color: #0b1220; }
+    .simple-content ul { margin: 0.4rem 0 0.8rem 1.2rem; }
+    .simple-content li { margin: 0.2rem 0; }
+    .simple-content a { color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
+    .back-link { margin-top: 2em; display: inline-block; color: var(--teal); text-decoration: underline; text-underline-offset: 0.16em; }
 
-    .simple-title-block h1 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0b1220;
-    }
-
-    .simple-title-block h2 {
-      margin: 0.3rem 0 0;
-      font-size: 1rem;
-      color: #1f2933;
-      font-weight: 400;
-    }
-
-    /* ===== Content ===== */
-    .simple-content {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #111827;
-    }
-
-    .simple-content h3 {
-      margin-top: 1.4rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-      color: #0b1220;
-    }
-
-    .simple-content ul {
-      margin: 0.4rem 0 0.8rem 1.2rem;
-    }
-
-    .simple-content li {
-      margin: 0.2rem 0;
-    }
-
-    .simple-content a {
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    .back-link {
-      margin-top: 2em;
-      display: inline-block;
-      color: var(--teal);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
-    }
-
-    /* ===== Carousel ===== */
-    .carousel {
-      max-width: 460px;
-      margin: 1.5em auto 2em auto;
-      position: relative;
-      text-align: center;
-    }
-
-    .carousel img {
-      width: 100%;
-      max-width: 460px;
-      border-radius: 9px;
-      box-shadow: 0 2px 8px rgba(30,40,70,0.12);
-      display: none;
-    }
-
+    .carousel { max-width: 460px; margin: 1.5em auto 2em auto; position: relative; text-align: center; }
+    .carousel img { width: 100%; max-width: 460px; border-radius: 9px; box-shadow: 0 2px 8px rgba(30,40,70,0.12); display: none; }
     .carousel img.active { display: block; }
-
     .carousel-controls { margin-top: 1em; }
+    .carousel-controls button { background: #eee; border: none; margin: 0 8px; border-radius: 50%; width: 32px; height: 32px; font-size: 1.2em; cursor: pointer; color: #008b94; transition: background 0.1s; }
 
-    .carousel-controls button {
-      background: #eee;
-      border: none;
-      margin: 0 8px;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      font-size: 1.2em;
-      cursor: pointer;
-      color: #008b94;
-      transition: background 0.1s;
-    }
-
-    .carousel-controls button:active,
-    .carousel-controls button:focus {
-      background: #ccd;
-      color: #007;
-    }
-
-    footer {
-      margin-top: 0.8rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #64748b;
-    }
+    footer { margin-top: 0.8rem; text-align: center; font-size: 0.8rem; color: #64748b; }
 
     @media (max-width: 640px) {
       .page-shell { padding: 2rem 0.9rem 1.4rem; }
       .simple-card { padding: 1.6em 1.4em 1.4em; }
-      .simple-header { flex-direction: row; gap: 1rem; }
       .logo-box { width: 70px; height: 70px; }
       .simple-title-block h1 { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">FR</button>
+  </div>
+
   <div class="page-shell">
     <main>
       <article class="simple-card">
@@ -230,24 +129,32 @@
             <img src="ai-anthro-logo.png" alt="Digital Anthropology Logo">
           </div>
           <div class="simple-title-block">
-            <h1>Portfolio</h1>
-            <h2>Digital anthropology, AI, and UX research</h2>
+            <h1 class="lang" data-en="Portfolio" data-fr="Portfolio">Portfolio</h1>
+            <h2 class="lang" 
+                data-en="Digital anthropology, AI, and UX research" 
+                data-fr="Anthropologie numérique, IA et recherche UX">
+                Digital anthropology, AI, and UX research
+            </h2>
           </div>
         </header>
 
         <section class="simple-content">
-          <h3>Overview</h3>
-          <p>Applied research, fieldwork, and design for human-centered technological systems.</p>
+          <h3 class="lang" data-en="Overview" data-fr="Présentation">Overview</h3>
+          <p class="lang" 
+             data-en="Applied research, fieldwork, and design for human-centered technological systems." 
+             data-fr="Recherche appliquée, terrain et design pour des systèmes technologiques centrés sur l'humain.">
+             Applied research, fieldwork, and design for human-centered technological systems.
+          </p>
 
-          <h3>Expertise</h3>
+          <h3 class="lang" data-en="Expertise" data-fr="Expertise">Expertise</h3>
           <ul>
-            <li>Digital anthropology and online culture</li>
-            <li>AI ethics, use and perception</li>
-            <li>UX research and qualitative design methods</li>
-            <li>Applied social science for emerging technologies</li>
+            <li class="lang" data-en="Digital anthropology and online culture" data-fr="Anthropologie numérique et culture en ligne">Digital anthropology and online culture</li>
+            <li class="lang" data-en="AI ethics, use and perception" data-fr="Éthique, usage et perception de l'IA">AI ethics, use and perception</li>
+            <li class="lang" data-en="UX research and qualitative design methods" data-fr="UX research et méthodes de design qualitatif">UX research and qualitative design methods</li>
+            <li class="lang" data-en="Applied social science for emerging technologies" data-fr="Sciences sociales appliquées aux technologies émergentes">Applied social science for emerging technologies</li>
           </ul>
 
-          <h3>Selected Projects</h3>
+          <h3 class="lang" data-en="Selected Projects" data-fr="Projets sélectionnés">Selected Projects</h3>
           <div class="carousel" id="carousel">
             <img src="portfolio1.jpg" alt="Portfolio Item 1" class="active">
             <img src="portfolio2.jpg" alt="Portfolio Item 2">
@@ -260,15 +167,15 @@
             </div>
           </div>
 
-          <h3>Links</h3>
+          <h3 class="lang" data-en="Links" data-fr="Liens">Links</h3>
           <ul>
-            <li><a href="https://medium.com/@josephmarkman" target="_blank">Blog on Medium</a></li>
-            <li><a href="https://linkedin.com/in/josephmarkmanux" target="_blank">LinkedIn Profile</a></li>
+            <li><a href="https://medium.com/@josephmarkman" target="_blank" class="lang" data-en="Blog on Medium" data-fr="Blog sur Medium">Blog on Medium</a></li>
+            <li><a href="https://linkedin.com/in/josephmarkmanux" target="_blank" class="lang" data-en="LinkedIn Profile" data-fr="Profil LinkedIn">LinkedIn Profile</a></li>
           </ul>
 
-          <h3>Contact</h3>
-          <p>Contact: <a href="mailto:ai@josephmarkman.com">ai@josephmarkman.com</a></p>
-          <a href="index.html" class="back-link">← Back to homepage</a>
+          <h3 class="lang" data-en="Contact" data-fr="Contact">Contact</h3>
+          <p><a href="mailto:ai@josephmarkman.com">ai@josephmarkman.com</a></p>
+          <a href="index.html" class="back-link lang" data-en="← Back to homepage" data-fr="← Retour à l'accueil">← Back to homepage</a>
         </section>
       </article>
     </main>
@@ -279,6 +186,7 @@
   </div>
 
   <script>
+    // Carousel Logic
     const images = document.querySelectorAll('#carousel img');
     let idx = 0;
     function showImage(i) {
@@ -293,6 +201,29 @@
       idx = (idx - 1 + images.length) % images.length;
       showImage(idx);
     }
+
+    // Language Switcher Logic with LocalStorage
+    const toggleBtn = document.getElementById('lang-toggle');
+    const langElements = document.querySelectorAll('.lang');
+    
+    let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+    const applyLang = (lang) => {
+      toggleBtn.innerText = lang === 'en' ? 'FR' : 'EN';
+      langElements.forEach(el => {
+        const newText = el.getAttribute(`data-${lang}`);
+        if (newText) el.innerText = newText;
+      });
+      document.documentElement.lang = lang;
+    };
+
+    applyLang(currentLang);
+
+    toggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'fr' : 'en';
+      localStorage.setItem('preferredLang', currentLang);
+      applyLang(currentLang);
+    });
   </script>
 </body>
 </html>

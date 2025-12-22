@@ -23,7 +23,7 @@ body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh; /* important: 100% can behave oddly */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -40,6 +40,31 @@ body {
 @keyframes bgDrift {
   0%   { background-position: 0% 0%; }
   100% { background-position: 100% 100%; }
+}
+
+/* ===== LANG TOGGLE ===== */
+.lang-container {
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+  z-index: 100;
+}
+
+#lang-toggle {
+  background: none; 
+  border: 1px solid var(--border-soft); 
+  border-radius: 8px; 
+  padding: 5px 12px; 
+  cursor: pointer; 
+  font-weight: 600; 
+  font-family: inherit; 
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+
+#lang-toggle:hover {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: var(--teal);
 }
 
 .page-shell {
@@ -74,15 +99,14 @@ main {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* no vertical centering */
+  align-items: flex-start;
 }
 
-/* This is THE spacing knob between hero and cards */
 .content {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding-top: 2.1rem; /* desktop: pleasant breath (was 2.5rem) */
+  padding-top: 2.1rem;
 }
 
 /* ===== CARDS GRID ===== */
@@ -236,12 +260,9 @@ footer {
 /* ===== MOBILE / TABLET ===== */
 @media (max-width: 900px) {
   .page-shell { padding: 1.9rem 1.1rem 1.6rem; }
-
   header.intro { padding-top: 1.7rem; }
   header.intro .hero { font-size: 1.18rem; }
-
-  /* KEY FIX: give the hero→cards transition a real breath */
-  .content { padding-top: 3rem; }  /* <-- THIS is the spacing you wanted */
+  .content { padding-top: 3rem; }
 
   .landing {
     flex-direction: column;
@@ -258,30 +279,37 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
-  .page-shell { padding: 1.8rem 0.9rem 1.4rem; }
-
-  header.intro { padding-top: 1.4rem; }
-  header.intro .hero { font-size: 1.08rem; }
-
-  /* slight extra breath on very small phones */
-  .content { padding-top: 1.25rem; }
-
-  .logo-box { width: 90px; height: 90px; }
-}
-    
-@media (max-width: 480px) {
-  .landing {
-    margin-top: 0.6rem;
+@media (max-width: 640px) {
+  .lang-container {
+    top: 10px;
+    right: 10px;
+  }
+  #lang-toggle {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    background: rgba(227, 249, 255, 0.7); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(15, 23, 42, 0.2);
+  }
+  .page-shell {
+    padding-top: 3.5rem; 
   }
 }
+
+@media (max-width: 480px) {
+  header.intro { padding-top: 1.4rem; }
+  header.intro .hero { font-size: 1.08rem; }
+  .content { padding-top: 1.25rem; }
+  .logo-box { width: 90px; height: 90px; }
+  .landing { margin-top: 0.6rem; }
+}
   </style>
-  
 </head>
 
 <body>
-  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
-    <button id="lang-toggle" style="background: none; border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 12px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--ink);">FR</button>
+  <div class="lang-container">
+    <button id="lang-toggle">FR</button>
   </div>
 
   <div class="page-shell">
@@ -353,12 +381,16 @@ footer {
             </div>
           </a>
 
-        </div> </div> </main>
+        </div> 
+      </div> 
+    </main>
 
     <footer>
       <small>&copy; 2025 Joseph Markman. All rights reserved.</small>
     </footer>
-  </div> <script>
+  </div> 
+
+  <script>
     const toggleBtn = document.getElementById('lang-toggle');
     const langElements = document.querySelectorAll('.lang');
     let currentLang = 'en';
@@ -374,5 +406,4 @@ footer {
     });
   </script>
 </body>
-
 </html>

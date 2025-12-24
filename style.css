@@ -43,7 +43,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     align-items: flex-start;
 }
 
-.header-text { flex: 1; overflow: hidden; padding-right: 15px; }
+.header-text { flex: 1; overflow: hidden; padding-right: 25px; } /* Increased safety gap */
 
 .name {
     font-size: 3.2rem;
@@ -80,16 +80,16 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     transition: all 0.3s ease;
 }
 
-/* HOVER LOGIC (Desktop Only) */
+/* INTERACTION LOGIC (HOVER/ACTIVE) */
 @media (hover: hover) {
     .lang-toggle:hover, .cv-button:hover { background: var(--brand-teal); border-color: var(--brand-teal); color: var(--white); }
     .inquiry-link:hover .inquiry-title { color: var(--brand-teal); }
     .auxlia-link:hover, .email-link:hover { color: var(--font-color); }
 }
 
-/* ACTIVE LOGIC (Mobile Feedback) */
 .lang-toggle:active, .cv-button:active { background: var(--brand-teal); border-color: var(--brand-teal); color: var(--white); }
 .inquiry-link:active .inquiry-title { color: var(--brand-teal); }
+.auxlia-link:active, .email-link:active { color: var(--font-color); }
 
 /* SECTIONS */
 .section {
@@ -140,8 +140,10 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 /* MOBILE SPECIFIC (< 1024px) */
 @media (max-width: 1023px) {
     .subtitle { 
-        white-space: nowrap; 
-        font-size: 3.5vw; 
+        font-size: 3.4vw; /* Slightly smaller for French wrap */
+        white-space: normal; /* Allow wrapping for long French tagline */
+        display: block;
+        line-height: 1.2;
     } 
 
     .materials-bold-list { font-size: 1.9rem; }
@@ -152,19 +154,24 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     .mobile-text { display: block; }
     .desktop-text { display: none; }
 
-    /* Forces sentence break on mobile only */
     .mobile-only-break-element { 
         display: block; 
         content: ""; 
         margin-top: 1.4em; 
     }
 
-    /* Footer Mobile: Logo & Buttons same line, Email below */
-    .footer-grid { display: grid; grid-template-areas: "logo cv" "email email"; row-gap: 8px; }
+    /* Footer Mobile: Centered Email on new line */
+    .footer-grid { display: grid; grid-template-areas: "logo cv" "email email"; row-gap: 15px; }
     .left-footer { grid-area: logo; display: contents; }
     .logo-wrap { grid-area: logo; display: block; }
     .logo-seal { width: 55px; height: 55px; } 
-    .email-link { grid-area: email; font-size: 1.1rem; margin-top: -5px; } 
+    .email-link { 
+        grid-area: email; 
+        font-size: 1.1rem; 
+        margin-top: 15px; 
+        text-align: center; 
+        display: block;
+    } 
     .cv-container { grid-area: cv; display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
     
     .lang-toggle, .cv-button { width: 55px; height: 55px; font-size: 9px; }
@@ -175,7 +182,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     body { padding: 0 40px; }
     .presence { padding: 100px 0 60px 0; }
     .name { font-size: 5.5rem; line-height: 0.75; margin-bottom: 20px; }
-    .subtitle { font-size: 0.9rem; letter-spacing: 0.15em; }
+    .subtitle { font-size: 0.9rem; letter-spacing: 0.15em; white-space: nowrap; }
     .section { display: grid; grid-template-columns: 280px 1fr; gap: 40px; padding: 60px 0; }
     .inquiry { display: grid; grid-template-columns: 120px 1fr; gap: 20px; }
     .inquiry-title { font-size: 1.8rem; }

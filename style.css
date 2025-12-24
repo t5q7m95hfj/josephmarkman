@@ -42,6 +42,8 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     align-items: flex-start;
 }
 
+.header-text { flex: 1; overflow: hidden; }
+
 .name {
     font-size: 3.2rem;
     font-weight: 700;
@@ -58,7 +60,9 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     color: var(--brand-teal);
 }
 
-/* BUTTONS */
+/* BUTTONS - UNIFIED SIZING */
+.toggle-wrapper { flex-shrink: 0; padding-left: 10px; }
+
 .lang-toggle, .cv-button {
     background: none;
     border: 1px solid var(--font-color);
@@ -68,7 +72,6 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     font-size: 10px;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
@@ -144,14 +147,18 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     .mobile-text { display: block; }
     .desktop-text { display: none; }
 
-    /* Footer Mobile: Stacked Logic (Logo/CV line, Email below) */
-    .footer-grid { display: flex; flex-direction: column; gap: 20px; }
-    .left-footer { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    .cv-container { display: flex; gap: 10px; }
-    .cv-button { width: 50px; height: 50px; font-size: 9px; }
-    .email-link { font-size: 1.1rem; order: 2; }
+    /* Footer Mobile: Logo (L) CV (R) | Email (Below) */
+    .footer-grid { display: grid; grid-template-areas: "logo cv" "email email"; row-gap: 20px; }
+    .left-footer { grid-area: logo; display: contents; }
+    .logo-wrap { grid-area: logo; display: block; }
+    .email-link { grid-area: email; font-size: 1.1rem; }
+    .cv-container { grid-area: cv; display: flex; gap: 10px; justify-content: flex-end; align-items: center; }
+    
+    /* Unified Button Sizes for Mobile */
+    .lang-toggle, .cv-button { width: 55px; height: 55px; font-size: 9px; }
 
-    .applied-break { height: 2.8em; } 
+    /* Explicit mobile double break */
+    .applied-break { height: 1.4em; display: block; } 
 }
 
 /* DESKTOP (>= 1024px) */
@@ -164,7 +171,6 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     .inquiry { display: grid; grid-template-columns: 120px 1fr; gap: 20px; }
     .inquiry-title { font-size: 1.8rem; }
     
-    /* Footer Desktop Restored: Logo/Email Left, CV Right */
     .footer-grid { display: flex; justify-content: space-between; align-items: center; }
     .left-footer { display: flex; align-items: center; gap: 20px; }
     .cv-container { display: flex; gap: 15px; }

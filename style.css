@@ -88,7 +88,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     .auxlia-link:hover, .email-link:hover { color: var(--font-color); }
 }
 
-/* MOBILE ACTIVE FEEDBACK (FLASH) */
+/* MOBILE ACTIVE FEEDBACK */
 @keyframes mobile-flash {
     0% { color: var(--brand-teal); }
     100% { color: var(--font-color); }
@@ -150,7 +150,10 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 /* MOBILE SPECIFIC (< 1024px) */
 @media (max-width: 1023px) {
     .subtitle { 
-        font-size: clamp(0.6rem, 3.1vw, 0.85rem); /* Keeps it small enough to stay on one line */
+        /* Added padding-right to prevent accented character clipping */
+        padding-right: 10px; 
+        font-size: clamp(0.55rem, 3.0vw, 0.85rem); 
+        letter-spacing: 0.1em;
         white-space: nowrap;
         display: block;
     } 
@@ -169,18 +172,18 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
         margin-top: 1.4em; 
     }
 
-    /* Footer Mobile: Reverted to Left-Aligned Email under logo */
-    .footer-grid { display: grid; grid-template-areas: "logo cv" "email cv"; row-gap: 4px; align-items: start; }
+    /* Footer Mobile: Adjusted Row Gap */
+    .footer-grid { display: grid; grid-template-areas: "logo cv" "email cv"; row-gap: 2px; align-items: start; }
     .left-footer { grid-area: logo; display: contents; }
-    .logo-wrap { grid-area: logo; display: block; margin-bottom: 4px; }
+    .logo-wrap { grid-area: logo; display: block; }
     .logo-seal { width: 55px; height: 55px; } 
     .email-link { 
         grid-area: email; 
-        font-size: 0.85rem; 
+        font-size: 0.8rem; 
         text-align: left; 
         display: block;
-        margin-top: 0;
-        font-weight: normal; /* Slightly thinner for subtle footer look */
+        font-weight: normal;
+        margin-top: -2px; /* Pulls email closer to logo */
     } 
     .cv-container { grid-area: cv; display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
     

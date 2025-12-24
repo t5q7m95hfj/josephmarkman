@@ -43,7 +43,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     align-items: flex-start;
 }
 
-.header-text { flex: 1; overflow: hidden; padding-right: 25px; } /* Increased safety gap */
+.header-text { flex: 1; overflow: hidden; padding-right: 25px; }
 
 .name {
     font-size: 3.2rem;
@@ -59,6 +59,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     letter-spacing: 0.12em;
     font-weight: bold;
     color: var(--brand-teal);
+    white-space: nowrap;
 }
 
 /* BUTTONS */
@@ -80,16 +81,25 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
     transition: all 0.3s ease;
 }
 
-/* INTERACTION LOGIC (HOVER/ACTIVE) */
+/* DESKTOP HOVER */
 @media (hover: hover) {
     .lang-toggle:hover, .cv-button:hover { background: var(--brand-teal); border-color: var(--brand-teal); color: var(--white); }
     .inquiry-link:hover .inquiry-title { color: var(--brand-teal); }
     .auxlia-link:hover, .email-link:hover { color: var(--font-color); }
 }
 
-.lang-toggle:active, .cv-button:active { background: var(--brand-teal); border-color: var(--brand-teal); color: var(--white); }
-.inquiry-link:active .inquiry-title { color: var(--brand-teal); }
-.auxlia-link:active, .email-link:active { color: var(--font-color); }
+/* MOBILE ACTIVE FEEDBACK (FLASH) */
+@keyframes mobile-flash {
+    0% { color: var(--brand-teal); }
+    100% { color: var(--font-color); }
+}
+@keyframes mobile-flash-bg {
+    0% { background: var(--brand-teal); border-color: var(--brand-teal); color: var(--white); }
+    100% { background: none; border-color: var(--font-color); color: var(--font-color); }
+}
+
+.lang-toggle:active, .cv-button:active { animation: mobile-flash-bg 0.4s ease forwards; }
+.inquiry-link:active .inquiry-title, .auxlia-link:active, .email-link:active { animation: mobile-flash 0.4s ease forwards; }
 
 /* SECTIONS */
 .section {
@@ -140,10 +150,9 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 /* MOBILE SPECIFIC (< 1024px) */
 @media (max-width: 1023px) {
     .subtitle { 
-        font-size: 3.4vw; /* Slightly smaller for French wrap */
-        white-space: normal; /* Allow wrapping for long French tagline */
+        font-size: clamp(0.6rem, 3.1vw, 0.85rem); /* Keeps it small enough to stay on one line */
+        white-space: nowrap;
         display: block;
-        line-height: 1.2;
     } 
 
     .materials-bold-list { font-size: 1.9rem; }
@@ -160,17 +169,18 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
         margin-top: 1.4em; 
     }
 
-    /* Footer Mobile: Centered Email on new line */
-    .footer-grid { display: grid; grid-template-areas: "logo cv" "email email"; row-gap: 15px; }
+    /* Footer Mobile: Reverted to Left-Aligned Email under logo */
+    .footer-grid { display: grid; grid-template-areas: "logo cv" "email cv"; row-gap: 4px; align-items: start; }
     .left-footer { grid-area: logo; display: contents; }
-    .logo-wrap { grid-area: logo; display: block; }
+    .logo-wrap { grid-area: logo; display: block; margin-bottom: 4px; }
     .logo-seal { width: 55px; height: 55px; } 
     .email-link { 
         grid-area: email; 
-        font-size: 1.1rem; 
-        margin-top: 15px; 
-        text-align: center; 
+        font-size: 0.85rem; 
+        text-align: left; 
         display: block;
+        margin-top: 0;
+        font-weight: normal; /* Slightly thinner for subtle footer look */
     } 
     .cv-container { grid-area: cv; display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
     

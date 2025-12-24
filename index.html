@@ -110,16 +110,16 @@
       <h2 class="section-title" data-en="Applied practice" data-fr="Pratique appliquée">Applied practice</h2>
       <div class="section-content">
         <div id="applied-text">
-          <p class="paragraph" 
-             data-en="Alongside research, I work in applied contexts where cultural insight meets operational reality." 
-             data-fr="Parallèlement à la recherche, je travaille dans des contextes appliqués où l'analyse culturelle rencontre la réalité opérationnelle.">
-             Alongside research, I work in applied contexts where cultural insight meets operational reality.
-          </p>
-          <div class="applied-break"></div>
-          <p class="paragraph"
-             data-en="This includes UX-adjacent research and service design, strategic work on emerging technologies, and ongoing intercultural mediation in bilingual environments."
-             data-fr="Cela inclut la recherche orientée UX, le design de services, le conseil stratégique sur les technologies émergentes et la médiation interculturelle en milieux bilingues.">
-             This includes UX-adjacent research and service design, strategic work on emerging technologies, and ongoing intercultural mediation in bilingual environments.
+          <p class="paragraph">
+            <span data-en="Alongside research, I work in applied contexts where cultural insight meets operational reality." 
+                  data-fr="Parallèlement à la recherche, je travaille dans des contextes appliqués où l'analyse culturelle rencontre la réalité opérationnelle.">
+                  Alongside research, I work in applied contexts where cultural insight meets operational reality.
+            </span>
+            <span class="mobile-only-break-element"></span>
+            <span data-en="This includes UX-adjacent research and service design, strategic work on emerging technologies, and ongoing intercultural mediation in bilingual environments."
+                  data-fr="Cela inclut la recherche orientée UX, le design de services, le conseil stratégique sur les technologies émergentes et la médiation interculturelle en milieux bilingues.">
+                  This includes UX-adjacent research and service design, strategic work on emerging technologies, and ongoing intercultural mediation in bilingual environments.
+            </span>
           </p>
           <div class="applied-break"></div>
           <p class="paragraph">
@@ -155,7 +155,7 @@
 
     function updateTextContent(isEn) {
       translatable.forEach(el => {
-        if (!el.closest('.materials-bold-list')) {
+        if (!el.closest('.materials-bold-list') && !el.classList.contains('mobile-only-break-element')) {
           el.textContent = isEn ? el.getAttribute('data-en') : el.getAttribute('data-fr');
         }
       });

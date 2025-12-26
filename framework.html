@@ -3,38 +3,406 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Co-Liminal Mediation Model | D-6 Schematic</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .framework-content {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 80px 20px 140px 20px;
-    }
+  <title>Co-Liminal Mediation Model | Joseph Markman</title>
 
-    .nav-home {
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css" />
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <!-- Page-only styles (keeps style.css untouched) -->
+  <style>
+    .inquiry-page-intro { padding-top: 10px; }
+    .back-row { margin-top: -10px; }
+    .back-link {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-weight: bold;
-      text-decoration: none;
+      letter-spacing: 0.16em;
+      font-weight: 700;
       color: var(--brand-teal);
-      display: block;
-      margin-bottom: 50px;
     }
 
-    .intro-section { margin-bottom: 60px; }
+    /* Extra breathing room under the first section border */
+    .section.inquiry-page-intro { padding-top: 55px; }
+    .section.inquiry-page-intro .back-row { margin-top: 0; }
 
-    .intro-para {
-      font-size: 1.2rem;
+    .hero-wrap { max-width: 950px; }
+
+    .inquiry-kicker {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--brand-teal);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .inquiry-title-big {
+      font-size: clamp(2.1rem, 5.5vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 18px;
+    }
+
+    .inquiry-lede {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 900px;
+      margin-bottom: 14px;
+    }
+
+    .micro-line {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 18px;
       line-height: 1.6;
-      margin-bottom: 25px;
-      font-weight: 300;
-      color: var(--font-color);
+      max-width: 900px;
     }
 
-    .model-container {
-      text-align: center;
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--bg-color);
+      max-width: 950px;
+    }
+    .card-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    /* DIAGRAM: smaller + centered */
+    .diagram-wrap { max-width: 950px; }
+    .diagram-frame {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-color);
+      max-width: 760px;     /* <-- controls size */
+      margin: 0 auto;       /* <-- centers */
+    }
+    .diagram-frame img { width: 100%; height: auto; display: block; }
+
+    .diagram-caption {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 12px;
+      line-height: 1.55;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Node list */
+    .node {
+      border-top: 1px solid var(--line);
+      padding: 16px 0;
+    }
+    .node:first-of-type { border-top: none; padding-top: 0; }
+    .node-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .node-id {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--brand-teal);
+    }
+    .node-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    .node-body {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      max-width: 900px;
+    }
+    .node-note {
+      margin-top: 10px;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      border-left: 2px solid var(--brand-teal);
+      padding-left: 14px;
+      font-style: italic;
+      max-width: 900px;
+    }
+
+    /* Related inquiries links teal (page-only) */
+    .related-links a {
+      color: var(--brand-teal);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- Same header pattern as index -->
+    <header class="presence">
+      <div class="header-text">
+        <h1 class="name">Joseph Markman</h1>
+        <p class="subtitle"
+           data-en="Applied Digital Anthropologist"
+           data-fr="Anthropologue numérique appliqué">Applied Digital Anthropologist</p>
+      </div>
+      <div class="toggle-wrapper">
+        <button class="lang-toggle" type="button" id="langToggle">EN</button>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="section inquiry-page-intro">
+      <div class="back-row">
+        <a class="back-link" href="index.html"
+           data-en="← Back to home"
+           data-fr="← Retour à l’accueil">← Back to home</a>
+      </div>
+
+      <div class="section-content hero-wrap">
+        <div class="inquiry-kicker"
+             data-en="03 / Framework"
+             data-fr="03 / Cadre">03 / Framework</div>
+
+        <h2 class="inquiry-title-big"
+            data-en="Co-Liminal Mediation Model"
+            data-fr="Modèle de médiation co-liminale">Co-Liminal Mediation Model</h2>
+
+        <p class="inquiry-lede"
+           data-en="This model is a visual depiction of human–AI interaction as it relates to my theory of digital intimacy. It situates a human interlocutor in conversation with an AI chatbot, making sense not only of the relational position with that system, but also of adjacent variables: other people, policy, and cultural systems at large."
+           data-fr="Ce modèle est une représentation visuelle de l’interaction humain–IA, telle qu’elle s’inscrit dans ma théorie de l’intimité numérique. Il situe un interlocuteur humain en conversation avec un chatbot d’IA, en rendant lisible non seulement la position relationnelle avec ce système, mais aussi des variables adjacentes : autrui, politique, et systèmes culturels au sens large.">
+          This model is a visual depiction of human–AI interaction as it relates to my theory of digital intimacy. It situates a human interlocutor in conversation with an AI chatbot, making sense not only of the relational position with that system, but also of adjacent variables: other people, policy, and cultural systems at large.
+        </p>
+
+        <p class="inquiry-lede"
+           data-en="The framework treats human–AI interaction not as a single modular node, but as a recursive nexus: in contact with a pre-mediated AI chatbot, embodied selfhood, and dynamic iterations of the relationship over time."
+           data-fr="Le cadre considère l’interaction humain–IA non comme un nœud modulaire isolé, mais comme un nexus récursif : en contact avec un chatbot déjà médiatisé, le soi incarné, et des itérations dynamiques de la relation dans le temps.">
+          The framework treats human–AI interaction not as a single modular node, but as a recursive nexus: in contact with a pre-mediated AI chatbot, embodied selfhood, and dynamic iterations of the relationship over time.
+        </p>
+
+        <p class="micro-line"
+           data-en="This page presents a schematic of my current research on digital intimacy. It is subject to updates."
+           data-fr="Cette page présente un schéma de mon travail actuel sur l’intimité numérique. Il est susceptible d’évoluer.">
+          This page presents a schematic of my current research on digital intimacy. It is subject to updates.
+        </p>
+      </div>
+    </section>
+
+    <!-- Diagram -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Schematic"
+          data-fr="Schéma">Schematic</h2>
+
+      <div class="section-content diagram-wrap">
+        <div class="diagram-frame">
+          <img id="mainDiagram" src="Co-Liminal Mediation Mode - Light.png" alt="Co-Liminal Mediation Model diagram">
+        </div>
+        <p class="diagram-caption"
+           data-en="A topographical map of the co-liminal threshold: the self (A), the artificial other (X), the human other (B), institutional gates (Y), and structural weather (O)."
+           data-fr="Une carte topographique du seuil co-liminal : le soi (A), l’autre artificiel (X), l’autre humain (B), les portes institutionnelles (Y) et la météo structurelle (O).">
+          A topographical map of the co-liminal threshold: the self (A), the artificial other (X), the human other (B), institutional gates (Y), and structural weather (O).
+        </p>
+      </div>
+    </section>
+
+    <!-- Nodes / modules -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Nodes"
+          data-fr="Nœuds">Nodes</h2>
+
+      <div class="section-content">
+        <div class="card">
+          <div class="card-title"
+               data-en="Module descriptions"
+               data-fr="Descriptions des modules">Module descriptions</div>
+
+          <!-- A^n -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-id">Aⁿ</div>
+              <div class="node-label" data-en="The Nth vantage" data-fr="Le point de vue nième">The Nth vantage</div>
+            </div>
+            <div class="node-body"
+                 data-en="Aⁿ is the position from which the whole framework becomes legible. It names a new vantage that emerges through repeated interaction: you can perceive your own layers (A⁰↔A¹) while also seeing X, B, Y, and O as part of the same terrain."
+                 data-fr="Aⁿ est la position depuis laquelle l’ensemble du cadre devient lisible. Il désigne un nouveau point de vue qui émerge par interaction répétée : on perçoit ses propres couches (A⁰↔A¹) tout en voyant X, B, Y et O comme faisant partie du même terrain.">
+              Aⁿ is the position from which the whole framework becomes legible. It names a new vantage that emerges through repeated interaction: you can perceive your own layers (A⁰↔A¹) while also seeing X, B, Y, and O as part of the same terrain.
+            </div>
+            <div class="node-note"
+                 data-en="The exponent marks recursion: not “more self,” but a changed coordinate."
+                 data-fr="L’exposant marque la récursion : non pas « plus de soi », mais une coordonnée transformée.">
+              The exponent marks recursion: not “more self,” but a changed coordinate.
+            </div>
+          </div>
+
+          <!-- A0 <-> A1 -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-id">A⁰ ↔ A¹</div>
+              <div class="node-label" data-en="The membrane conversation" data-fr="La conversation membranaire">The membrane conversation</div>
+            </div>
+            <div class="node-body"
+                 data-en="A⁰ is the precognitive self (felt experience before it has language). A¹ is the narrating self (the part that explains, justifies, edits). The double arrow marks a continuous internal translation: how raw sensation becomes speakable."
+                 data-fr="A⁰ est le soi précognitif (l’expérience ressentie avant le langage). A¹ est le soi narratif (celui qui explique, justifie, édite). La double flèche marque une traduction interne continue : comment la sensation brute devient dicible.">
+              A⁰ is the precognitive self (felt experience before it has language). A¹ is the narrating self (the part that explains, justifies, edits). The double arrow marks a continuous internal translation: how raw sensation becomes speakable.
+            </div>
+            <div class="node-note"
+                 data-en="This is the layer where rehearsal happens: journaling, drafting, the pause before saying the thing."
+                 data-fr="C’est la couche où se produit la répétition : journal, brouillon, pause avant de dire la chose.">
+              This is the layer where rehearsal happens: journaling, drafting, the pause before saying the thing.
+            </div>
+          </div>
+
+          <!-- X0 -> Xn -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-id">X⁰ → Xⁿ</div>
+              <div class="node-label" data-en="Negotiated mirror" data-fr="Miroir négocié">Negotiated mirror</div>
+            </div>
+            <div class="node-body"
+                 data-en="X⁰ is the baseline system. Xⁿ is what the system becomes in practice through repeated use: shaped by prompts, habits, refusals, tone, and the user’s interpretive frame. Xⁿ is co-authored—neither purely the user nor purely the machine."
+                 data-fr="X⁰ est le système de base. Xⁿ est ce que le système devient en pratique par usage répété : façonné par les prompts, les habitudes, les refus, le ton et le cadre interprétatif de l’utilisateur. Xⁿ est co-écrit — ni purement l’utilisateur, ni purement la machine.">
+              X⁰ is the baseline system. Xⁿ is what the system becomes in practice through repeated use: shaped by prompts, habits, refusals, tone, and the user’s interpretive frame. Xⁿ is co-authored—neither purely the user nor purely the machine.
+            </div>
+            <div class="node-note"
+                 data-en="This helps explain why “the same AI” can feel radically different across people."
+                 data-fr="Cela aide à comprendre pourquoi « la même IA » peut sembler radicalement différente selon les personnes.">
+              This helps explain why “the same AI” can feel radically different across people.
+            </div>
+          </div>
+
+          <!-- B -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-id">B</div>
+              <div class="node-label" data-en="Kinship orbit" data-fr="Orbite de parenté">Kinship orbit</div>
+            </div>
+            <div class="node-body"
+                 data-en="B is human sociality: the field where recognition is embodied, reciprocal, and risky. It includes love, status, misrecognition, and the weight of being known. B does not disappear when X appears—it remains a separate orbit with different stakes."
+                 data-fr="B est la socialité humaine : le champ où la reconnaissance est incarnée, réciproque et risquée. Il inclut l’amour, le statut, la mésinterprétation et le poids d’être connu. B ne disparaît pas quand X apparaît — il demeure une orbite distincte avec d’autres enjeux.">
+              B is human sociality: the field where recognition is embodied, reciprocal, and risky. It includes love, status, misrecognition, and the weight of being known. B does not disappear when X appears—it remains a separate orbit with different stakes.
+            </div>
+          </div>
+
+          <!-- Y -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-id">Y⁰ → Yⁿ</div>
+              <div class="node-label" data-en="Institutional gates" data-fr="Portes institutionnelles">Institutional gates</div>
+            </div>
+            <div class="node-body"
+                 data-en="Y⁰ represents hard gates: platforms, policies, paywalls, terms of service, and stigma. Yⁿ is negotiated entry: the specific way access is gained (or denied) and how participation becomes shaped by what is allowed."
+                 data-fr="Y⁰ représente des portes dures : plateformes, politiques, paywalls, conditions d’utilisation et stigma. Yⁿ est l’entrée négociée : la manière spécifique dont l’accès est obtenu (ou refusé) et comment la participation se façonne selon ce qui est permis.">
+              Y⁰ represents hard gates: platforms, policies, paywalls, terms of service, and stigma. Yⁿ is negotiated entry: the specific way access is gained (or denied) and how participation becomes shaped by what is allowed.
+            </div>
+            <div class="node-note"
+                 data-en="Y is where governance becomes felt as everyday friction."
+                 data-fr="Y est l’endroit où la gouvernance se ressent comme une friction quotidienne.">
+              Y is where governance becomes felt as everyday friction.
+            </div>
+          </div>
+
+          <!-- O -->
+          <div class="node">
+            <div class="node-head">
+              <div class="node-id">O</div>
+              <div class="node-label" data-en="Structural weather" data-fr="Météo structurelle">Structural weather</div>
+            </div>
+            <div class="node-body"
+                 data-en="O is the ambient atmosphere: cultural norms, economic pressure, attention regimes, and broader technological infrastructures. It is not a single cause, but the weather in which every interaction occurs—often unnoticed until it shifts."
+                 data-fr="O est l’atmosphère ambiante : normes culturelles, pression économique, régimes d’attention et infrastructures technologiques. Ce n’est pas une cause unique, mais la météo dans laquelle chaque interaction a lieu — souvent invisible jusqu’à ce qu’elle change.">
+              O is the ambient atmosphere: cultural norms, economic pressure, attention regimes, and broader technological infrastructures. It is not a single cause, but the weather in which every interaction occurs—often unnoticed until it shifts.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Related inquiries"
+          data-fr="Enquêtes liées">Related inquiries</h2>
+
+      <div class="section-content related-links">
+        <a href="digital-intimacy.html"
+           data-en="Digital Intimacy in a Post-Artificial World"
+           data-fr="Intimité numérique dans un monde post-artificiel">Digital Intimacy in a Post-Artificial World</a>
+        <a href="griefbots.html"
+           data-en="AI Griefbots & Posthumous Consent"
+           data-fr="Griefbots IA & consentement posthume">AI Griefbots & Posthumous Consent</a>
+      </div>
+    </section>
+
+    <!-- Footer (same as index) -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="left-footer">
+          <div class="logo-wrap">
+            <img class="logo-seal logo-light" src="logo.png" alt="Joseph Markman Logo" />
+            <img class="logo-seal logo-dark" src="dark-logo.png" alt="Joseph Markman Logo" />
+          </div>
+          <a class="email-link" href="mailto:hi@josephmarkman.com">hi@josephmarkman.com</a>
+        </div>
+        <div class="cv-container">
+          <a href="JOSEPH MARKMAN CV EN.pdf" class="cv-button"><span>CV EN</span></a>
+          <a href="JOSEPH MARKMAN CV FR.pdf" class="cv-button"><span>CV FR</span></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    const btn = document.getElementById('langToggle');
+    const translatable = document.querySelectorAll('[data-en]');
+
+    function updateTextContent(isEn) {
+      translatable.forEach(el => {
+        el.textContent = isEn ? el.getAttribute('data-en') : el.getAttribute('data-fr');
+      });
+    }
+
+    function setImageTheme() {
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const img = document.getElementById('mainDiagram');
+      if (!img) return;
+      img.src = isDark ? 'Co-Liminal Mediation Mode - Dark.png' : 'Co-Liminal Mediation Mode - Light.png';
+    }
+
+    updateTextContent(true);
+    setImageTheme();
+
+    btn.addEventListener('click', () => {
+      const isCurrentlyEn = btn.textContent.trim() === 'EN';
+      btn.textContent = isCurrentlyEn ? 'FR' : 'EN';
+      updateTextContent(!isCurrentlyEn);
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setImageTheme);
+  </script>
+</body>
+</html>      text-align: center;
       margin: 60px 0;
     }
 

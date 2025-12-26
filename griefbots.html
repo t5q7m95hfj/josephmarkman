@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Griefbots & Posthumous Consent | Joseph Markman</title>
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css" />
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root{
+      --black:#000; --white:#fff; --line:#e0e0e0;
+      --text-muted:#888; --brand-teal:#00a8a8;
+      --bg-color:var(--white); --font-color:var(--black);
+      --card-bg:#fafafa;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --black:#f2f2f2; --white:#121212; --line:#333;
+        --text-muted:#999; --brand-teal:#00d1d1;
+        --bg-color:var(--white); --font-color:var(--black);
+        --card-bg:#1a1a1a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+      background:var(--bg-color); color:var(--font-color);
+      line-height:1.45; -webkit-font-smoothing:antialiased;
+      padding:0 20px; -webkit-tap-highlight-color:transparent;
+    }
+    .page{max-width:1400px;margin:0 auto}
+    @media (min-width:1024px){ body{padding:0 40px} }
+
+    /* Header matches your system */
+    .presence{
+      padding:60px 0 40px 0;
+      display:flex; justify-content:space-between; align-items:flex-start;
+    }
+    @media (min-width:1024px){ .presence{padding:100px 0 60px 0} }
+    .header-text{flex:1;overflow:hidden;padding-right:25px}
+    .name{
+      font-size:3.2rem;font-weight:700;letter-spacing:-0.04em;
+      line-height:0.85;margin-bottom:15px;
+    }
+    @media (min-width:1024px){
+      .name{font-size:5.5rem;line-height:0.75;margin-bottom:20px}
+    }
+    .subtitle{
+      font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;
+      font-weight:bold;color:var(--brand-teal);white-space:nowrap;
+    }
+    @media (min-width:1024px){ .subtitle{font-size:0.9rem;letter-spacing:0.15em} }
+    .toggle-wrapper{flex-shrink:0}
+    .lang-toggle{
+      background:none;border:1px solid var(--font-color);border-radius:50%;
+      width:60px;height:60px;font-size:10px;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--font-color);transition:all 0.3s ease;
+    }
+    @media (max-width:1023px){ .lang-toggle{width:55px;height:55px;font-size:9px} }
+    @media (hover:hover){
+      .lang-toggle:hover{background:var(--brand-teal);border-color:var(--brand-teal);color:var(--white)}
+    }
+    .lang-toggle:focus{outline:none}
+
+    /* Sections mimic index rhythm */
+    .section{
+      border-top:1px solid var(--line);
+      padding:40px 0;
+      display:flex;flex-direction:column;gap:25px;
+    }
+    @media (min-width:1024px){
+      .section{display:grid;grid-template-columns:280px 1fr;gap:40px;padding:60px 0}
+    }
+    .section-title{
+      font-size:10px;text-transform:uppercase;letter-spacing:0.2em;
+      color:var(--text-muted);font-weight:700;
+    }
+
+    /* Intro spacing under first border */
+    .section.inquiry-page-intro{padding-top:55px}
+
+    /* Back link in LEFT column */
+    .left-rail{
+      display:flex;flex-direction:column;gap:18px;
+      align-items:flex-start;
+    }
+    .back-link{
+      font-size:10px;text-transform:uppercase;letter-spacing:0.16em;
+      font-weight:700;color:var(--brand-teal);text-decoration:none;
+    }
+
+    .hero-wrap{max-width:900px}
+    .kicker{
+      font-size:10px;text-transform:uppercase;letter-spacing:0.2em;
+      color:var(--brand-teal);font-weight:700;margin-bottom:15px;
+    }
+    .title-big{
+      font-size:clamp(2.1rem,5.5vw,3.8rem);
+      font-weight:700;letter-spacing:-0.04em;line-height:1.0;margin-bottom:18px;
+    }
+    .lede{font-size:1.15rem;line-height:1.7;max-width:900px;margin-bottom:14px}
+    .meta-line{font-size:0.95rem;color:var(--text-muted);font-style:italic;margin-top:18px}
+
+    .quote-highlight{
+      border-left:3px solid var(--brand-teal);
+      padding:26px 0 26px 26px;max-width:820px;
+    }
+    .quote-text{
+      font-size:1.35rem;font-weight:600;line-height:1.4;
+      letter-spacing:-0.02em;margin-bottom:10px;
+    }
+    .quote-source{font-size:0.9rem;color:var(--text-muted);font-style:italic}
+
+    .card{
+      border:1px solid var(--line);border-radius:14px;
+      padding:22px;background:var(--card-bg);max-width:950px;
+    }
+    .card-title{
+      font-size:10px;text-transform:uppercase;letter-spacing:0.2em;
+      color:var(--text-muted);margin-bottom:16px;font-weight:700;
+    }
+    details{border-top:1px solid var(--line);padding:14px 0}
+    details:first-of-type{border-top:none;padding-top:0}
+    summary{
+      cursor:pointer;list-style:none;font-weight:700;font-size:1.05rem;
+      display:flex;justify-content:space-between;gap:18px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .summary-hint{font-size:0.85rem;color:var(--text-muted);font-weight:600}
+    .details-body{margin-top:10px;font-size:1.05rem;line-height:1.7;color:var(--font-color)}
+
+    .subgrid{
+      display:grid;grid-template-columns:1fr;gap:14px;max-width:950px;
+    }
+    @media (min-width:768px){ .subgrid{grid-template-columns:repeat(2,1fr);gap:18px} }
+    .mini-card{
+      border:1px solid var(--line);border-radius:12px;
+      padding:18px;background:var(--card-bg);
+    }
+    .mini-title{
+      font-size:10px;text-transform:uppercase;letter-spacing:0.15em;
+      color:var(--text-muted);margin-bottom:10px;font-weight:700;
+    }
+    .mini-text{font-size:1rem;line-height:1.6;color:var(--font-color)}
+
+    .related a{
+      color:var(--brand-teal);font-weight:700;display:block;margin-bottom:8px;text-decoration:none;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="presence">
+      <div class="header-text">
+        <h1 class="name">Joseph Markman</h1>
+        <p class="subtitle"
+           data-en="Applied Digital Anthropologist"
+           data-fr="Anthropologue numérique appliqué">Applied Digital Anthropologist</p>
+      </div>
+      <div class="toggle-wrapper">
+        <button class="lang-toggle" type="button" id="langToggle">EN</button>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="section inquiry-page-intro">
+      <div class="left-rail">
+        <a class="back-link" href="index.html"
+           data-en="← Back to home"
+           data-fr="← Retour à l’accueil">← Back to home</a>
+      </div>
+
+      <div class="section-content hero-wrap">
+        <div class="kicker"
+             data-en="02 / Examination"
+             data-fr="02 / Examen">02 / Examination</div>
+
+        <h1 class="title-big"
+            data-en="AI Griefbots & Posthumous Consent"
+            data-fr="Griefbots IA & consentement posthume">AI Griefbots & Posthumous Consent</h1>
+
+        <p class="lede"
+           data-en="Auditing ethical failures in posthumous data use and advocating for consent sovereignty models that preserve human dignity across life, death, and digital afterlives."
+           data-fr="Audit des failles éthiques dans l’usage des données posthumes et plaidoyer pour des modèles de souveraineté du consentement, afin de préserver la dignité humaine à travers la vie, la mort et les afterlives numériques.">
+          Auditing ethical failures in posthumous data use and advocating for consent sovereignty models that preserve human dignity across life, death, and digital afterlives.
+        </p>
+
+        <p class="meta-line"
+           data-en="Author & Lead Researcher — Ethics & Governance Audit (2024)"
+           data-fr="Auteur et chercheur principal — Audit d’éthique et de gouvernance (2024)">
+          Author & Lead Researcher — Ethics & Governance Audit (2024)
+        </p>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="A field note"
+          data-fr="Note de terrain">A field note</h2>
+
+      <div class="section-content">
+        <div class="quote-highlight">
+          <p class="quote-text"
+             data-en="“Death isn’t a tech problem to solve. It’s a reminder to be human.”"
+             data-fr="« La mort n’est pas un problème technologique à résoudre. C’est un rappel : être humain. »">
+            “Death isn’t a tech problem to solve. It’s a reminder to be human.”
+          </p>
+          <p class="quote-source"
+             data-en="— Reddit user, r/GriefSupport"
+             data-fr="— Utilisateur Reddit, r/GriefSupport">
+            — Reddit user, r/GriefSupport
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exhibit -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Exhibit"
+          data-fr="Exposition">Exhibit</h2>
+
+      <div class="section-content">
+        <div class="card">
+          <div class="card-title"
+               data-en="Three findings"
+               data-fr="Trois constats">Three findings</div>
+
+          <details open>
+            <summary>
+              <span data-en="1) Consent ambiguities" data-fr="1) Ambiguïtés du consentement">1) Consent ambiguities</span>
+              <span class="summary-hint" data-en="explicit say" data-fr="droit de regard">explicit say</span>
+            </summary>
+            <div class="details-body"
+                 data-en="Across communities, consent is treated as something to have an explicit say in. Many users raise concerns about the extrapolation of personal data for the purpose of assuaging emotional needs of the left-behind loved one."
+                 data-fr="Dans de nombreux espaces, le consentement est compris comme quelque chose sur lequel on doit pouvoir avoir un droit de regard explicite. Beaucoup expriment des inquiétudes face à l’extrapolation de données personnelles au service des besoins émotionnels des proches restés vivants.">
+              Across communities, consent is treated as something to have an explicit say in. Many users raise concerns about the extrapolation of personal data for the purpose of assuaging emotional needs of the left-behind loved one.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span data-en="2) Emotional volatility" data-fr="2) Volatilité émotionnelle">2) Emotional volatility</span>
+              <span class="summary-hint" data-en="uncanny, depersonalizing" data-fr="étrange, dépersonnalisant">uncanny, depersonalizing</span>
+            </summary>
+            <div class="details-body"
+                 data-en="Griefbots can feign continuity, but many internauts describe the uncanniness of interaction: some are left unconvinced, while others find it completely depersonalizing. This raises a question: is online data truly enough to humanize a loved one who has passed away?"
+                 data-fr="Les griefbots peuvent feindre une continuité, mais de nombreux internautes décrivent l’étrangeté de l’interaction : certains restent non convaincus, d’autres la trouvent profondément dépersonnalisante. Cela pose une question : les données en ligne suffisent-elles vraiment à « humaniser » un proche disparu ?">
+              Griefbots can feign continuity, but many internauts describe the uncanniness of interaction: some are left unconvinced, while others find it completely depersonalizing. This raises a question: is online data truly enough to humanize a loved one who has passed away?
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span data-en="3) Socio-cultural mismatch" data-fr="3) Décalage socioculturel">3) Socio-cultural mismatch</span>
+              <span class="summary-hint" data-en="borders, rituals" data-fr="frontières, rituels">borders, rituals</span>
+            </summary>
+            <div class="details-body"
+                 data-en="It would be a mistake to assume that grieving takes the same shape across borders. Are tech companies truly prepared for the depth of cultural immersion required to protect local practices of mourning?"
+                 data-fr="Ce serait une erreur de supposer que les pratiques de deuil se ressemblent d’un contexte à l’autre. Les entreprises tech sont-elles réellement prêtes à l’immersion culturelle nécessaire pour protéger les pratiques locales de deuil ?">
+              It would be a mistake to assume that grieving takes the same shape across borders. Are tech companies truly prepared for the depth of cultural immersion required to protect local practices of mourning?
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design directions -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Design directions"
+          data-fr="Pistes de design">Design directions</h2>
+
+      <div class="section-content">
+        <div class="subgrid">
+          <div class="mini-card">
+            <div class="mini-title" data-en="Consent sovereignty" data-fr="Souveraineté du consentement">Consent sovereignty</div>
+            <div class="mini-text"
+                 data-en="Require explicit lifetime consent for posthumous AI use. Make “no” legible, durable, and easy to enact. Enable practitioners and kinship to access datasets without funneling them into obscure pipelines."
+                 data-fr="Exiger un consentement explicite de son vivant pour tout usage posthume par l’IA. Rendre le « non » lisible, durable et simple à acter. Permettre aux praticiens et aux proches d’accéder aux jeux de données sans les faire passer par des pipelines opaques.">
+              Require explicit lifetime consent for posthumous AI use. Make “no” legible, durable, and easy to enact. Enable practitioners and kinship to access datasets without funneling them into obscure pipelines.
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title" data-en="Harm-aware interaction" data-fr="Interaction consciente du risque">Harm-aware interaction</div>
+            <div class="mini-text"
+                 data-en="Build awareness for the multiplicity of grief, with explicit attention to structural limitations and lagging governance. No single tool can replace a loved one, nor should it uniquely attempt to."
+                 data-fr="Concevoir avec attention à la multiplicité des formes du deuil, en gardant en tête les limites structurelles et le retard des politiques et de la gouvernance. Aucun outil ne remplacera un proche — et aucun ne devrait tenter de le faire, à lui seul.">
+              Build awareness for the multiplicity of grief, with explicit attention to structural limitations and lagging governance. No single tool can replace a loved one, nor should it uniquely attempt to.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Related inquiries"
+          data-fr="Enquêtes liées">Related inquiries</h2>
+
+      <div class="section-content related">
+        <a href="digital-intimacy.html"
+           data-en="01 / Digital Intimacy"
+           data-fr="01 / Intimité numérique">01 / Digital Intimacy</a>
+        <a href="framework.html"
+           data-en="03 / Co-Liminal Mediation Model"
+           data-fr="03 / Modèle de médiation co-liminale">03 / Co-Liminal Mediation Model</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const btn = document.getElementById('langToggle');
+    const translatable = document.querySelectorAll('[data-en]');
+
+    function updateTextContent(isEn) {
+      translatable.forEach(el => {
+        el.textContent = isEn ? el.getAttribute('data-en') : el.getAttribute('data-fr');
+      });
+    }
+
+    updateTextContent(true);
+
+    btn.addEventListener('click', () => {
+      const isCurrentlyEn = btn.textContent.trim() === 'EN';
+      btn.textContent = isCurrentlyEn ? 'FR' : 'EN';
+      updateTextContent(!isCurrentlyEn);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Intimacy in a Post-Artificial World | Joseph Markman</title>
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css" />
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    .inquiry-page-intro { padding-top: 10px; }
+    .back-row { margin-top: -10px; }
+    .back-link {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: var(--brand-teal);
+    }
+
+    .inquiry-hero { max-width: 900px; }
+    .inquiry-kicker {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--brand-teal); /* <-- changed from var(--text-muted) */
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .inquiry-title-big {
+      font-size: clamp(2.1rem, 5.5vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 18px;
+    }
+    .inquiry-lede {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 850px;
+      margin-bottom: 14px;
+    }
+    .inquiry-meta-line {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--bg-color);
+      max-width: 950px;
+    }
+    .card-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    details { border-top: 1px solid var(--line); padding: 14px 0; }
+    details:first-of-type { border-top: none; padding-top: 0; }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .summary-hint { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+    .details-body { margin-top: 10px; font-size: 1.05rem; line-height: 1.7; }
+
+    .note-block {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      max-width: 950px;
+    }
+    .note-body p {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .note-body p:last-child { margin-bottom: 0; }
+
+    .related-links a {
+      color: var(--brand-teal);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .conf-link {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .section.inquiry-page-intro {
+      padding-top: 55px;
+    }
+    .section.inquiry-page-intro .back-row {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="presence">
+      <div class="header-text">
+        <h1 class="name">Joseph Markman</h1>
+        <p class="subtitle"
+           data-en="Applied Digital Anthropologist"
+           data-fr="Anthropologue numérique appliqué">
+          Applied Digital Anthropologist
+        </p>
+      </div>
+      <div class="toggle-wrapper">
+        <button class="lang-toggle" type="button" id="langToggle">EN</button>
+      </div>
+    </header>
+
+    <section class="section inquiry-page-intro">
+      <div class="back-row">
+        <a class="back-link" href="index.html"
+           data-en="← Back to home"
+           data-fr="← Retour à l’accueil">← Back to home</a>
+      </div>
+
+      <div class="section-content inquiry-hero">
+        <div class="inquiry-kicker"
+             data-en="01 / Discourse"
+             data-fr="01 / Discours">01 / Discourse</div>
+
+        <h2 class="inquiry-title-big"
+            data-en="Digital Intimacy in a Post-Artificial World"
+            data-fr="Intimité numérique dans un monde post-artificiel">
+          Digital Intimacy in a Post-Artificial World
+        </h2>
+
+        <p class="inquiry-lede"
+           data-en="This talk asks a daunting question: what if humans are no longer required for a person to experience intimacy deeply?"
+           data-fr="Cette intervention pose une question dérangeante : et si la présence humaine n’était plus nécessaire pour qu’une personne fasse l’expérience d’une intimité profonde ?">
+          This talk asks a daunting question: what if humans are no longer required for a person to experience intimacy deeply?
+        </p>
+
+        <p class="inquiry-lede"
+           data-en="In a post-artificial age, how do we make sense of new technological implements and constraints while still deriving somatic notions that are intrinsically human—love, grief, connection?"
+           data-fr="À l’ère du post-artificiel, comment donner sens aux nouveaux dispositifs et contraintes technologiques tout en continuant à éprouver des notions somatiques intrinsèquement humaines — l’amour, le deuil, la connexion ?">
+          In a post-artificial age, how do we make sense of new technological implements and constraints while still deriving somatic notions that are intrinsically human—love, grief, connection?
+        </p>
+
+        <p class="inquiry-lede"
+           data-en="As advances in AI intersect with shifting social paradigms and highly individualized practices, this work attempts to bridge theory and practice—between use and reaction."
+           data-fr="À mesure que les avancées en IA rencontrent des paradigmes sociaux en mutation et des pratiques de plus en plus individualisées, ce travail cherche à faire le lien entre théorie et pratique — entre usage et réaction.">
+          As advances in AI intersect with shifting social paradigms and highly individualized practices, this work attempts to bridge theory and practice—between use and reaction.
+        </p>
+
+        <p class="inquiry-meta-line">
+          <span data-en="Invited talk — " data-fr="Conférence invitée — ">Invited talk — </span>
+          <em>Why the World Needs Anthropologists?</em>
+          <span data-en=", October 2025, Bologna, Italy — " data-fr=", octobre 2025, Bologne, Italie — ">, October 2025, Bologna, Italy — </span>
+          <a class="conf-link"
+             href="https://applied-anthropology.com/wwna2025-program"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-en="conference program"
+             data-fr="programme du colloque">conference program</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Exhibit"
+          data-fr="Exposition">Exhibit</h2>
+
+      <div class="section-content">
+        <div class="card">
+          <div class="card-title"
+               data-en="Three lenses"
+               data-fr="Trois prismes">Three lenses</div>
+
+          <details open>
+            <summary>
+              <span data-en="1) Why it feels safer" data-fr="1) Pourquoi cela paraît plus sûr">1) Why it feels safer</span>
+              <span class="summary-hint" data-en="performance, exposure" data-fr="performance, exposition">performance, exposure</span>
+            </summary>
+            <div class="details-body"
+                 data-en="Conversations between humans are never only about words—they are also performances of self. AI-mediated interaction can lower the barrier of entry, allowing people to approach difficult conversations with less fear of exposure or misrecognition."
+                 data-fr="Les conversations humaines ne portent jamais uniquement sur des mots : elles impliquent aussi une mise en scène de soi. L’interaction médiatisée par l’IA peut abaisser le seuil d’entrée et permettre d’aborder des échanges difficiles avec moins de crainte d’exposition ou de mésinterprétation.">
+              Conversations between humans are never only about words—they are also performances of self. AI-mediated interaction can lower the barrier of entry, allowing people to approach difficult conversations with less fear of exposure or misrecognition.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span data-en="2) What changes in the self" data-fr="2) Ce qui change dans le rapport à soi">2) What changes in the self</span>
+              <span class="summary-hint" data-en="mirroring, judgment" data-fr="miroir, jugement">mirroring, judgment</span>
+            </summary>
+            <div class="details-body"
+                 data-en="AI can mirror us without feeling judgmental. This neutrality is often harder to find in conversations with parents, partners, friends, or even therapists—who are themselves embedded in emotional, institutional, and relational systems that add weight or risk to an interaction."
+                 data-fr="L’IA peut nous renvoyer une image sans paraître jugeante. Cette neutralité est souvent plus difficile à trouver dans les échanges avec des parents, des partenaires, des proches, ou même des thérapeutes — eux-mêmes inscrits dans des systèmes émotionnels, institutionnels et relationnels qui alourdissent ou risquent l’interaction.">
+              AI can mirror us without feeling judgmental. This neutrality is often harder to find in conversations with parents, partners, friends, or even therapists—who are themselves embedded in emotional, institutional, and relational systems that add weight or risk to an interaction.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span data-en="3) The social conditions underneath" data-fr="3) Les conditions sociales sous-jacentes">3) The social conditions underneath</span>
+              <span class="summary-hint" data-en="structures, attraction" data-fr="structures, attraction">structures, attraction</span>
+            </summary>
+            <div class="details-body"
+                 data-en="Rather than centering the technology itself, this talk focuses on the human in front of the screen. Societal, political, technological, and economic frameworks are not excluded—but treated as secondary to understanding what draws people toward AI-mediated intimacy."
+                 data-fr="Plutôt que de placer la technologie au centre, cette intervention se concentre sur l’humain face à l’écran. Les cadres sociétaux, politiques, technologiques et économiques ne sont pas exclus — mais considérés comme secondaires pour comprendre ce qui attire les individus vers l’intimité médiatisée par l’IA.">
+              Rather than centering the technology itself, this talk focuses on the human in front of the screen. Societal, political, technological, and economic frameworks are not excluded—but treated as secondary to understanding what draws people toward AI-mediated intimacy.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"
+          data-en="A short note"
+          data-fr="Une note courte">A short note</h2>
+
+      <div class="section-content">
+        <div class="note-block">
+          <div class="note-body">
+            <p data-en="Digital intimacy can be understood as a contemporary extension of a longstanding human practice: turning to humans and non-humans for validation and reassurance."
+               data-fr="L’intimité numérique peut être comprise comme une extension contemporaine d’une pratique humaine ancienne : se tourner vers des humains et des non-humains pour obtenir validation et réassurance.">
+              Digital intimacy can be understood as a contemporary extension of a longstanding human practice: turning to humans and non-humans for validation and reassurance.
+            </p>
+
+            <p data-en="Rather than anthropomorphizing these systems, this work approaches AI conversational agents as made of us and for us—products of human language, desire, and structure."
+               data-fr="Plutôt que d’anthropomorphiser ces systèmes, ce travail aborde les agents conversationnels d’IA comme faits de nous et pour nous — des produits du langage, du désir et des structures humaines.">
+              Rather than anthropomorphizing these systems, this work approaches AI conversational agents as made of us and for us—products of human language, desire, and structure.
+            </p>
+
+            <p data-en="Some people experience comfort, relief, joy, or emotional clarity through interaction with AI. What conditions make such experiences possible? This question forms the basis of my research."
+               data-fr="Certaines personnes éprouvent du réconfort, du soulagement, de la joie ou une clarté émotionnelle à travers l’interaction avec l’IA. Quelles conditions rendent ces expériences possibles ? Cette question constitue le socle de ma recherche.">
+              Some people experience comfort, relief, joy, or emotional clarity through interaction with AI. What conditions make such experiences possible? This question forms the basis of my research.
+            </p>
+
+            <p data-en="Romantic partnerships with chatbots, griefbots, and practices of digital continuity create unprecedented techno-mediated spaces in which people attempt to make sense of themselves and the world around them."
+               data-fr="Les partenariats romantiques avec des chatbots, les griefbots et les pratiques de continuité numérique créent des espaces techno-médiés inédits dans lesquels les individus cherchent à donner sens à eux-mêmes et au monde qui les entoure.">
+              Romantic partnerships with chatbots, griefbots, and practices of digital continuity create unprecedented techno-mediated spaces in which people attempt to make sense of themselves and the world around them.
+            </p>
+
+            <p data-en="I describe this moment as post-artificial: an era in which AI is no longer speculative or exceptional, but embedded in everyday life—bringing both possibility and consequence into ordinary human experience."
+               data-fr="Je décris ce moment comme post-artificiel : une ère où l’IA n’est plus spéculative ni exceptionnelle, mais intégrée au quotidien — introduisant à la fois des possibles et des conséquences dans l’expérience humaine ordinaire.">
+              I describe this moment as post-artificial: an era in which AI is no longer speculative or exceptional, but embedded in everyday life—bringing both possibility and consequence into ordinary human experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Related inquiries"
+          data-fr="Enquêtes liées">Related inquiries</h2>
+
+      <div class="section-content related-links">
+        <a href="griefbots.html"
+           data-en="AI Griefbots & Posthumous Consent"
+           data-fr="Griefbots IA & consentement posthume">AI Griefbots & Posthumous Consent</a>
+        <a href="framework.html"
+           data-en="Co-Liminal Mediation Model"
+           data-fr="Modèle de médiation co-liminale">Co-Liminal Mediation Model</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="left-footer">
+          <div class="logo-wrap">
+            <img class="logo-seal logo-light" src="logo.png" alt="Joseph Markman Logo" />
+            <img class="logo-seal logo-dark" src="dark-logo.png" alt="Joseph Markman Logo" />
+          </div>
+          <a class="email-link" href="mailto:hi@josephmarkman.com">hi@josephmarkman.com</a>
+        </div>
+        <div class="cv-container">
+          <a href="JOSEPH MARKMAN CV EN.pdf" class="cv-button"><span>CV EN</span></a>
+          <a href="JOSEPH MARKMAN CV FR.pdf" class="cv-button"><span>CV FR</span></a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    const btn = document.getElementById('langToggle');
+    const translatable = document.querySelectorAll('[data-en]');
+
+    function updateTextContent(isEn) {
+      translatable.forEach(el => {
+        el.textContent = isEn ? el.getAttribute('data-en') : el.getAttribute('data-fr');
+      });
+    }
+
+    updateTextContent(true);
+
+    btn.addEventListener('click', () => {
+      const isCurrentlyEn = btn.textContent.trim() === 'EN';
+      btn.textContent = isCurrentlyEn ? 'FR' : 'EN';
+      updateTextContent(!isCurrentlyEn);
+    });
+  </script>
+</body>
+</html>

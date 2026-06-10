@@ -152,6 +152,106 @@
     .related a{
       color:var(--brand-teal);font-weight:700;display:block;margin-bottom:8px;text-decoration:none;
     }
+
+    /* ── Persona cards ── */
+    .persona-grid{
+      display:grid;grid-template-columns:1fr;gap:16px;max-width:950px;
+    }
+    @media (min-width:768px){
+      .persona-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    .persona-card{
+      border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    }
+    .persona-header{
+      background:var(--font-color);color:var(--bg-color);
+      padding:18px 20px 16px;
+    }
+    .persona-num-label{
+      font-size:9px;text-transform:uppercase;letter-spacing:0.2em;
+      color:var(--brand-teal);font-weight:700;display:block;margin-bottom:8px;
+    }
+    .persona-name-large{
+      font-size:1.5rem;font-weight:700;letter-spacing:-0.04em;
+      line-height:1.0;margin-bottom:5px;
+    }
+    .persona-arch{
+      font-size:9px;text-transform:uppercase;letter-spacing:0.15em;
+      opacity:0.5;font-weight:700;
+    }
+    .persona-body{
+      padding:16px 18px;background:var(--card-bg);
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .persona-section-label{
+      font-size:9px;text-transform:uppercase;letter-spacing:0.2em;
+      color:var(--text-muted);font-weight:700;margin-top:4px;
+    }
+    .persona-profile-text{font-size:0.9rem;line-height:1.6;color:var(--font-color)}
+    .tag-cluster{display:flex;flex-wrap:wrap;gap:5px}
+    .ptag{
+      font-size:10px;border-radius:4px;padding:3px 8px;
+      line-height:1.4;font-weight:500;
+    }
+    .ptag-need{background:rgba(0,168,168,0.12);color:var(--brand-teal)}
+    .ptag-pain{background:rgba(220,38,38,0.1);color:#dc2626}
+    @media (prefers-color-scheme:dark){.ptag-pain{color:#f87171}}
+    .persona-quote{
+      border-left:2px solid var(--brand-teal);
+      padding:8px 0 8px 12px;margin-top:4px;
+    }
+    .persona-quote-text{
+      display:block;font-size:0.9rem;font-style:italic;
+      color:var(--font-color);line-height:1.5;margin-bottom:4px;
+    }
+    .persona-quote-src{font-size:9px;color:var(--text-muted)}
+
+    /* ── Journey map ── */
+    .jmap-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:950px}
+    .jmap{display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));min-width:910px}
+    .jstage{border-right:1px solid var(--line);padding:14px 12px}
+    .jstage:last-child{border-right:none}
+    .jstage-num{
+      font-size:9px;text-transform:uppercase;letter-spacing:0.18em;
+      color:var(--brand-teal);font-weight:700;margin-bottom:5px;
+    }
+    .jstage-name{font-size:0.85rem;font-weight:700;letter-spacing:-0.01em;line-height:1.2}
+    .jrow{border-top:1px solid var(--line);display:contents}
+    .jcell{
+      border-right:1px solid var(--line);padding:12px;
+      font-size:0.8rem;line-height:1.5;color:var(--font-color);
+    }
+    .jcell:last-child{border-right:none}
+    .jrow-label{
+      font-size:8px;text-transform:uppercase;letter-spacing:0.18em;
+      color:var(--text-muted);font-weight:700;margin-bottom:6px;
+    }
+    .emotion-dot{
+      display:inline-block;width:8px;height:8px;border-radius:50%;
+      margin-right:6px;vertical-align:middle;flex-shrink:0;
+    }
+    .emotion-label{font-size:0.78rem;font-weight:600;vertical-align:middle}
+    .jquote{font-style:italic;font-size:0.78rem;color:var(--text-muted);line-height:1.5}
+    .jtag{
+      display:inline-block;font-size:9px;border-radius:3px;
+      padding:2px 6px;margin:2px 2px 0 0;font-weight:500;line-height:1.4;
+    }
+    .jtag-pain{background:rgba(220,38,38,0.1);color:#dc2626}
+    @media (prefers-color-scheme:dark){.jtag-pain{color:#f87171}}
+    .jtag-opp{background:rgba(0,168,168,0.12);color:var(--brand-teal)}
+    .jmap-outer{
+      border:1px solid var(--line);border-radius:14px;
+      overflow:hidden;background:var(--card-bg);
+    }
+    .jmap-header-row{
+      display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));
+      min-width:910px;background:var(--card-bg);
+    }
+    .jmap-body-row{
+      display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));
+      min-width:910px;border-top:1px solid var(--line);
+    }
+    .jmap-row-bg-alt{background:var(--bg-color)}
   </style>
 </head>
 
@@ -300,6 +400,313 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- User Archetypes / Persona Cards -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="User archetypes"
+          data-fr="Archétypes utilisateurs">User archetypes</h2>
+
+      <div class="section-content">
+        <p style="font-size:1rem;line-height:1.7;max-width:900px;margin-bottom:24px;"
+           data-en="Affinity mapping of 500+ NVivo-coded comments across r/AIEthics, r/GriefSupport, and r/DeathPositive surfaced three recurring user types — each navigating griefbot technology through a distinct ethical and emotional lens."
+           data-fr="L'analyse par affinité de plus de 500 commentaires codés sous NVivo sur r/AIEthics, r/GriefSupport et r/DeathPositive a fait émerger trois types d'utilisateurs récurrents — chacun abordant la technologie des griefbots à travers un prisme éthique et émotionnel distinct.">
+          Affinity mapping of 500+ NVivo-coded comments across r/AIEthics, r/GriefSupport, and r/DeathPositive surfaced three recurring user types — each navigating griefbot technology through a distinct ethical and emotional lens.
+        </p>
+
+        <div class="persona-grid">
+
+          <!-- The Skeptic -->
+          <div class="persona-card">
+            <div class="persona-header">
+              <span class="persona-num-label" data-en="Persona 01" data-fr="Persona 01">Persona 01</span>
+              <div class="persona-name-large" data-en="The Skeptic" data-fr="Le Sceptique">The Skeptic</div>
+              <div class="persona-arch" data-en="Rights Advocate" data-fr="Défenseur des droits">Rights Advocate</div>
+            </div>
+            <div class="persona-body">
+              <div class="persona-section-label" data-en="Profile" data-fr="Profil">Profile</div>
+              <p class="persona-profile-text"
+                 data-en="Family member of deceased. Cautious tech adopter who challenges the consent assumptions built into posthumous AI — and warns against corporate data extraction."
+                 data-fr="Membre de la famille du défunt. Adoptant technologique prudent qui remet en question les postulats de consentement intégrés à l'IA posthume, et met en garde contre l'extraction de données par les entreprises.">
+                Family member of deceased. Cautious tech adopter who challenges the consent assumptions built into posthumous AI — and warns against corporate data extraction.
+              </p>
+              <div class="persona-section-label" data-en="Needs" data-fr="Besoins">Needs</div>
+              <div class="tag-cluster">
+                <span class="ptag ptag-need" data-en="Protect deceased's autonomy" data-fr="Autonomie du défunt protégée">Protect deceased's autonomy</span>
+                <span class="ptag ptag-need" data-en="Pre-mortem consent tools" data-fr="Outils de consentement ante-mortem">Pre-mortem consent tools</span>
+                <span class="ptag ptag-need" data-en="Halt data extraction" data-fr="Bloquer l'extraction de données">Halt data extraction</span>
+              </div>
+              <div class="persona-section-label" data-en="Friction" data-fr="Friction">Friction</div>
+              <div class="tag-cluster">
+                <span class="ptag ptag-pain" data-en="GDPR blind spot for the dead" data-fr="Angle mort du RGPD pour les morts">GDPR blind spot for the dead</span>
+                <span class="ptag ptag-pain" data-en="Implicit consent fallacy" data-fr="Sophisme du consentement implicite">Implicit consent fallacy</span>
+              </div>
+              <div class="persona-quote">
+                <span class="persona-quote-text"
+                      data-en=""My dad never agreed to this.""
+                      data-fr="« Mon père n'a jamais consenti à ça. »">"My dad never agreed to this."</span>
+                <span class="persona-quote-src">P12, r/GriefSupport</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Seeker -->
+          <div class="persona-card">
+            <div class="persona-header">
+              <span class="persona-num-label" data-en="Persona 02" data-fr="Persona 02">Persona 02</span>
+              <div class="persona-name-large" data-en="The Seeker" data-fr="Le Chercheur">The Seeker</div>
+              <div class="persona-arch" data-en="Bereaved User" data-fr="Utilisateur endeuillé">Bereaved User</div>
+            </div>
+            <div class="persona-body">
+              <div class="persona-section-label" data-en="Profile" data-fr="Profil">Profile</div>
+              <p class="persona-profile-text"
+                 data-en="Spouse, parent, or child of deceased. Emotionally vulnerable. Initially comforted — but risks deepening dependency and acute harm when the system fails them."
+                 data-fr="Conjoint, parent ou enfant du défunt. Émotionnellement vulnérable. D'abord réconforté — mais exposé au risque d'une dépendance croissante et d'un préjudice aigu si le système le laisse tomber.">
+                Spouse, parent, or child of deceased. Emotionally vulnerable. Initially comforted — but risks deepening dependency and acute harm when the system fails them.
+              </p>
+              <div class="persona-section-label" data-en="Needs" data-fr="Besoins">Needs</div>
+              <div class="tag-cluster">
+                <span class="ptag ptag-need" data-en="Sustained connection" data-fr="Connexion maintenue">Sustained connection</span>
+                <span class="ptag ptag-need" data-en="Closure on own terms" data-fr="Paix intérieure à son rythme">Closure on own terms</span>
+                <span class="ptag ptag-need" data-en="Emotional safeguards" data-fr="Garde-fous émotionnels">Emotional safeguards</span>
+              </div>
+              <div class="persona-section-label" data-en="Friction" data-fr="Friction">Friction</div>
+              <div class="tag-cluster">
+                <span class="ptag ptag-pain" data-en="Hallucinations cause retraumatisation" data-fr="Les hallucinations provoquent un retraumatisme">Hallucinations cause retraumatisation</span>
+                <span class="ptag ptag-pain" data-en="Uncanny valley erodes trust" data-fr="Vallée de l'étrange — rupture de confiance">Uncanny valley erodes trust</span>
+              </div>
+              <div class="persona-quote">
+                <span class="persona-quote-text"
+                      data-en=""Hearing his voice say 'goodnight, kiddo' again… it's like he's still here.""
+                      data-fr="« Entendre sa voix dire 'bonne nuit, mon gamin'… c'est comme s'il était encore là. »">
+                  "Hearing his voice say 'goodnight, kiddo' again… it's like he's still here."
+                </span>
+                <span class="persona-quote-src">P42, r/GriefSupport</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Traditionalist -->
+          <div class="persona-card">
+            <div class="persona-header">
+              <span class="persona-num-label" data-en="Persona 03" data-fr="Persona 03">Persona 03</span>
+              <div class="persona-name-large" data-en="The Traditionalist" data-fr="Le Traditionaliste">The Traditionalist</div>
+              <div class="persona-arch" data-en="Cultural Guardian" data-fr="Gardien culturel">Cultural Guardian</div>
+            </div>
+            <div class="persona-body">
+              <div class="persona-section-label" data-en="Profile" data-fr="Profil">Profile</div>
+              <p class="persona-profile-text"
+                 data-en="Non-Western or religious community member with communal mourning practices. Rejects griefbots as culturally reductive. Advocates for collective, non-commodified memory."
+                 data-fr="Membre d'une communauté non-occidentale ou religieuse aux pratiques de deuil collectives. Rejette les griefbots comme réducteurs sur le plan culturel. Milite pour une mémoire collective, non marchandisée.">
+                Non-Western or religious community member with communal mourning practices. Rejects griefbots as culturally reductive. Advocates for collective, non-commodified memory.
+              </p>
+              <div class="persona-section-label" data-en="Needs" data-fr="Besoins">Needs</div>
+              <div class="tag-cluster">
+                <span class="ptag ptag-need" data-en="Cultural grief rituals preserved" data-fr="Rituels culturels de deuil préservés">Cultural grief rituals preserved</span>
+                <span class="ptag ptag-need" data-en="Communal memory protected" data-fr="Mémoire collective protégée">Communal memory protected</span>
+              </div>
+              <div class="persona-section-label" data-en="Friction" data-fr="Friction">Friction</div>
+              <div class="tag-cluster">
+                <span class="ptag ptag-pain" data-en="Griefbots privatise mourning" data-fr="Les griefbots privatisent le deuil">Griefbots privatise mourning</span>
+                <span class="ptag ptag-pain" data-en="Silicon Valley universalism" data-fr="Universalisme de la Silicon Valley">Silicon Valley universalism</span>
+              </div>
+              <div class="persona-quote">
+                <span class="persona-quote-text"
+                      data-en=""Death binds the community. An AI replica is a selfish fantasy.""
+                      data-fr="« La mort unit la communauté. Une réplique IA n'est qu'un fantasme égoïste. »">
+                  "Death binds the community. An AI replica is a selfish fantasy."
+                </span>
+                <span class="persona-quote-src">P21, r/AIEthics</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /persona-grid -->
+      </div>
+    </section>
+
+    <!-- Journey Map -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="User journey"
+          data-fr="Parcours utilisateur">User journey</h2>
+
+      <div class="section-content">
+        <p style="font-size:1rem;line-height:1.7;max-width:900px;margin-bottom:20px;"
+           data-en="Composite emotional journey reconstructed from 50+ Reddit discussions. Traces the arc from first discovery of griefbot technology through comfort, rupture, and reckoning."
+           data-fr="Parcours émotionnel composite reconstitué à partir de plus de 50 discussions Reddit. Retrace l'arc allant de la première découverte des griefbots jusqu'au réconfort, à la rupture, puis au questionnement.">
+          Composite emotional journey reconstructed from 50+ Reddit discussions. Traces the arc from first discovery of griefbot technology through comfort, rupture, and reckoning.
+        </p>
+
+        <div class="jmap-scroll">
+          <div class="jmap-outer">
+
+            <!-- Stage headers -->
+            <div class="jmap-header-row">
+              <div class="jstage">
+                <div class="jstage-num">01</div>
+                <div class="jstage-name" data-en="Discovery" data-fr="Découverte">Discovery</div>
+              </div>
+              <div class="jstage">
+                <div class="jstage-num">02</div>
+                <div class="jstage-name" data-en="Consideration" data-fr="Réflexion">Consideration</div>
+              </div>
+              <div class="jstage">
+                <div class="jstage-num">03</div>
+                <div class="jstage-name" data-en="First Contact" data-fr="Premier contact">First Contact</div>
+              </div>
+              <div class="jstage">
+                <div class="jstage-num">04</div>
+                <div class="jstage-name" data-en="Comfort Phase" data-fr="Phase de réconfort">Comfort Phase</div>
+              </div>
+              <div class="jstage">
+                <div class="jstage-num">05</div>
+                <div class="jstage-name" data-en="Friction" data-fr="Friction">Friction</div>
+              </div>
+              <div class="jstage">
+                <div class="jstage-num">06</div>
+                <div class="jstage-name" data-en="Betrayal" data-fr="Trahison">Betrayal</div>
+              </div>
+              <div class="jstage">
+                <div class="jstage-num">07</div>
+                <div class="jstage-name" data-en="Reckoning" data-fr="Bilan">Reckoning</div>
+              </div>
+            </div>
+
+            <!-- Emotion row -->
+            <div class="jmap-body-row jmap-row-bg-alt">
+              <div class="jcell">
+                <div class="jrow-label" data-en="Emotional state" data-fr="État émotionnel">Emotional state</div>
+                <span class="emotion-dot" style="background:#9ca3af"></span>
+                <span class="emotion-label" data-en="Curious" data-fr="Curieux">Curious</span>
+              </div>
+              <div class="jcell">
+                <span class="emotion-dot" style="background:#60a5fa"></span>
+                <span class="emotion-label" data-en="Hopeful" data-fr="Plein d'espoir">Hopeful</span>
+              </div>
+              <div class="jcell">
+                <span class="emotion-dot" style="background:#fbbf24"></span>
+                <span class="emotion-label" data-en="Tentative" data-fr="Hésitant">Tentative</span>
+              </div>
+              <div class="jcell">
+                <span class="emotion-dot" style="background:#34d399"></span>
+                <span class="emotion-label" data-en="Comforted ↑ peak" data-fr="Réconforté ↑ pic">Comforted ↑ peak</span>
+              </div>
+              <div class="jcell">
+                <span class="emotion-dot" style="background:#fb923c"></span>
+                <span class="emotion-label" data-en="Unsettled" data-fr="Perturbé">Unsettled</span>
+              </div>
+              <div class="jcell">
+                <span class="emotion-dot" style="background:#f87171"></span>
+                <span class="emotion-label" data-en="Traumatised ↓ nadir" data-fr="Traumatisé ↓ nadir">Traumatised ↓ nadir</span>
+              </div>
+              <div class="jcell">
+                <span class="emotion-dot" style="background:#a78bfa"></span>
+                <span class="emotion-label" data-en="Guarded" data-fr="Sur ses gardes">Guarded</span>
+              </div>
+            </div>
+
+            <!-- Actions row -->
+            <div class="jmap-body-row">
+              <div class="jcell">
+                <div class="jrow-label" data-en="Action" data-fr="Action">Action</div>
+                <span data-en="Reads about griefbots on Reddit / news" data-fr="Lit des articles sur les griefbots Reddit / actualité">Reads about griefbots on Reddit / news</span>
+              </div>
+              <div class="jcell">
+                <span data-en="Explores demos; reads user reviews" data-fr="Explore des démos ; lit des avis d'utilisateurs">Explores demos; reads user reviews</span>
+              </div>
+              <div class="jcell">
+                <span data-en="Uploads memories; trains first session" data-fr="Téléverse des souvenirs ; première session d'entraînement">Uploads memories; trains first session</span>
+              </div>
+              <div class="jcell">
+                <span data-en="Daily ritual check-ins; shares intimate memories" data-fr="Rituels quotidiens ; partage de souvenirs intimes">Daily ritual check-ins; shares intimate memories</span>
+              </div>
+              <div class="jcell">
+                <span data-en="Bot responds incorrectly; user attempts correction" data-fr="Le bot répond mal ; l'utilisateur tente une correction">Bot responds incorrectly; user attempts correction</span>
+              </div>
+              <div class="jcell">
+                <span data-en="Severe hallucination or emotional rupture event" data-fr="Hallucination grave ou événement de rupture émotionnelle">Severe hallucination or emotional rupture event</span>
+              </div>
+              <div class="jcell">
+                <span data-en="Deletes bot; advocates against use; or cautious re-engagement" data-fr="Supprime le bot ; milite contre son usage ; ou réengagement prudent">Deletes bot; advocates; or cautious re-engagement</span>
+              </div>
+            </div>
+
+            <!-- Quotes row -->
+            <div class="jmap-body-row jmap-row-bg-alt">
+              <div class="jcell">
+                <div class="jrow-label" data-en="Verbatim" data-fr="Verbatim">Verbatim</div>
+                <span class="jquote" data-en=""I never thought about this before my wife died."" data-fr="« Je n'y avais jamais pensé avant la mort de ma femme. »">"I never thought about this before my wife died."</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P49</div>
+              </div>
+              <div class="jcell">
+                <span class="jquote" data-en=""It seemed like a way to stay connected."" data-fr="« Ça semblait être une façon de rester connecté. »">"It seemed like a way to stay connected."</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P19</div>
+              </div>
+              <div class="jcell">
+                <span class="jquote" data-en=""I uploaded everything I had."" data-fr="« J'ai tout téléversé ce que j'avais. »">"I uploaded everything I had."</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P18</div>
+              </div>
+              <div class="jcell">
+                <span class="jquote" data-en=""Hearing his voice say 'goodnight, kiddo' again… it's like he's still here."" data-fr="« Entendre sa voix dire 'bonne nuit, mon gamin'… c'est comme s'il était encore là. »">"Hearing his voice say 'goodnight, kiddo'…"</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P42</div>
+              </div>
+              <div class="jcell">
+                <span class="jquote" data-en=""It said things she would never say."" data-fr="« Il disait des choses qu'elle n'aurait jamais dites. »">"It said things she would never say."</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P12</div>
+              </div>
+              <div class="jcell">
+                <span class="jquote" data-en=""The bot gaslit me into thinking she forgave me."" data-fr="« Le bot m'a fait croire à tort qu'elle m'avait pardonné. »">"The bot gaslit me into thinking she forgave me."</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P29</div>
+              </div>
+              <div class="jcell">
+                <span class="jquote" data-en=""My tweets were for shitposting, not to haunt my family as a chatbot."" data-fr="« Mes tweets servaient à déconner, pas à hanter ma famille sous forme de chatbot. »">"My tweets were for shitposting, not to haunt my family as a chatbot."</span>
+                <div style="font-size:9px;color:var(--text-muted);margin-top:4px">P18</div>
+              </div>
+            </div>
+
+            <!-- Pain points row -->
+            <div class="jmap-body-row">
+              <div class="jcell">
+                <div class="jrow-label" data-en="Pain points / Opportunities" data-fr="Points de friction / Opportunités">Pain points / Opportunities</div>
+                <span class="jtag jtag-opp" data-en="Opportunity: awareness" data-fr="Opportunité : sensibilisation">Opportunity: awareness</span>
+              </div>
+              <div class="jcell">
+                <span class="jtag jtag-pain" data-en="No clear consent model" data-fr="Pas de modèle de consentement clair">No clear consent model</span>
+                <span class="jtag jtag-opp" data-en="Digital will frameworks" data-fr="Cadres de testament numérique">Digital will frameworks</span>
+              </div>
+              <div class="jcell">
+                <span class="jtag jtag-pain" data-en="Data over-exposure" data-fr="Surexposition des données">Data over-exposure</span>
+                <span class="jtag jtag-opp" data-en="Granular data controls" data-fr="Contrôles de données granulaires">Granular data controls</span>
+              </div>
+              <div class="jcell">
+                <span class="jtag jtag-opp" data-en="Ritual-aware design" data-fr="Design adapté aux rituels">Ritual-aware design</span>
+                <span class="jtag jtag-opp" data-en="Expiry date settings" data-fr="Paramètres de date d'expiration">Expiry date settings</span>
+              </div>
+              <div class="jcell">
+                <span class="jtag jtag-pain" data-en="No correction pathway" data-fr="Pas de voie de correction">No correction pathway</span>
+                <span class="jtag jtag-pain" data-en="Hallucination no safeguard" data-fr="Hallucinations sans garde-fou">Hallucination no safeguard</span>
+              </div>
+              <div class="jcell">
+                <span class="jtag jtag-pain" data-en="Harm blocklist absent" data-fr="Pas de liste de sujets sensibles">Harm blocklist absent</span>
+                <span class="jtag jtag-opp" data-en="Harm-aware interaction layer" data-fr="Couche d'interaction sensible aux risques">Harm-aware interaction layer</span>
+              </div>
+              <div class="jcell">
+                <span class="jtag jtag-pain" data-en="No formal support pathway" data-fr="Pas de voie de soutien formelle">No formal support pathway</span>
+                <span class="jtag jtag-opp" data-en="CNIL-aligned posthumous dignity" data-fr="Dignité posthume alignée CNIL">CNIL-aligned posthumous dignity</span>
+              </div>
+            </div>
+
+          </div><!-- /jmap-outer -->
+        </div><!-- /jmap-scroll -->
+
+        <p class="meta-line"
+           data-en="Markman, J. (2024) · Affinity mapping · n=500+ NVivo-coded comments · r/AIEthics, r/GriefSupport, r/DeathPositive"
+           data-fr="Markman, J. (2024) · Analyse par affinité · n=500+ commentaires codés NVivo · r/AIEthics, r/GriefSupport, r/DeathPositive">
+          Markman, J. (2024) · Affinity mapping · n=500+ NVivo-coded comments · r/AIEthics, r/GriefSupport, r/DeathPositive
+        </p>
       </div>
     </section>
 

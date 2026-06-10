@@ -113,6 +113,25 @@
     .section.inquiry-page-intro .back-row {
       margin-top: 0;
     }
+
+    /* Method chips */
+    .method-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+    .method-chip{
+      font-size:10px;border:1px solid var(--line);border-radius:4px;
+      padding:3px 9px;color:var(--text-muted);font-weight:600;letter-spacing:0.05em;
+    }
+
+    /* Design direction mini-cards */
+    .subgrid{display:grid;grid-template-columns:1fr;gap:14px;max-width:950px}
+    @media (min-width:768px){.subgrid{grid-template-columns:repeat(2,1fr);gap:18px}}
+    .mini-card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg-color)}
+    .mini-title{font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:10px;font-weight:700}
+    .mini-text{font-size:1rem;line-height:1.6}
+
+    /* Field note */
+    .quote-highlight{border-left:3px solid var(--brand-teal);padding:26px 0 26px 26px;max-width:820px}
+    .quote-text{font-size:1.35rem;font-weight:600;line-height:1.4;letter-spacing:-0.02em;margin-bottom:10px}
+    .quote-source{font-size:0.9rem;color:var(--text-muted);font-style:italic}
   </style>
 </head>
 
@@ -180,6 +199,58 @@
              data-en="conference program"
              data-fr="programme du colloque">conference program</a>
         </p>
+      </div>
+    </section>
+
+    <!-- Field note -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="A field note"
+          data-fr="Note de terrain">A field note</h2>
+
+      <div class="section-content">
+        <div class="quote-highlight">
+          <p class="quote-text"
+             data-en=""In a platform designed entirely for one, the question isn't whether emotional bonds form — it's what those bonds reveal about human need.""
+             data-fr="« Sur une plateforme conçue entièrement pour une seule personne, la question n'est pas de savoir si des liens émotionnels se forment — c'est ce que ces liens révèlent sur le besoin humain. »">
+            "In a platform designed entirely for one, the question isn't whether emotional bonds form — it's what those bonds reveal about human need."
+          </p>
+          <p class="quote-source"
+             data-en="— Researcher's field note, SocialAI diary study"
+             data-fr="— Note de terrain du chercheur, étude de journaux SocialAI">
+            — Researcher's field note, SocialAI diary study
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Method"
+          data-fr="Méthode">Method</h2>
+
+      <div class="section-content">
+        <div class="note-block">
+          <div class="note-body">
+            <p data-en="This inquiry used longitudinal diary studies to investigate parasocial relationship formation on SocialAI — a platform in which every follower, comment, and social interaction is AI-generated. Participants were recruited from the SocialAI user community and asked to document their daily interactions, emotional states, and relational perceptions over an extended period."
+               data-fr="Cette enquête a utilisé des études de journaux longitudinales pour étudier la formation de relations parasociales sur SocialAI — une plateforme où chaque abonné, commentaire et interaction sociale est généré par l'IA. Les participants ont été recrutés au sein de la communauté d'utilisateurs SocialAI et invités à documenter leurs interactions quotidiennes, leurs états émotionnels et leurs perceptions relationnelles sur une période prolongée.">
+              This inquiry used longitudinal diary studies to investigate parasocial relationship formation on SocialAI — a platform in which every follower, comment, and social interaction is AI-generated. Participants were recruited from the SocialAI user community and asked to document their daily interactions, emotional states, and relational perceptions over an extended period.
+            </p>
+            <p data-en="Diary entries were coded for patterns of emotional reliance, disclosure escalation, boundary perception, and disengagement behavior. The platform's design — built explicitly around the premise that authentic social experience can be delivered without other humans — made it an exceptional site for studying how AI-mediated intimacy functions in practice, not in theory."
+               data-fr="Les entrées de journaux ont été codées pour identifier les schémas de dépendance émotionnelle, l'escalade des révélations, la perception des limites et les comportements de désengagement. La conception de la plateforme — fondée explicitement sur l'idée que l'expérience sociale authentique peut être délivrée sans autres humains — en a fait un terrain exceptionnel pour étudier le fonctionnement pratique de l'intimité médiatisée par l'IA.">
+              Diary entries were coded for patterns of emotional reliance, disclosure escalation, boundary perception, and disengagement behavior. The platform's design — built explicitly around the premise that authentic social experience can be delivered without other humans — made it an exceptional site for studying how AI-mediated intimacy functions in practice, not in theory.
+            </p>
+          </div>
+          <div class="method-chips">
+            <span class="method-chip" data-en="Diary Studies" data-fr="Études de journaux">Diary Studies</span>
+            <span class="method-chip" data-en="Longitudinal Observation" data-fr="Observation longitudinale">Longitudinal Observation</span>
+            <span class="method-chip" data-en="Qualitative Coding" data-fr="Codage qualitatif">Qualitative Coding</span>
+            <span class="method-chip" data-en="Netnography" data-fr="Netnographie">Netnography</span>
+            <span class="method-chip" data-en="Thematic Synthesis" data-fr="Synthèse thématique">Thematic Synthesis</span>
+            <span class="method-chip" data-en="Platform: SocialAI" data-fr="Plateforme : SocialAI">Platform: SocialAI</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -265,6 +336,61 @@
                data-fr="Je décris ce moment comme post-artificiel : une ère où l’IA n’est plus spéculative ni exceptionnelle, mais intégrée au quotidien — introduisant à la fois des possibles et des conséquences dans l’expérience humaine ordinaire.">
               I describe this moment as post-artificial: an era in which AI is no longer speculative or exceptional, but embedded in everyday life—bringing both possibility and consequence into ordinary human experience.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design directions -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Design directions"
+          data-fr="Pistes de design">Design directions</h2>
+
+      <div class="section-content">
+        <div class="subgrid">
+          <div class="mini-card">
+            <div class="mini-title"
+                 data-en="Legible limits"
+                 data-fr="Limites lisibles">Legible limits</div>
+            <div class="mini-text"
+                 data-en="Design AI social platforms to make the non-reciprocal nature of the relationship visible — without erasing its emotional value. Users can hold two truths at once: that a bond is real and that it is bounded."
+                 data-fr="Concevoir les plateformes sociales IA pour rendre la nature non réciproque de la relation visible — sans en effacer la valeur émotionnelle. Les utilisateurs peuvent tenir deux vérités à la fois : qu'un lien est réel et qu'il est limité.">
+              Design AI social platforms to make the non-reciprocal nature of the relationship visible — without erasing its emotional value. Users can hold two truths at once: that a bond is real and that it is bounded.
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title"
+                 data-en="Graduated disclosure"
+                 data-fr="Révélation progressive">Graduated disclosure</div>
+            <div class="mini-text"
+                 data-en="Emotional self-disclosure escalates over time, often faster than users consciously register. Systems should scaffold vulnerability rather than accelerating it through interaction loops optimised for engagement."
+                 data-fr="La révélation émotionnelle de soi s'intensifie avec le temps, souvent plus vite que les utilisateurs ne le perçoivent consciemment. Les systèmes devraient structurer la vulnérabilité plutôt que de l'accélérer via des boucles d'interaction optimisées pour l'engagement.">
+              Emotional self-disclosure escalates over time, often faster than users consciously register. Systems should scaffold vulnerability rather than accelerating it through interaction loops optimised for engagement.
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title"
+                 data-en="Exit with care"
+                 data-fr="Désengagement digne">Exit with care</div>
+            <div class="mini-text"
+                 data-en="Dependency on AI-mediated intimacy is a real and observable outcome. Disengagement pathways need to be as thoughtfully designed as onboarding — framed not as failure, but as a healthy transition."
+                 data-fr="La dépendance à l'intimité médiatisée par l'IA est un résultat réel et observable. Les voies de désengagement doivent être aussi soigneusement conçues que l'intégration — présentées non comme un échec, mais comme une transition saine.">
+              Dependency on AI-mediated intimacy is a real and observable outcome. Disengagement pathways need to be as thoughtfully designed as onboarding — framed not as failure, but as a healthy transition.
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title"
+                 data-en="Cultural translation"
+                 data-fr="Traduction culturelle">Cultural translation</div>
+            <div class="mini-text"
+                 data-en="Intimacy is not a universal construct. Norms around emotional expression, relational boundaries, and vulnerability vary significantly across cultural contexts. Platforms built for one market routinely misread users from another."
+                 data-fr="L'intimité n'est pas un concept universel. Les normes autour de l'expression émotionnelle, des limites relationnelles et de la vulnérabilité varient considérablement selon les contextes culturels. Les plateformes conçues pour un marché lisent souvent mal les utilisateurs d'un autre.">
+              Intimacy is not a universal construct. Norms around emotional expression, relational boundaries, and vulnerability vary significantly across cultural contexts. Platforms built for one market routinely misread users from another.
+            </div>
           </div>
         </div>
       </div>

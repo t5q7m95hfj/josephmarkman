@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyperlocal Humor & Community Formation | Joseph Markman</title>
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css" />
+  <script data-goatcounter="https://josephmarkman.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root{
+      --black:#000; --white:#fff; --line:#e0e0e0;
+      --text-muted:#888; --brand-teal:#00a8a8;
+      --bg-color:var(--white); --font-color:var(--black);
+      --card-bg:#fafafa;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --black:#f2f2f2; --white:#121212; --line:#333;
+        --text-muted:#999; --brand-teal:#00d1d1;
+        --bg-color:var(--white); --font-color:var(--black);
+        --card-bg:#1a1a1a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+      background:var(--bg-color); color:var(--font-color);
+      line-height:1.45; -webkit-font-smoothing:antialiased;
+      padding:0 20px; -webkit-tap-highlight-color:transparent;
+    }
+    .page{max-width:1400px;margin:0 auto}
+    @media (min-width:1024px){ body{padding:0 40px} }
+
+    .presence{
+      padding:60px 0 40px 0;
+      display:flex; justify-content:space-between; align-items:flex-start;
+    }
+    @media (min-width:1024px){ .presence{padding:100px 0 60px 0} }
+    .header-text{flex:1;overflow:hidden;padding-right:25px}
+    .name{font-size:3.2rem;font-weight:700;letter-spacing:-0.04em;line-height:0.85;margin-bottom:15px}
+    @media (min-width:1024px){.name{font-size:5.5rem;line-height:0.75;margin-bottom:20px}}
+    .subtitle{font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:bold;color:var(--brand-teal);white-space:nowrap}
+    @media (min-width:1024px){.subtitle{font-size:0.9rem;letter-spacing:0.15em}}
+    .toggle-wrapper{flex-shrink:0}
+    .lang-toggle{
+      background:none;border:1px solid var(--font-color);border-radius:50%;
+      width:60px;height:60px;font-size:10px;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--font-color);transition:all 0.3s ease;
+    }
+    @media (max-width:1023px){.lang-toggle{width:55px;height:55px;font-size:9px}}
+    @media (hover:hover){.lang-toggle:hover{background:var(--brand-teal);border-color:var(--brand-teal);color:var(--white)}}
+    .lang-toggle:focus{outline:none}
+
+    .section{
+      border-top:1px solid var(--line);padding:40px 0;
+      display:flex;flex-direction:column;gap:25px;
+    }
+    @media (min-width:1024px){.section{display:grid;grid-template-columns:280px 1fr;gap:40px;padding:60px 0}}
+    .section-title{font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--text-muted);font-weight:700}
+
+    .section.inquiry-page-intro{padding-top:55px}
+    .left-rail{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+    .back-link{font-size:10px;text-transform:uppercase;letter-spacing:0.16em;font-weight:700;color:var(--brand-teal);text-decoration:none}
+
+    .hero-wrap{max-width:900px}
+    .kicker{font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--brand-teal);font-weight:700;margin-bottom:15px}
+    .title-big{font-size:clamp(2.1rem,5.5vw,3.8rem);font-weight:700;letter-spacing:-0.04em;line-height:1.0;margin-bottom:18px}
+    .lede{font-size:1.15rem;line-height:1.7;max-width:900px;margin-bottom:14px}
+    .meta-line{font-size:0.95rem;color:var(--text-muted);font-style:italic;margin-top:18px}
+
+    .quote-highlight{border-left:3px solid var(--brand-teal);padding:26px 0 26px 26px;max-width:820px}
+    .quote-text{font-size:1.35rem;font-weight:600;line-height:1.4;letter-spacing:-0.02em;margin-bottom:10px}
+    .quote-source{font-size:0.9rem;color:var(--text-muted);font-style:italic}
+
+    .card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card-bg);max-width:950px}
+    .card-title{font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--text-muted);margin-bottom:16px;font-weight:700}
+    details{border-top:1px solid var(--line);padding:14px 0}
+    details:first-of-type{border-top:none;padding-top:0}
+    summary{cursor:pointer;list-style:none;font-weight:700;font-size:1.05rem;display:flex;justify-content:space-between;gap:18px}
+    summary::-webkit-details-marker{display:none}
+    .summary-hint{font-size:0.85rem;color:var(--text-muted);font-weight:600}
+    .details-body{margin-top:10px;font-size:1.05rem;line-height:1.7;color:var(--font-color)}
+
+    .note-block{border:1px solid var(--line);border-radius:14px;padding:22px;max-width:950px}
+    .note-body p{font-size:1.08rem;line-height:1.75;margin-bottom:16px}
+    .note-body p:last-child{margin-bottom:0}
+
+    .method-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+    .method-chip{font-size:10px;border:1px solid var(--line);border-radius:4px;padding:3px 9px;color:var(--text-muted);font-weight:600;letter-spacing:0.05em}
+
+    .subgrid{display:grid;grid-template-columns:1fr;gap:14px;max-width:950px}
+    @media (min-width:768px){.subgrid{grid-template-columns:repeat(2,1fr);gap:18px}}
+    .mini-card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--card-bg)}
+    .mini-title{font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:10px;font-weight:700}
+    .mini-text{font-size:1rem;line-height:1.6;color:var(--font-color)}
+
+    .related a{color:var(--brand-teal);font-weight:700;display:block;margin-bottom:8px;text-decoration:none}
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="presence">
+      <div class="header-text">
+        <h1 class="name">Joseph Markman</h1>
+        <p class="subtitle"
+           data-en="Applied Digital Anthropologist"
+           data-fr="Anthropologue numérique appliqué">Applied Digital Anthropologist</p>
+      </div>
+      <div class="toggle-wrapper">
+        <button class="lang-toggle" type="button" id="langToggle">EN</button>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="section inquiry-page-intro">
+      <div class="left-rail">
+        <a class="back-link" href="index.html"
+           data-en="← Back to home"
+           data-fr="← Retour à l'accueil">← Back to home</a>
+      </div>
+
+      <div class="section-content hero-wrap">
+        <div class="kicker"
+             data-en="04 / Field Study"
+             data-fr="04 / Étude de terrain">04 / Field Study</div>
+
+        <h1 class="title-big"
+            data-en="Hyperlocal Humor & Community Formation"
+            data-fr="Humour hyperlocal & formation de communauté">Hyperlocal Humor & Community Formation</h1>
+
+        <p class="lede"
+           data-en="A mixed-methods study of @memesdelyon — a Lyon-based Instagram account that builds community through shared local references. Combining French-language creator interviews with platform metrics analysis to understand how hyperlocal humor drives digital belonging."
+           data-fr="Une étude mixte autour de @memesdelyon — un compte Instagram lyonnais qui construit sa communauté à travers des références locales partagées. Alliant entretiens en français avec le créateur et analyse des métriques de plateforme pour comprendre comment l'humour hyperlocal génère de l'appartenance numérique.">
+          A mixed-methods study of @memesdelyon — a Lyon-based Instagram account that builds community through shared local references. Combining French-language creator interviews with platform metrics analysis to understand how hyperlocal humor drives digital belonging.
+        </p>
+
+        <p class="meta-line"
+           data-en="Researcher — Mixed Methods Field Study (2023–2024)"
+           data-fr="Chercheur — Étude de terrain méthodes mixtes (2023–2024)">
+          Researcher — Mixed Methods Field Study (2023–2024)
+        </p>
+      </div>
+    </section>
+
+    <!-- Field note -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="A field note"
+          data-fr="Note de terrain">A field note</h2>
+
+      <div class="section-content">
+        <div class="quote-highlight">
+          <p class="quote-text"
+             data-en=""When you post a meme about Place Bellecour and 800 people react, it's not because it's funny — it's because they feel seen.""
+             data-fr="« Quand tu postes un mème sur la place Bellecour et que 800 personnes réagissent, c'est pas parce que c'est drôle — c'est parce qu'elles se sentent vues. »">
+            "When you post a meme about Place Bellecour and 800 people react, it's not because it's funny — it's because they feel seen."
+          </p>
+          <p class="quote-source"
+             data-en="— Creator of @memesdelyon, semi-structured interview (French)"
+             data-fr="— Créateur de @memesdelyon, entretien semi-directif (français)">
+            — Creator of @memesdelyon, semi-structured interview (French)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Method"
+          data-fr="Méthode">Method</h2>
+
+      <div class="section-content">
+        <div class="note-block">
+          <div class="note-body">
+            <p data-en="This study examined how a hyperlocal digital community forms around a single creator's output — using @memesdelyon, a Lyon-focused Instagram account with a loyal local following, as its field site. Semi-structured interviews were conducted in French with the account's creator, exploring content strategy, audience perception, and the role of local cultural knowledge in shaping what lands and what doesn't."
+               data-fr="Cette étude a examiné comment une communauté numérique hyperlocale se constitue autour de la production d'un seul créateur — en prenant pour terrain @memesdelyon, un compte Instagram centré sur Lyon avec un public local fidèle. Des entretiens semi-directifs ont été menés en français avec le créateur du compte, explorant la stratégie de contenu, la perception de l'audience et le rôle de la connaissance culturelle locale dans ce qui résonne ou non.">
+              This study examined how a hyperlocal digital community forms around a single creator's output — using @memesdelyon, a Lyon-focused Instagram account with a loyal local following, as its field site. Semi-structured interviews were conducted in French with the account's creator, exploring content strategy, audience perception, and the role of local cultural knowledge in shaping what lands and what doesn't.
+            </p>
+            <p data-en="Platform metrics were analyzed alongside the qualitative data to identify patterns in content performance: which references drove the highest engagement, how humor timing related to local events, and what the gap between reach and reaction revealed about the account's community depth versus breadth."
+               data-fr="Les métriques de la plateforme ont été analysées en parallèle des données qualitatives pour identifier des patterns de performance des contenus : quelles références généraient le plus fort engagement, comment le timing de l'humour s'articulait avec les événements locaux, et ce que l'écart entre portée et réaction révélait de la profondeur communautaire par rapport à l'étendue du compte.">
+              Platform metrics were analyzed alongside the qualitative data to identify patterns in content performance: which references drove the highest engagement, how humor timing related to local events, and what the gap between reach and reaction revealed about the account's community depth versus breadth.
+            </p>
+          </div>
+          <div class="method-chips">
+            <span class="method-chip" data-en="Semi-structured Interviews (FR)" data-fr="Entretiens semi-directifs (FR)">Semi-structured Interviews (FR)</span>
+            <span class="method-chip" data-en="Platform Metrics Analysis" data-fr="Analyse des métriques de plateforme">Platform Metrics Analysis</span>
+            <span class="method-chip" data-en="Qualitative Content Analysis" data-fr="Analyse qualitative de contenu">Qualitative Content Analysis</span>
+            <span class="method-chip" data-en="Thematic Coding" data-fr="Codage thématique">Thematic Coding</span>
+            <span class="method-chip" data-en="Platform: Instagram" data-fr="Plateforme : Instagram">Platform: Instagram</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Exhibit"
+          data-fr="Exposition">Exhibit</h2>
+
+      <div class="section-content">
+        <div class="card">
+          <div class="card-title"
+               data-en="Three findings"
+               data-fr="Trois constats">Three findings</div>
+
+          <details open>
+            <summary>
+              <span data-en="1) Recognition, not just humor" data-fr="1) La reconnaissance, pas seulement l'humour">1) Recognition, not just humor</span>
+              <span class="summary-hint" data-en="belonging, identity" data-fr="appartenance, identité">belonging, identity</span>
+            </summary>
+            <div class="details-body"
+                 data-en="The content that generated the strongest reactions was not necessarily the most technically humorous — it was the content that most accurately reflected a shared Lyon-specific experience. Audience engagement functioned as an act of recognition: seeing one's own city, neighborhood, or daily routine reflected back created a sense of in-group belonging that generic humor could not replicate."
+                 data-fr="Les contenus qui suscitaient les réactions les plus fortes n'étaient pas forcément les plus techniquement drôles — c'était ceux qui reflétaient le plus fidèlement une expérience partagée et spécifiquement lyonnaise. L'engagement du public fonctionnait comme un acte de reconnaissance : voir sa propre ville, son quartier ou sa routine quotidienne renvoyés en miroir créait un sentiment d'appartenance au groupe que l'humour générique ne pouvait pas reproduire.">
+              The content that generated the strongest reactions was not necessarily the most technically humorous — it was the content that most accurately reflected a shared Lyon-specific experience. Audience engagement functioned as an act of recognition: seeing one's own city, neighborhood, or daily routine reflected back created a sense of in-group belonging that generic humor could not replicate.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span data-en="2) Cultural knowledge as editorial filter" data-fr="2) La connaissance culturelle comme filtre éditorial">2) Cultural knowledge as editorial filter</span>
+              <span class="summary-hint" data-en="local fluency, gatekeeping" data-fr="fluidité locale, sélection">local fluency, gatekeeping</span>
+            </summary>
+            <div class="details-body"
+                 data-en="The creator's content strategy relied implicitly on deep local knowledge — not just of places, but of attitudes, social hierarchies, and what Lyonnais take pride or issue with. This cultural fluency was not something that could be algorithmically derived: it required lived experience, participant observation, and genuine embeddedness in the local social fabric. The metrics bore this out: posts requiring local knowledge to decode outperformed broader topical humor."
+                 data-fr="La stratégie de contenu du créateur reposait implicitement sur une connaissance locale approfondie — pas seulement des lieux, mais aussi des attitudes, des hiérarchies sociales et de ce que les Lyonnais valorisent ou critiquent. Cette aisance culturelle ne pouvait pas être dérivée algorithmiquement : elle exigeait une expérience vécue, une observation participante et un véritable ancrage dans le tissu social local. Les métriques le confirmaient : les publications nécessitant une connaissance locale pour être décodées surpassaient l'humour thématique plus large.">
+              The creator's content strategy relied implicitly on deep local knowledge — not just of places, but of attitudes, social hierarchies, and what Lyonnais take pride or issue with. This cultural fluency was not something that could be algorithmically derived: it required lived experience, participant observation, and genuine embeddedness in the local social fabric. The metrics bore this out: posts requiring local knowledge to decode outperformed broader topical humor.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span data-en="3) Metrics as a partial map" data-fr="3) Les métriques comme carte partielle">3) Metrics as a partial map</span>
+              <span class="summary-hint" data-en="depth vs. reach, gap" data-fr="profondeur vs. portée, écart">depth vs. reach, gap</span>
+            </summary>
+            <div class="details-body"
+                 data-en="Platform analytics revealed consistent divergence between reach (how many people saw a post) and reaction (saves, comments, shares). High-reach posts tended to be referentially broad; high-reaction posts were often narrow and local. This gap — invisible to an algorithm optimizing for impressions — was only legible through qualitative context. The creator navigated it intuitively; the research made the pattern explicit."
+                 data-fr="Les analyses de plateforme révélaient une divergence constante entre la portée (combien de personnes voyaient une publication) et la réaction (enregistrements, commentaires, partages). Les publications à forte portée tendaient à être référentiellement larges ; les publications à forte réaction étaient souvent étroites et locales. Cet écart — invisible à un algorithme optimisant les impressions — n'était lisible qu'à travers un contexte qualitatif. Le créateur le naviguait intuitivement ; la recherche en a rendu le pattern explicite.">
+              Platform analytics revealed consistent divergence between reach (how many people saw a post) and reaction (saves, comments, shares). High-reach posts tended to be referentially broad; high-reaction posts were often narrow and local. This gap — invisible to an algorithm optimizing for impressions — was only legible through qualitative context. The creator navigated it intuitively; the research made the pattern explicit.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design directions -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Design directions"
+          data-fr="Pistes de design">Design directions</h2>
+
+      <div class="section-content">
+        <div class="subgrid">
+          <div class="mini-card">
+            <div class="mini-title"
+                 data-en="Cultural depth over demographic breadth"
+                 data-fr="Profondeur culturelle plutôt que largeur démographique">Cultural depth over demographic breadth</div>
+            <div class="mini-text"
+                 data-en="Engagement metrics alone mislead. Consumer experience research should distinguish between audiences that are wide but shallow and communities that are narrow but deeply invested. Designing for the latter requires qualitative grounding that demographics cannot provide."
+                 data-fr="Les métriques d'engagement seules induisent en erreur. La recherche en expérience consommateur doit distinguer les audiences larges mais superficielles des communautés étroites mais profondément investies. Concevoir pour ces dernières requiert un ancrage qualitatif que la démographie ne peut pas fournir.">
+              Engagement metrics alone mislead. Consumer experience research should distinguish between audiences that are wide but shallow and communities that are narrow but deeply invested. Designing for the latter requires qualitative grounding that demographics cannot provide.
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title"
+                 data-en="Legibility requires lived knowledge"
+                 data-fr="La lisibilité exige un savoir vécu">Legibility requires lived knowledge</div>
+            <div class="mini-text"
+                 data-en="Understanding what resonates with a local or cultural community is not a desk exercise. The most meaningful insights in this study emerged from the interview — from asking someone what it means to be from Lyon. Consumer experience research in multilingual, multi-market contexts demands the same embedded approach."
+                 data-fr="Comprendre ce qui résonne auprès d'une communauté locale ou culturelle n'est pas un exercice de bureau. Les insights les plus significatifs de cette étude ont émergé de l'entretien — en demandant à quelqu'un ce que cela signifie d'être lyonnais. La recherche en expérience consommateur dans des contextes multilingues et multi-marchés exige la même approche ancrée.">
+              Understanding what resonates with a local or cultural community is not a desk exercise. The most meaningful insights in this study emerged from the interview — from asking someone what it means to be from Lyon. Consumer experience research in multilingual, multi-market contexts demands the same embedded approach.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="section">
+      <h2 class="section-title"
+          data-en="Related inquiries"
+          data-fr="Enquêtes liées">Related inquiries</h2>
+
+      <div class="section-content related">
+        <a href="digital-intimacy.html"
+           data-en="01 / Digital Intimacy in a Post-Artificial World"
+           data-fr="01 / Intimité numérique dans un monde post-artificiel">01 / Digital Intimacy in a Post-Artificial World</a>
+        <a href="griefbots.html"
+           data-en="02 / AI Griefbots & Posthumous Consent"
+           data-fr="02 / Griefbots IA & consentement posthume">02 / AI Griefbots & Posthumous Consent</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const btn = document.getElementById('langToggle');
+    const translatable = document.querySelectorAll('[data-en]');
+
+    function updateTextContent(isEn) {
+      translatable.forEach(el => {
+        el.textContent = isEn ? el.getAttribute('data-en') : el.getAttribute('data-fr');
+      });
+    }
+
+    updateTextContent(true);
+
+    btn.addEventListener('click', () => {
+      const isCurrentlyEn = btn.textContent.trim() === 'EN';
+      btn.textContent = isCurrentlyEn ? 'FR' : 'EN';
+      updateTextContent(!isCurrentlyEn);
+    });
+  </script>
+</body>
+</html>

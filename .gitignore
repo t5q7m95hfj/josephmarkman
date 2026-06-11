@@ -1,0 +1,8 @@
+# Private job search files — do not commit
+JOB_APPLICATION_TRACKER_2026.xlsx
+JOB_SEARCH_STRATEGY_2026.md
+CV_targeted_2026/
+MARKMAN_Profile_Summary.md
+
+# Temp files
+*.tmp
